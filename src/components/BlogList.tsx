@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 
-interface AppPage {
+interface Blogs {
     title: string;
     catagory: string;
     about: string;
     body: string;
   }
   
-  const appPages: AppPage[] = [
+  const Blogs: Blogs[] = [
       {
           title: "Summer Menu",
           catagory: "menu",
@@ -20,7 +20,12 @@ export class BlogList extends Component {
     render() {
         return (
             <div>
-                List of Blogs
+                {Blogs.map((blog, index) => {
+                    return(
+                        <div> {blog}</div>
+                    )
+                 })}
+               
             </div>
         )
     }
