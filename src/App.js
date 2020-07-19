@@ -7,6 +7,8 @@ import {
 } from "react-router-dom";
 import Header from './components/Header'
 import HomePage from './components/HomePage'
+import BlogList from './components/BlogList'
+import About from './components/About'
 import './App.css';
 
 function App() {
@@ -16,11 +18,11 @@ function App() {
         <Header/> 
 
         <Switch>
-          <Route path="/about">
-            {/* <About /> */}
+          <Route path="/About">
+            <About />
           </Route>
           <Route path="/BlogList">
-            {/* <Topics /> */}
+            <BlogList/>
           </Route>
           <Route path="/">
             <HomePage />

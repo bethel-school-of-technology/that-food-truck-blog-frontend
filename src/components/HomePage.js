@@ -10,36 +10,73 @@ export class HomePage extends Component {
     render() {
         return (
             <div className="container">
-            <div id="carouselExampleIndicators" className="carousel slide carousel-fade" data-ride="carousel">
-                <ol className="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-                </ol>
-                <div className="carousel-inner ">
-                    <div className="carousel-item active" data-interval="10000">
-                    <img src={Image1} className="d-block w-100" alt="this is photo one"></img>
+                <div id="carouselExampleIndicators" className="carousel slide carousel-fade" data-ride="carousel">
+                    <ol className="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                    </ol>
+                    <div className="carousel-inner ">
+                        <div className="carousel-item active" data-interval="10000">
+                            <img src={Image1} className="d-block w-100" alt="this is photo one"></img>
+                        </div>
+                        <div className="carousel-item" data-interval="10000">
+                            <img src={Image2} className="d-block w-100" alt="This is photo Two"></img>
+                        </div>
+                        <div className="carousel-item" data-interval="10000">
+                            <img src={Image3} className="d-block w-100" alt="This is photo Three"></img>
+                        </div>
+                        <div className="carousel-item" data-interval="10000">
+                            <img src={Image4} className="d-block w-100" alt="This is photo Four"></img>
+                        </div>
                     </div>
-                    <div className="carousel-item" data-interval="10000">
-                    <img src={Image2} className="d-block w-100" alt="This is photo Two"></img>
+                    <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span className="sr-only">Previous</span>
+                    </a>
+                    <a className="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span className="sr-only">Next</span>
+                    </a>
+                </div>
+
+                <div className="h3 text-center">
+                    Welcome To That food Truck's Blog
+                </div>
+
+
+                <div class="card text-center">
+                    <div class="card-header">
+                        Featured
                     </div>
-                    <div className="carousel-item" data-interval="10000">
-                    <img src={Image3} className="d-block w-100" alt="This is photo Three"></img>
-                    </div>
-                    <div className="carousel-item" data-interval="10000">
-                    <img src={Image4} className="d-block w-100" alt="This is photo Four"></img>
+                    <div class="card-body">
+                        <h5 class="card-title">Special title treatment</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                     </div>
                 </div>
-                <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span className="sr-only">Previous</span>
-                </a>
-                <a className="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                    <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span className="sr-only">Next</span>
-                </a>
-            </div>
+                <div class="card text-center">
+                    <div class="card-header">
+                        More
+                        </div>
+                    <div class="card-body">
+                        <h5 class="card-title">First thing to say</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Second thing to say</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Third thing to say</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Fourth thing to say</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    </div>
+                </div>
+
             </div>
         )
     }
