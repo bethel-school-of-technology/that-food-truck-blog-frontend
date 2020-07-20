@@ -9,6 +9,7 @@ import HomePage from './components/HomePage';
 import BlogList from './components/BlogList';
 import About from './components/About';
 import Footer from './components/Footer';
+import BlogPage from './components/BlogPage';
 import './App.css';
 
 
@@ -22,9 +23,13 @@ function App() {
           <Route path="/About">
             <About />
           </Route>
+          <Route path="/Blog List/:blogId">
+            <BlogPage blogid="blogId"/>
+          </Route>
           <Route path="/Blog List">
             <BlogList/>
           </Route>
+         
           <Route path="/">
             <HomePage />
           </Route>
