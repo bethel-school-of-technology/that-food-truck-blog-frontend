@@ -1,6 +1,4 @@
 import React from 'react';
-<<<<<<< HEAD
-=======
 import {
   BrowserRouter as Router,
   Switch,
@@ -11,22 +9,11 @@ import HomePage from './components/HomePage';
 import BlogList from './components/BlogList';
 import About from './components/About';
 import Footer from './components/Footer';
->>>>>>> dev
 import './App.css';
-import Footer from './components/footer';
 
 
 function App() {
   return (
-<<<<<<< HEAD
-    <div className="App">
-      <header className="App-header">
-       
-        <Footer />
-      </header>
-    </div>
-
-=======
     <Router>
       <div>
         <Header/> 
@@ -46,7 +33,6 @@ function App() {
         <Footer/>
       </div>
     </Router>
->>>>>>> dev
   );
 }
 
