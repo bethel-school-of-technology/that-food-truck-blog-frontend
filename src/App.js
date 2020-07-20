@@ -8,6 +8,7 @@ import Header from './components/Header';
 import HomePage from './components/HomePage';
 import BlogList from './components/BlogList';
 import About from './components/About';
+
 import Footer from './components/Footer';
 import BlogPage from './components/BlogPage';
 import './App.css';
