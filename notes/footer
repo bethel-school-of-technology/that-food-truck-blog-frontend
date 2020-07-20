@@ -1,0 +1,159 @@
+import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
+
+const Footer = () => {
+    return(
+        <div className="main-footer">
+            <div className="container">
+                <div className="pageTitle">
+                    <h4> Foood Truck Blog </h4>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+export default Footer;
+
+
+
+
+      <div class="contactElement">
+                <h3> Contact </h3>
+            </div>
+                <div class="contactImages">
+                <a href="https://api.github.com/users/valmbonilla"> 
+               <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 40px; height: 40px; border-radius: 20px; border:5px solid white;" class="zoom">
+                
+                     </a>
+                     <a>
+                            <a href="https://www.linkedin.com/" alt="LinkedIn">
+                                <img src="data:image/png;base64,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" style="width: 55px; height:55px; border-radius: 20px; border:5px solid white;" class="zoom">
+                     </a>
+         
+                <a href="https://www.facebook.com/profile.php?id=100009540919458" alt="Facebook">
+                <img src="https://i.pinimg.com/originals/23/da/be/23dabe90dfaadb4565540727fdaa054a.png" style="width: 55px; height:55px; border-radius: 20px; border:5px solid white;" class="zoom">
+                     </a>
+                 
+         
+             <a href="https://www.instagram.com/val.bonilla/"> 
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAHsAewMBEQACEQEDEQH/xAAcAAABBQEBAQAAAAAAAAAAAAAHAAMEBQYBAgj/xABKEAABAwICBAgJCQUHBQAAAAABAgMEAAUGERIhMUEHE1FhcZGy0RQyNlKBk6GxwSIlVGJyc3SCoiMzQmNkFRYkNYOS8CY0Q1Xh/8QAGgEAAQUBAAAAAAAAAAAAAAAABAECAwUGAP/EADYRAAIBAwEEBwYGAgMAAAAAAAABAgMEERIFITGxExQyUVJxgSIjNEFhoTNCkcHR8CThFWLx/9oADAMBAAIRAxEAPwA4VxxmsT4whWMmOhPhM3L90k5BH2ju6NtG21jUr7+Ee8jnU0g/uGNb5NWf8YY6DsRHGjl6dvtq3p2FCH5c+YPKdR/Mql3W4OZldwlq+0+o/GiFSprhFfoNxLvG/wC0Jn0uR61XfXaIdy/QXSxeHy/pcj1qu+k0w8KHqmxeHzPpcj1qu+m6YdyJI0mLw+Z9LketV30mmHciZUmLw+X9LketV30mmHciRUjnh8v6ZI9arvrtMO5EqonPD5n0yT65XfXaYdyJFRELjOSdU2SOh5Q+Ndoh3IkVBdxKi4kvcRQLF0laty3CsdSs6ZK3oT4xQ7q8X8jX2DhHVpoZvrKdE6vCWU7PtJ7uqga2zlxpP0Ialo+MAhsPNSGkPMOJcbWNJK0nMKHNVU008MCaxxHKQ4zeOsRGw2oeDkeGSCUM/V5Vej3kUZZW/TVN/Bcf4OAy48pxxTjilLWokqUo5knlNaPCSwhnRHnTpMi9ELTpGx6onC6BtNNyPVE4HgdhBprZNGid4ym6iVUTumefqpuolVEWmeQ9VJqJVROcZy6q7USKkjoWDsIrsj+jweq7ULpO5U7UdpFkKXUdpNlwd4iXb56LZKWTDkKybzP7tw7PQdnTlz0Be0FOPSLiuX+gK6t9Uda4oK2dU5VgY4TJ6pmKXms/2cVCWkjny0j7/ZWg2dHRQT7yeEMrJlczRjZKoHCrIa6a5DlA3uFuDp6a0iXfFuR2Va0x0anFD6x/h6NvRVZcbQUXpp7/AKkU6qjuib634XsVvSBGtcYKTsWtGmr/AHKzNV07irPjIgc5Piy0QwwjxWW09CAKiy2NyewlO5I6qQ4WiOQdVccLRT5o6q448lts7W0npTXC5Isq1W6WnRlQIro+uyk/CnxqTjwY6NSceyzLXrg6t0ptS7UpUJ/aElRU2fQdY9HVRNO9mt0t6C6V9OO6e9A2uMCVa5q4k5otvI15biNxB3jnqyhUU1lFvTlGpHVHgR8qfkfpEM0kFJyUNYPIadkbpDzY5huFnhyz4zzKVK6ctftrP1Y6JuPcZyrFwm49wEMUK4zEt0Wd8pwdSsvhV9bvFGK+gXTj7KKzKpHImUTccF+Hm581d1lthTMVWiylQ1Kc25+jV6TzVXXtfC0L5kNxPStKN3izEkbDcFLrieNkOkhhgHLTO8k7gN5qvpUnUeAehQlVlhcAU3PFl9ui1KdnusoOxqOotpHVrPpNWEaNOHyLenaU48EVS3X3Nbr7qzv0nCafu7glUor5Hgtg7RXaiVROcUnkHVXa2PSYuKTyCu1sXB6SVo8Rak/ZURSZTOcE+JMh3S8xSXIU6ckJ2lLilJHSNY66bJQfFIinQovdJI3uC8ernyW7feNBLzmpmQkZJWfNUNxO4jUebVmJVoJe1EqrvZ3Rxc6fBcUX+NrA3e7Svi0DwxgFbCt5O9PQfflTKFXo5fQEtLh0am/g+IGk6xnVsmaRxO07ImkL2Bn1DCsAZnUFj9aqqLrPTSM5fLFxL+/IFGIfKC5/i3e2at6T91HyQVSj7KK/dXOQRGAcMCQ0w8J25KRrca45XOV/K+Iqmry1VGypuHmqwZY+nLuGKpmkc24xDDY5NHb+rOi6K0wLiypaaK+u8ogKk1ByidpuR6iPw4cqc9xUKM7Ic3pbSVZdPJTXNLidOUKazN4LpvBGInEBX9n6PMp1APvqPpo94M9oWyfa+zIFxsN2tiCudb322xtXlpJHSRmBSqonwJ6VxQq7oSWStJBG3Lnp+oJSD3aIUSDbWI8JKUsJQMtH+LVtPKTy0DKTk8sxtWpOpNynxBDwgwo0DFLyYADYUhDpSjUEOHPPLk2A+mi6Um4bzR7OlKpbpz3/AC9As4cnG52ODNX47zKVL+1sPtzoSa0yaM9cUuiqyh3MD2JoiYOI7jHRqSl9SkjkCvlAdSqs6UswTNNay10IS+nLcVtTJkzQWMD+S0L8/bVVXcP3rMztD4mXpyQLsQD5/uf4t3tmrKnL3cfIOoR9hFesZJNI5BcYn0DY0cXZLejZoxmh+kVUS4sztX8SXmA+9KK73cVHfKd7Zo2L9lGot4e6j5LkRaVyCVE0mDsKuX94vyCpuA0rJak6i4fNT8T/AMEM6mOADfXitlpjvk/sFePGg2aFoR22YsVsZnYlI5yfiaHbbM7KdStPMm2ypexzhxlzi1XJKjyttLWnrSkil0sKjsy7azo+6X7lpbrtb7shRt8tmQB4wQrMp6RtFI1gGq0KtF4qRaMljLA7MllydZWksykjSWwgZJd6BuV76fGbXEs7HaUoNQrPK7+7/RjLZiq926GIkWYUsp1JS42lRb5hmNXRuqTTGTyW9Wwt6s9co7+ZUyHHJDq3n3FOOrOktazmVHlNSp4CYwUVpjwDBwdKKsIwgf4S4P1qoar22ZbaaxdS9OQP+EFATi+cfODZ/QkfCi7eXsF1s15tY+vMz+6iA1oLGB/JaF+ftqquuPxGZbaPxMvTkgX3/wDz+5fi3e0aOhL2EWlvH3cfJFe4PkK6KbKQZGJ9B20fNsT7lHuFVz4mUqdpgKuaT/as78S72zU6msGwoR93HyQ0xHckyGo7IzcdWEJ6SchSOaJZNQi5Pgg7W2HHs9rZitZJZjt5aR35bVHp1k1C97yYyrUlWqOb4sD+KsRSMQzlHTUmChX7BncR5yuc+ynLBrbGxjbQ/wCz4v8AZFLo08OwORn34UluTEdUy+2c0uI1Ef8AOSkY2dONSLjNZTDPhC+pv9oTIUkIkNq4t9A2BXKOYjXUbMdf2jtauj5PegfcItpTbr/4QynRampLuQGoLHjdeo9JNSwkX2ya7q0NL4x3eny/gy52VJks8Be4N/JON9tztmoJ9oye1vi5enIw3CN5WyPum+zRFB+yXOy/hV5szdEph7QV8D+S0L8/bVQNZe2zKbS+Kn6ckDW+t5365H+qd7RqTpMRRc20fdR8lyIS2vkHoqCVYMgt4fLd/l8X7lHuFMMfU7bAlcW/nOZ+Ic7RqB1N5sqH4UfJE/CbQOJrbpDVx2fpAJHtypI1MywR32eqzx3BPxepScMXMoORMZYzHIRkfZnU8nhZMzYLN1T80BYN6qhjUNqJSKkVQVDagRUqnkXBuuCNa/Dbo3mdDi2lZchzXSModvRWim/P9ibwtBPgdtV/EHVj0aP/AMFLHiQ7C7c19FzBvuqXJosBe4N/JON9452zUUuJkdr/ABcvTkYfhG8rJH3Tfuqak9xc7K+FXmzN0QmWDQVsD+S0L8/bVQtbtsye0vip+nJGAvSM73cD/Uudo0JOpjcXlqvcw8lyIi2/kHVuoWVQLjxDhb/+wjfdI9wo6PBGMq9uXmBye385TNX/AJ3O0aq51PaZs6P4UfJChOmFNjykAksuJXkN+R2U2NXDyOqwVSnKD+aDC4hm5QFozDkeS0RmNikqHcatt0omKi50ameDi/ugOXO2P2qc5EkpIUjxVblp3EVWybhLDNvb14XFNVIf+EMppyqE4y4KlVQcgqcH9jctFqU7KQUSZSgtaTtSkeKDz6yfTRUc43mQ2tdxuK2IdmP9ZmOFG4pkXaPBbUCIqCXMtylZHLqA66ei12HQcaMqr/Nw8l/fsYvdT8l1gL3Bv5Jxvtuds0x8TH7X+Ml6cjD8I3lZI+6b7NS03uLnZK/xF5szdTpliwrYH8l4X5+2qh6vbZkdpfFT9OSMTd0Z3icf6hztGqirPEmi+tvwIeS5EVTfyTQsphSDJbFaVsiK5WUH2CrmDzBMxtdYqy82Cm4N5XOYP57naNUNWWJtfVmwoP3MPJchgt6qj1k2TWYPxCmKlNunL0Ws/wBi6rYn6p5uSrCzu0vYn6FLtOwc261Nb/mv3NXdbTBuzAamtBwDxVA5KT0GrGdONRe0Utvc1beWqm8GYd4PGFLzZuLyEci2wo9eYofqa+Ui3jt2ePags+ZaWbCFrtbyX9Fch9JzS48QdE8wGodNTU6EYb+IFdbUr3EdHBdyHsTYhj2OKQClyWsfsmc/arkFOnUUBljYzup90Vxf8fUD0lbsh9x99ZW66orWo7ydtMhM2kIxhFRjwQwRlRCeRwX+DoaOEonOpw/rNczG7X+Ml6ckYPhDVpYuljzUNj9APxqSHAvdlL/Ej68zO1MnuDwr4HH/AEvC/P21VDPtMx+1Pi5+nJGQuiPnab+IX2jWduJ+8l5l/a/gQ8lyI5Rq2UK5hKYUcOvB6xwVZ7GUpPSnUfdV/bS1UYv6GSvI6biaffzMFiCMY99mII1KcKx0K1/GqK8ThWkjTWNRTtoP6Y/Qg6FC6wnJ5U3nupdYuosLbfblbEhDL3GNDY26NIDo3jrouje1aSwnlfUFr2FvXeZLD70XCcdPhPy7e2VDeHSB7qMjtN/OIC9iQzun9ivuGM7pISUR0tRQd6BpK6zq9ldK+qS4bgijse3g8zzL7Iy7+m84px5anHFHNS1nMn00yM23lltFKK0xWERnE0TCY/JFdGiCaLhMeg1YRiLg4at7DoKXAyFKB3FXyiPbUxhb+qqt1OS4Z5bgV4wfErFVzcSc0h7QzH1QEn2pNSxNVs+DhaU0+7P67yoqQKYV8D+S8L8/bVUU+0zHbU+Ln6ckZi6N/Osz79faNZe6eKsvMvbV+4h5IZDWY2UI5BGTXYKmhLa7e4ciCVtc4O0fH01b7LrrDpPzRSbVovKqryZMxPYzckpkRwBKbGWR1aaeTp5Knv7N11qh2l9yCwvegbhPsv7GNXGcZWW3m1IWNqVDI1nZRlCWmSwzQxqRmsxeUcLWquF1jSmealQ5TGVtZU9MkUhhaalUiRDCxU8JDiM7kKJhIejQ4VwjIuMpqXcWVNQW1BQSsZKeI2DLk599WFGEnvfAqdo7ThRg6dJ5k/t/sIOIbq1ZbS9McyzSMm0ees7BRRm7W3lc1VTXr5AO0lLUpxxWktZKlK5SdpqRG6wksLgKpBrCvghJ/uvC1ef21VFPtGN2pjrc/Tkiqv0YtXmTq1LXpj066zG0I6a7+pa2FTVbx+m4ioZ5qACnIkMoW04lxslK0nMKG0V0ZSi9UXhkcmpLTLgay2Xpp5CUSiGnRtJ8U91aC12lTqLFTc/sUdeylB5hvX3LJ1lmSkca224ndpAGrCUIVF7STBIzlB7ngjKs9uVths+hOVQdSt/AiZXddfnZ4Nith2xEdZpOo2/gQ7rtx4zycP2o7YTfWe+l6lb+EXr9z4zycOWg7YLfWe+u6nQ8Iv8AyF142L+7dm/9ewekE05WtFflR3/IXXjZIj2m3RVBUeDHbV5yWxn11LGnCPBEVS6rVFic2/UYu9/t1obJlvjjMtTSDmtXo766VSMeLH29nWuHiEd3f8gVYmvkq/TOMe/ZsN/uWQdSRynlNNjPUzW2VlTtIYW9vi/78ilomIWxE5a6kQ1hswrFMTDtvZWnJQZBUOc6/jUEnvMPeTVS4nPvZGxRA4wIloHifJc6Nxqr2lbupDXHiuRPY1+jlofB8yjbaqgwWzkPparsEbkOBkUuBuscb41r906tH2VEU+E5w7MmvUZLTLtLI74XNTskuek1Mru4X52M6Gl4Tip88bJK+od1L1258fL+Bego+EaXcbiNkpfUO6l67cePl/A5W9Dwkdy6XMbJi/8AanupeuXHj5fwSxtbfwkN673bdOdHoA+FOV5X8RPG0tvAvuVU24XJ4ZOz5RHIHVAdQp6r1JcZMKp29CPCC/QpXUZE8p289TwYamRnE0bTY5MjHUaPgxS5wnZnL1eGmdH/AA7ZC3lbgkbvTT28Irto3St6Lx2nw/kNKQEpAAyA2CoTHCWhK0lKgCCMiDXHGfm2pyOorjpLjPmjxk94qputnanqpfp/AdRu2liZGbCVeKQSNvNVVKlKG6SwFKopcGPBuk0iajvF0ukTUcLddpO1HhTdJpHKYytsUmCRSIzjddgljIhPNU4IjIr5DW2pYhEJFXJb26qKpsJjIr3Ruo6mS5LGy4WuV4dTxbRZj/xPODIZcw30fB4RX3W1KNBYT1S7l+7CrYrNFssFMaKnnWs7VnlNc3ky1evOvNzm95Y0hCKuOEa44YeiR3zm8yhR5SNfXTWk+JyIj1ujJ8VKx0Or76Z1ek9+lDukkvmM+Bs/zPWq76Tq1HwoTpZ94vA2f5nrVd9d1Wj4UKqs+854Ex/M9arvruq0PCheln3i8AjnaHPWq767qtDwo7pqneeTbYpOtC/Wq767qtHwoXpqniOG1QiNbSj/AKiu+u6rQ8KHdYqr8zPBstuVtj5/6iu+l6tR8KO63X8bOIw9alKGlDSelSu+lVCl4Ryu7jxv9SfGslrjHSZgsJI2HRz99PUUuCIZVqk17UmywAA1AZClGHa4UVccf//Z" style="width: 40px; height:40px; border-radius: 20px; border:5px solid white;" class="zoom">
+            </a>
+    
+    </div>
+
+
+
+
+
+
+
+
+
+
+    *****
+
+
+    import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
+
+const Footer = () => {
+    return(
+        <div className="page-footer">
+            <div className="container">
+                <div className="row">
+                    {/* column 1 */}
+                    <div className="col-md-3 col-sm-6">
+                        <h4> Contact Info  </h4>
+                        <ul className="list-unstyled">
+                            <li> The Food Truck Blog </li>
+                            <li> 2244 Golden Sunset Dr.</li>
+                            <li> 530-222-9448 </li>
+                            <li> foodtruckblogs@gmail.com </li>
+                        </ul>
+                    </div>
+                     {/* column 2 */}
+                     <div className="col-md-3 col-sm-6">
+                        <h4> Column </h4>
+                        <ul className="list-unstyled">
+                            <li> </li>
+                            <li>  </li>
+                            <li> </li>
+                            <li>  </li>
+                        </ul>
+                    </div>
+                     {/* column 3 */}
+                     <div className="col-md-3 col-sm-6">
+                        <h4> Another Footer Column  </h4>
+                        <ul className="list-unstyled">
+                            <li>  </li>
+                            <li>  </li>
+                            <li> </li>
+                            <li>  </li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    );
+}
+
+export default Footer;
+
+
+
+
+
+
+
+
+$#$#$##$
+
+import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
+
+const Footer = () => {
+    return(
+        <div className="page-footer">
+            <div className="container">
+                <div className="row">
+                    {/* column 1 */}
+                    <div className="col-md-3 col-sm-6">
+                        <h4> Contact Info  </h4>
+                        <ul className="list-unstyled">
+                            <li> The Food Truck Blog </li>
+                            <li> 2244 Golden Sunset Dr.</li>
+                            <li> 530-222-9448 </li>
+                            <li> foodtruckblogs@gmail.com </li>
+                        </ul>
+                    </div>
+                     {/* column 2 */}
+                     <div className="col-md-3 col-sm-6">
+                        <h4> Socual Media </h4>
+                        <ul className="list-unstyled">
+                            <li> </li>
+                            <li>  </li>
+                            <li> </li>
+                            <li>  </li>
+                        </ul>
+                    </div>
+                     {/* column 3 */}
+                     <div className="col-md-3 col-sm-6">
+                        <h4> Another Footer Column  </h4>
+                        <ul className="list-unstyled">
+                            
+                            <li>  </li>
+                            <li>  </li>
+                            <li> </li>
+                            <li>  </li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    );
+}
+
+export default Footer;

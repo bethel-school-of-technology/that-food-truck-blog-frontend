@@ -2,14 +2,16 @@ import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
-import Header from './components/Header'
-import HomePage from './components/HomePage'
-import BlogList from './components/BlogList'
-import About from './components/About'
+import Header from './components/Header';
+import HomePage from './components/HomePage';
+import BlogList from './components/BlogList';
+import About from './components/About';
+import Footer from './components/footer';
+import BlogPage from './components/BlogPage';
 import './App.css';
+
 
 function App() {
   return (
@@ -21,13 +23,19 @@ function App() {
           <Route path="/About">
             <About />
           </Route>
-          <Route path="/BlogList">
+          <Route path="/Blog List/:blogId">
+            <BlogPage blogid="blogId"/>
+          </Route>
+          <Route path="/Blog List">
             <BlogList/>
           </Route>
+         
           <Route path="/">
             <HomePage />
           </Route>
         </Switch>
+
+        <Footer/>
       </div>
     </Router>
   );
