@@ -22,7 +22,9 @@ export class BlogList extends Component {
             <div>
                 {Blogs.map((blog, index) => {
                     return(
-                        <div> {blog}</div>
+                        <div> {blog.title}</div>
+
+                        
                     )
                  })}
                
