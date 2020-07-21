@@ -1,45 +1,32 @@
-import React from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
-import Header from './components/Header';
-import HomePage from './components/HomePage';
-import BlogList from './components/BlogList';
-import About from './components/About';
-import Footer from './components/footer';
-import BlogPage from './components/BlogPage';
+import React, { Fragment } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Header from './components/header/Header';
+import HomePage from './components/home/HomePage';
+import BlogList from './components/blog/BlogList';
+import About from './components/about/About';
+import Footer from './components/footer/footer';
+import BlogPage from './components/blog/BlogPage';
+import ContactForm from './components/form/ContactForm';
+
 import './App.css';
 
-
-function App() {
+const App = () => {
   return (
     <Router>
-      <div>
-        <Header/> 
-
+      <Fragment>
+        <Header />
         <Switch>
-          <Route path="/About">
-            <About />
-          </Route>
-          <Route path="/Blog List/:blogId">
-            <BlogPage blogid="blogId"/>
-          </Route>
-          <Route path="/Blog List">
-            <BlogList/>
-          </Route>
-         
-          <Route path="/">
-            <HomePage />
-          </Route>
+          <Route exact path='/' component={HomePage} />
+          <Route exact path='/About' component={About} />
+          <Route exact path='/BlogList/:blogId' component={BlogPage} />
+          <Route exact path='/BlogList' component={BlogList} />
+          <Route exact path='/ContactForm' component={ContactForm} />
         </Switch>
 
-        <Footer/>
-      </div>
+        <Footer />
+      </Fragment>
     </Router>
   );
-}
-
+};
 
 export default App;
