@@ -14,31 +14,31 @@ interface Cards {
 
 const Cards: Cards[] = [
     {
-        title: 'First Thing to say',
+        title: 'string',
         img: Image2,
         about: "Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc posthac, sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in diem certam indicere. Cras mattis iudicium purus sit amet fermentum.",
         blogId: "24"
     },
     {
-        title: 'Second Thing to say',
+        title: 'string',
         img: Image3,
         about: "Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc posthac, sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in diem certam indicere. Cras mattis iudicium purus sit amet fermentum.",
         blogId: "24"
     },
     {
-        title: 'Third Thing to say',
+        title: 'string',
         img: Image4,
         about: "Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc posthac, sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in diem certam indicere. Cras mattis iudicium purus sit amet fermentum.",
         blogId: "24"
     },
     {
-        title: 'Four Thing to say',
+        title: 'string',
         img: Image1,
         about: "Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc posthac, sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in diem certam indicere. Cras mattis iudicium purus sit amet fermentum.",
         blogId: "24"
     },
     {
-        title: 'Fith Thing to say',
+        title: 'string',
         img: Image2,
         about: "Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc posthac, sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in diem certam indicere. Cras mattis iudicium purus sit amet fermentum.",
         blogId: "24"
@@ -80,7 +80,7 @@ export class HomePage extends Component {
                     </a>
                 </div>
 
-                <div className="h3 text-center">
+                <div className="h3 text-center m-3">
                     Welcome to That Food Truck's Blog
                 </div>
 
