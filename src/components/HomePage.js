@@ -6,6 +6,8 @@ import Image4 from '../pictures/truckphoto4.png';
 import './HomePage.css';
 
 
+
+
 export class HomePage extends Component {
     render() {
         return (
