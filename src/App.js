@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Header from './components/Header';
 import HomePage from './components/HomePage';
 import BlogList from './components/BlogList';
@@ -12,34 +8,32 @@ import Footer from './components/Footer';
 import BlogPage from './components/BlogPage';
 import './App.css';
 
-
 function App() {
   return (
     <Router>
       <div>
-        <Header/> 
+        <Header />
 
         <Switch>
-          <Route path="/About">
+          <Route path='/About'>
             <About />
           </Route>
-          <Route path="/Blog List/:blogId">
-            <BlogPage blogid="blogId"/>
+          <Route path='/Blog List/:blogId'>
+            <BlogPage blogid='blogId' />
           </Route>
-          <Route path="/Blog List">
-            <BlogList/>
+          <Route path='/Blog List'>
+            <BlogList />
           </Route>
-         
-          <Route path="/">
+
+          <Route path='/'>
             <HomePage />
           </Route>
         </Switch>
 
-        <Footer/>
+        <Footer />
       </div>
     </Router>
   );
 }
-
 
 export default App;
