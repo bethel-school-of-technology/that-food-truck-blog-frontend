@@ -8,7 +8,7 @@ import {
 
 const Footer = () => {
   return (
-    <div className='page-footer'>
+    <div className='page-footer mt-3'>
       <div className='container'>
         <div className='row'>
           {/* column 1 */}

@@ -20,24 +20,24 @@ export class Header extends Component {
 
         <div className='collapse navbar-collapse' id='navbarSupportedContent'>
           <ul className='navbar-nav mr-auto'>
-            <li className='nav-item active'>
+            <li className='nav-item'>
               <Link className='nav-link' to='/'>
-                Home <span className='sr-only'>(current)</span>
+                Home {window.location.pathname === "/" ? <span className='sr-only'>(current)</span> : null}
               </Link>
             </li>
             <li className='nav-item'>
               <Link className='nav-link' to='/About'>
-                About
+                About {window.location.pathname === "/About" ? <span className='sr-only'>(current)</span> : null}
               </Link>
             </li>
             <li className='nav-item'>
               <Link className='nav-link' to='/BlogList'>
-                Blog List
+                Blog List{window.location.pathname === "/Blog List" ? <span className='sr-only'>(current)</span> : null}
               </Link>
             </li>
             <li className='nav-item'>
               <Link className='nav-link' to='/ContactForm'>
-                Contact
+                Contact {window.location.pathname === "/Contact" ? <span className='sr-only'>(current)</span> : null}
               </Link>
             </li>
             {/*------------------------------------------causing errors */}

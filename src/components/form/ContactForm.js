@@ -17,7 +17,7 @@ export default class ContactForm extends React.Component {
     const { status } = this.state;
     return (
       <div class='container h-100 '>
-        <div class=' row justify-content-center align-content-center h-100 '>
+        <div class=' row justify-content-center align-content-center h-100 m-3'>
           <div class='col-10 col-md-8 col-lg-6 '>
             <form
               onSubmit={this.submitForm}
