@@ -80,7 +80,7 @@ export class HomePage extends Component {
                     </a>
                 </div>
 
-                <div className="h3 text-center">
+                <div className="h3 text-center m-3">
                     Welcome to That Food Truck's Blog
                 </div>
 
