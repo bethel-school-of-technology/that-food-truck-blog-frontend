@@ -1,28 +1,36 @@
 import React, { Component } from 'react';
-
+import './Header.css';
+import logo from './thatFoodTruck.png';
 
 class Header extends Component {
     render() { 
         return ( 
-        <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-            <h1 className="text-secondary">THAT FOODTRUCK BLOG
-            </h1>
-            <ul className="row navbar-nav">
-              <li className="nav-item active col-3">
-                <a className="nav-link" href="#">ABOUT</a>
+          <nav className="navbar navbar-expand-lg navbar-light bg-light border-0">
+          <img className="img-fluid" src={logo} alt="logo" />
+          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+        
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav mr-auto">
+              <li className="nav-item active">
+                <a className="nav-link" href="/">HOME<span class="sr-only">(current)</span></a>
               </li>
-              <li className="nav-item active col-3">
-                <a className="nav-link " href="#">BLOG</a>
+              <li className="nav-item active">
+                <a className="nav-link" href="/about">ABOUT</a>
               </li>
-              <li className="nav-item active col-3">
-                <a className="nav-link" href="#">FORM</a>
+              <li class="nav-item">
+                <a class="nav-link active" href="/Blog List">BLOG</a>
               </li>
             </ul>
+          </div>
         </nav>
 
           
         ); 
     };
 }
+ 
+
  
 export default Header;
