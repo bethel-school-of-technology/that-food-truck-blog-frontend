@@ -8,13 +8,13 @@ import {
 
 const Footer = () => {
   return (
-    <div className='page-footer'>
-      <div className='container'>
-        <div className='row'>
+    <footer class='footer navbar-fixed-bottom'>
+      <div class='container'>
+        <div class='row'>
           {/* column 1 */}
-          <div className='col-md-3 col-sm-6'>
+          <div class='col-md-3 col-sm-6'>
             <h4> Contact Info </h4>
-            <ul className='list-unstyled'>
+            <ul class='list-unstyled'>
               <li> The Food Truck Blog Inc. </li>
               <li> 2244 Golden Sunset Dr.</li>
               <li> 530-222-9448 </li>
@@ -22,14 +22,14 @@ const Footer = () => {
             </ul>
           </div>
           {/* column 2 */}
-          <div className='col-md-3 col-sm-6'>
+          <div class='col-md-3 col-sm-6'>
             <h4> Social Media Links </h4>
-            <ul className='list-unstyled'>
+            <ul class='list-unstyled'>
               <li> @FoodTruckBlog</li>
 
               <a
                 href='https://www.facebook.com'
-                className='facebook social'
+                class='facebook social'
                 target='_blank'
               >
                 <FontAwesomeIcon icon={faFacebook} size='2x' />{' '}
@@ -37,7 +37,7 @@ const Footer = () => {
 
               <a
                 href='https://www.twitter.com'
-                className='twitter social'
+                class='twitter social'
                 target='_blank'
               >
                 <FontAwesomeIcon icon={faTwitter} size='2x' />{' '}
@@ -45,7 +45,7 @@ const Footer = () => {
 
               <a
                 href='https://www.Instagram.com'
-                className='instagram social'
+                class='instagram social'
                 target='_blank'
               >
                 <FontAwesomeIcon icon={faInstagram} size='2x' />{' '}
@@ -54,7 +54,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 
