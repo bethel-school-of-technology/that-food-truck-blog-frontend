@@ -30,10 +30,10 @@ class Header extends Component {
                 SEASONAL MENUS
               </button>
               <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a className="dropdown-item" href="#">FALL</a>
-                <a className="dropdown-item" href="#">WINTER</a>
                 <a className="dropdown-item" href="#">SPRING</a>
                 <a className="dropdown-item" href="#">SUMMER</a>
+                <a className="dropdown-item" href="#">FALL</a>
+                <a className="dropdown-item" href="#">WINTER</a>
               </div>
             </div>
             </ul>            
