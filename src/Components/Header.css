@@ -3,19 +3,26 @@
     right: 20px;
 }
 
-.nav-item{
-    font-size: 35px;
+.nav-item, .btn{
+    font-size: 27px;
     font-family:'Covered By Your Grace', cursive;
-    padding: 35px;
+    padding: 23px;
+    font-weight: bold;
 }
 
-.nav-item:hover{
+.dropdown-item{
+    font-size: 20px;
+    font-family: 'Covered By Your Grace', cursive;
+
+}
+
+a:hover{
     opacity: .5;
 }
 
 .img-fluid{
-    height: 200px;
+    height: 300px;
     transform: rotate(-8deg);
-    width: 300px;
-
+    width: 250px;
 }
+
