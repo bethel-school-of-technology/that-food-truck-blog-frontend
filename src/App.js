@@ -7,6 +7,9 @@ import About from './components/About';
 import Footer from './components/footer/Footer';
 import BlogPage from './components/BlogPage';
 import './App.css';
+import Header from './Components/Header';
+
+
 
 function App() {
   return (
