@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './Header.css';
-import logo from './foodTruck2.png';
+import logo from '../pictures/foodTruck2.png';
 
 class Header extends Component {
     render() { 
@@ -15,26 +16,26 @@ class Header extends Component {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto ">
               <li className="nav-item active font-weight-bold">
-                <a className="nav-link" href="/">HOME<span class="sr-only">(current)</span></a>
+                <Link className="nav-link" to="/">HOME<span class="sr-only">(current)</span></Link>
               </li>
               <li className="nav-item active font-weight-bold">
-                <a className="nav-link" href="/about">ABOUT</a>
+                <Link className="nav-link" to="/about">ABOUT</Link>
               </li>
               <li className="nav-item font-weight-bold">
-                <a className="nav-link active" href="/Blog List">BLOG</a>
+                <Link className="nav-link active" to="/Blog List">BLOG</Link>
               </li>
               <li className="nav-item font-weight-bold">
-                <a className="nav-link active" href="/Contact">CONTACT</a>
+                <Link className="nav-link active" to="/Contact">CONTACT</Link>
               </li>
               <div className="dropdown ">
               <button className="btn dropdown-toggle font-weight-bold" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 SEASONAL MENUS
               </button>
               <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a className="dropdown-item" href="#">SPRING</a>
-                <a className="dropdown-item" href="#">SUMMER</a>
-                <a className="dropdown-item" href="#">FALL</a>
-                <a className="dropdown-item" href="#">WINTER</a>
+                <Link className="dropdown-item" to="#">SPRING</Link>
+                <Link className="dropdown-item" to="#">SUMMER</Link>
+                <Link className="dropdown-item" to="#">FALL</Link>
+                <Link className="dropdown-item" to="#">WINTER</Link>
               </div>
             </div>
             </ul>            
