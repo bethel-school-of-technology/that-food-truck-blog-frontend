@@ -1,18 +1,16 @@
 .navbar-nav{
     position: absolute;
     right: 20px;
+    font-family:'Covered By Your Grace', cursive;
 }
 
 .nav-item, .btn{
     font-size: 27px;
-    font-family:'Covered By Your Grace', cursive;
     padding: 23px;
-    font-weight: bold;
 }
 
 .dropdown-item{
     font-size: 20px;
-    font-family: 'Covered By Your Grace', cursive;
 
 }
 
@@ -20,9 +18,5 @@ a:hover{
     opacity: .5;
 }
 
-.img-fluid{
-    height: 300px;
-    transform: rotate(-8deg);
-    width: 250px;
-}
+
 
