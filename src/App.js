@@ -4,7 +4,7 @@ import Header from './components/header/Header';
 import HomePage from './components/home/HomePage';
 import BlogList from './components/blog/BlogList';
 import About from './components/about/About';
-import Footer from './components/footer/footer';
+import Footer from './components/footer/Footer';
 import BlogPage from './components/blog/BlogPage';
 import ContactForm from './components/form/ContactForm';
 import Login from './components/auth/Login';

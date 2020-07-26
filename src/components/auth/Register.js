@@ -12,10 +12,16 @@ const Register = ({ register }) => {
   });
 
   const { name, email, password, password2 } = formData;
-
+  // holy Ghost help me
+  // useEffect(() => {
+  //   fetch('http://localhost:5000/api/users')
+  //     .then(data => data.json())
+  //     .then(data => setFormData(data));
+  // }, []);
   useEffect(() => {
-    const result = axios.post('http://localhost:5000/api/users');
-    setFormData(result.data);
+    axios
+      .post('http://localhost:5000/api/users')
+      .then(response => setFormData(response.data));
   }, []);
 
   const onChange = e =>
