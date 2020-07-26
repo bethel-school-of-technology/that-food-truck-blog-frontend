@@ -16,14 +16,23 @@ export default class ContactForm extends React.Component {
   render() {
     const { status } = this.state;
     return (
-      <div className='container h-100 '>
-        <div className=' row justify-content-center align-content-center h-100 '>
-          <div className='col-10 col-md-8 col-lg-6 '>
+      <div className='container col-9 col-md-5 mb-3'>
+        <div class="card row justify-content-center">
+          <div class="card-header">
+    
+            <div className="h3 card-title">Contact Us</div>
+            <dive class="h6 card-subtitle mb-2 text-muted">We would love to hear your feed back</dive>
+            </div>
+            <div className="card-body">
             <form
               onSubmit={this.submitForm}
               action='https://formspree.io/xgenpdpw'
               method='POST'
             >
+               {status === 'ERROR' && <div class="alert alert-warning" role="alert">Ooops! There was an error. Please make sure all the fields are filled out correctly</div>}
+               {status === 'SUCCESS' ? (
+                <p className="card-text">Thanks you for your message. Someone from our team will reach out in response soon. Have a nice day.</p>
+              ) : (
               <fieldset>
                 {/* name input */}
                 <div className='form-group'>
@@ -56,17 +65,16 @@ export default class ContactForm extends React.Component {
                     rows='3'
                   ></textarea>
                 </div>
-              </fieldset>
-              {status === 'SUCCESS' ? (
-                <p>Thanks!</p>
-              ) : (
                 <button className='btn-lg btn-primary'>Submit</button>
+              </fieldset>
+              
+                
               )}
-              {status === 'ERROR' && <p>Ooops! There was an error.</p>}
+             
             </form>
-          </div>
+            </div>
         </div>
-      </div>
+          </div>
     );
   }
 
