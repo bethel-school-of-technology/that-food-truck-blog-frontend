@@ -1,104 +1,54 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import './Header.css';
+import logo from '../../pictures/foodTruck2.png';
 
-export class Header extends Component {
-  render() {
-    return (
-      <nav className='navbar navbar-expand-lg navbar-light bg-light'>
-        <a className='navbar-brand'>That Food Truck</a>
-        <button
-          className='navbar-toggler'
-          type='button'
-          data-toggle='collapse'
-          data-target='#navbarSupportedContent'
-          aria-controls='navbarSupportedContent'
-          aria-expanded='false'
-          aria-label='Toggle navigation'
-        >
-          <span className='navbar-toggler-icon'></span>
-        </button>
-
-        <div className='collapse navbar-collapse' id='navbarSupportedContent'>
-          <ul className='navbar-nav mr-auto'>
-            <li className='nav-item active'>
-              <Link className='nav-link' to='/'>
-                Home <span className='sr-only'>(current)</span>
-              </Link>
-            </li>
-            <li className='nav-item'>
-              <Link className='nav-link' to='/About'>
-                About
-              </Link>
-            </li>
-            <li className='nav-item'>
-              <Link className='nav-link' to='/BlogList'>
-                Blog List
-              </Link>
-            </li>
-            <li className='nav-item'>
-              <Link className='nav-link' to='/ContactForm'>
-                Contact
-              </Link>
-            </li>
-            {/*------------------------------------------causing errors */}
-
-            {/* <li className='nav-item dropdown'>
-              <a
-                className='nav-link dropdown-toggle'
-                href='#'
-                id='navbarDropdown'
-                role='button'
-                data-toggle='dropdown'
-                aria-haspopup='true'
-                aria-expanded='false'
-              >
-                Dropdown
-              </a>
-              <div className='dropdown-menu' aria-labelledby='navbarDropdown'>
-                <a className='dropdown-item' href='#'>
-                  Action
-                </a>
-                <a className='dropdown-item' href='#'>
-                  Another action
-                </a>
-                <div className='dropdown-divider'></div>
-                <a className='dropdown-item' href='#'>
-                  Something else here
-                </a>
+class Header extends Component {
+    render() { 
+        return ( 
+          <div className="container-fluid">
+          <nav className="navbar navbar-expand-lg navbar-light  ">
+          <img width="100" height="100" src={logo} alt="logo" />
+          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+        
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav mr-auto ">
+              <li className="nav-item active font-weight-bold">
+                <Link className="nav-link" to="/">HOME<span class="sr-only">(current)</span></Link>
+              </li>
+              <li className="nav-item active font-weight-bold">
+                <Link className="nav-link" to="/about">ABOUT</Link>
+              </li>
+              <li className="nav-item font-weight-bold">
+                <Link className="nav-link active" to="/Blog List">BLOG</Link>
+              </li>
+              <li className="nav-item font-weight-bold">
+                <Link className="nav-link active" to="/Contact">CONTACT</Link>
+              </li>
+              <div className="dropdown ">
+              <button className="btn dropdown-toggle font-weight-bold" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                SEASONAL MENUS
+              </button>
+              <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <Link className="dropdown-item" to="#">SPRING</Link>
+                <Link className="dropdown-item" to="#">SUMMER</Link>
+                <Link className="dropdown-item" to="#">FALL</Link>
+                <Link className="dropdown-item" to="#">WINTER</Link>
               </div>
-            </li> */}
+            </div>
+            </ul>            
 
-            {/*----------------------------------------- causing errors */}
-
-            {/* <li className='nav-item'>
-              <a
-                className='nav-link '
-                href='#'
-                tabindex='-1'
-                aria-disabled='true'
-              >
-                Other
-              </a>
-            </li> */}
-          </ul>
-          <form className='form-inline my-2 my-lg-0'>
-            <input
-              className='form-control mr-sm-2'
-              type='search'
-              placeholder='Search'
-              aria-label='Search'
-            ></input>
-            <button
-              className='btn btn-outline-success my-2 my-sm-0'
-              type='submit'
-            >
-              Search
-            </button>
-          </form>
+          </div>
+        </nav>
         </div>
-      </nav>
-    );
-  }
-}
 
+          
+        ); 
+    };
+}
+ 
+
+ 
 export default Header;

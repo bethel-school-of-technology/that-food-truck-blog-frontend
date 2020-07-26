@@ -1,15 +1,15 @@
 import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Header from './components/header/Header';
-import HomePage from './components/home/HomePage';
-import BlogList from './components/blog/BlogList';
-import About from './components/about/About';
-import Footer from './components/footer/footer';
-import BlogPage from './components/blog/BlogPage';
-import ContactForm from './components/form/ContactForm';
-import Login from './components/auth/Login';
-import Register from './components/auth/Register';
-// import PrivateRoute from './components/routing/PrivateRoute';
+import Header from './Components/header/Header';
+import HomePage from './Components/home/HomePage';
+import BlogList from './Components/blog/BlogList';
+import About from './Components/about/About';
+import Footer from './Components/footer/Footer';
+import BlogPage from './Components/blog/BlogPage';
+import ContactForm from './Components/form/ContactForm';
+import Login from './Components/auth/Login';
+import Register from './Components/auth/Register';
+// import PrivateRoute from './Components/routing/PrivateRoute';
 
 import './App.css';
 
