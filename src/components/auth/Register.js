@@ -1,40 +1,41 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 
-const Register = () => {
-  // const [formData, setFormData] = useState({
-  //   name: '',
-  //   email: '',
-  //   password: '',
-  //   password2: '',
-  // });
+const Register = ({ register }) => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    password: '',
+    password2: '',
+  });
 
-  // const { name, email, password, password2 } = formData;
+  const { name, email, password, password2 } = formData;
 
-  // const onChange = e =>
-  //   setFormData({
-  //     ...formData,
-  //     [e.target.name]: e.target.value,
-  //   });
+  useEffect(() => {
+    const result = axios.post('http://localhost:5000/api/users');
+    setFormData(result.data);
+  }, []);
 
-  // const onSubmit = async e => {
-  //   e.preventDefault();
-  //   if (password !== password2) {
-  //     setAlert('passwords do not match', 'danger');
-  //   } else {
-  //     register({
-  //       name,
-  //       email,
-  //       password,
-  //     });
-  //   }
-  // };
+  const onChange = e =>
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
 
-  // if (isAuthenticated) {
-  //   return <Redirect to='/bloglist' />;
-  // }
-
+  const onSubmit = async e => {
+    e.preventDefault();
+    if (password !== password2) {
+      return 'passwords do not match', 'danger';
+    } else {
+      register({
+        name,
+        email,
+        password,
+      });
+    }
+  };
   return (
     <Fragment class='justify-content-center'>
       <section class='container '>
@@ -45,7 +46,7 @@ const Register = () => {
         <form
           class='form'
           action='create-profile.html'
-          // onChange={e => onChange(e)}
+          onChange={e => onChange(e)}
         >
           <div class='form-group'>
             <input
@@ -53,8 +54,8 @@ const Register = () => {
               placeholder='Name'
               name='name'
               required
-              // value={name}
-              // onChange={e => onChange(e)}
+              value={name}
+              onChange={e => onChange(e)}
             />
           </div>
           <div class='form-group'>
@@ -62,8 +63,8 @@ const Register = () => {
               type='email'
               placeholder='Email Address'
               name='email'
-              // value={email}
-              // onChange={e => onChange(e)}
+              value={email}
+              onChange={e => onChange(e)}
             />
             <small class='form-text'></small>
           </div>
@@ -73,8 +74,8 @@ const Register = () => {
               placeholder='Password'
               name='password'
               minLength='6'
-              // value={password}
-              // onChange={e => onChange(e)}
+              value={password}
+              onChange={e => onChange(e)}
             />
           </div>
           <div class='form-group'>
@@ -83,8 +84,8 @@ const Register = () => {
               placeholder='Confirm Password'
               name='password2'
               minLength='6'
-              // value={password2}
-              // onChange={e => onChange(e)}
+              value={password2}
+              onChange={e => onChange(e)}
             />
           </div>
           <input type='submit' class='btn btn-primary' value='Register' />
@@ -93,4 +94,9 @@ const Register = () => {
     </Fragment>
   );
 };
+
+Register.propTypes = {
+  register: PropTypes.func.isRequired,
+};
+
 export default Register;
