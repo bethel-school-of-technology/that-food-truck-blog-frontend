@@ -43,15 +43,16 @@ const Blogs: Blogs[] = [
 export class BlogList extends Component {
   render() {
     return (
-      <div className='container'>
+      <div className='container mb-3'>
         <div className='card text-center mt-3'>
-          <div className='card-blogId'>
+          <div className='card-header'>
             <h5 className='card-title'>Blogs</h5>
             <h6 className='card-subtitle mb-2 text-muted'>
               Come and get to know us with some of our recent blogs
             </h6>
-            <p className='card-text'>Meet the team or find our sesonal Menu!</p>
+            <p className='card-subtitle'>Meet the team or find our sesonal Menu!</p>
           </div>
+          <div className="card-body">
           <ul className='list-group list-group-flush'>
             {Blogs.map((blog, index) => {
               return (
@@ -73,6 +74,7 @@ export class BlogList extends Component {
               );
             })}
           </ul>
+          </div>
         </div>
       </div>
     );
