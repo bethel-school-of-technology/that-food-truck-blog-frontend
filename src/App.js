@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Header from './Components/header/Header';
 import HomePage from './Components/home/HomePage';
@@ -15,7 +15,6 @@ import './App.css';
 
 const App = () => {
   return (
-    // <Provider>
     <Router>
       <Fragment>
         <Header />
@@ -28,14 +27,13 @@ const App = () => {
           {/* below Must be Privite routes */}
           <Route exact path='/Login' component={Login} />
           <Route exact path='/Register' component={Register} />
-          <Route exact path='/Create-blog' component={Register} />
-          <Route exact path='/Edit-blog' component={Register} />
+          {/* <Route exact path='/Create-blog' component={Register} />
+          <Route exact path='/Edit-blog' component={Register} /> */}
         </Switch>
 
         <Footer />
       </Fragment>
     </Router>
-    // </Provider>
   );
 };
 
