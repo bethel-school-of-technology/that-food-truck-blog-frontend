@@ -16,9 +16,9 @@ export default class ContactForm extends React.Component {
   render() {
     const { status } = this.state;
     return (
-      <div class='container h-100 '>
-        <div class=' row justify-content-center align-content-center h-100 '>
-          <div class='col-10 col-md-8 col-lg-6 '>
+      <div className='container h-100 '>
+        <div className=' row justify-content-center align-content-center h-100 '>
+          <div className='col-10 col-md-8 col-lg-6 '>
             <form
               onSubmit={this.submitForm}
               action='https://formspree.io/xgenpdpw'
@@ -26,32 +26,32 @@ export default class ContactForm extends React.Component {
             >
               <fieldset>
                 {/* name input */}
-                <div class='form-group'>
+                <div className='form-group'>
                   <label for='name'>Name</label>
                   <input
                     type='text'
-                    class='form-control'
+                    className='form-control'
                     placeholder='Enter name'
                   />
                 </div>
                 {/* email input */}
-                <div class='form-group'>
+                <div className='form-group'>
                   <label for='exampleInputEmail1'>Email address</label>
                   <input
                     type='email'
                     name='email'
-                    class='form-control'
+                    className='form-control'
                     id='exampleInputEmail1'
                     aria-describedby='emailHelp'
                     placeholder='Enter email'
                   />
                 </div>
                 {/* textarea input */}
-                <div class='form-group'>
-                  <label for='exampleTextarea'>Example textarea</label>
+                <div className='form-group'>
+                  <label for='exampleTextarea'>Body</label>
                   <textarea
                     name='message'
-                    class='form-control'
+                    className='form-control'
                     id='exampleTextarea'
                     rows='3'
                   ></textarea>
@@ -60,7 +60,7 @@ export default class ContactForm extends React.Component {
               {status === 'SUCCESS' ? (
                 <p>Thanks!</p>
               ) : (
-                <button class='btn btn-primary'>Submit</button>
+                <button className='btn-lg btn-primary'>Submit</button>
               )}
               {status === 'ERROR' && <p>Ooops! There was an error.</p>}
             </form>
