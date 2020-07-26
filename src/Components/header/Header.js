@@ -19,13 +19,13 @@ class Header extends Component {
                 <Link className="nav-link" to="/">HOME<span class="sr-only">(current)</span></Link>
               </li>
               <li className="nav-item active font-weight-bold">
-                <Link className="nav-link" to="/about">ABOUT</Link>
+                <Link className="nav-link" to="/About">ABOUT</Link>
               </li>
               <li className="nav-item font-weight-bold">
-                <Link className="nav-link active" to="/Blog List">BLOG</Link>
+                <Link className="nav-link active" to="/BlogList">BLOG</Link>
               </li>
               <li className="nav-item font-weight-bold">
-                <Link className="nav-link active" to="/Contact">CONTACT</Link>
+                <Link className="nav-link active" to="/ContactForm">CONTACT</Link>
               </li>
               <div className="dropdown ">
               <button className="btn dropdown-toggle font-weight-bold" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
