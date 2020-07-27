@@ -33,7 +33,7 @@ const Register = ({ register }) => {
   const onSubmit = async e => {
     e.preventDefault();
     if (password !== password2) {
-      return 'passwords do not match', 'danger';
+      alert( password );
     } else {
       register({
         name,
@@ -51,7 +51,7 @@ const Register = ({ register }) => {
         </p>
         <form
           class='form'
-          action='create-profile.html'
+          method="post"
           onChange={e => onChange(e)}
         >
           <div class='form-group'>
@@ -94,7 +94,7 @@ const Register = ({ register }) => {
               onChange={e => onChange(e)}
             />
           </div>
-          <input type='submit' class='btn btn-primary' value='Register' />
+          <button onClick={onSubmit} class='btn btn-primary' >Register</button>
         </form>
       </section>
     </Fragment>
