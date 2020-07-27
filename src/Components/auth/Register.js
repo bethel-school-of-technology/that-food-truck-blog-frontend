@@ -1,51 +1,23 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import axios from 'axios';
+import { queryAllByAttribute } from '@testing-library/react';
 
-const Register = () => {
-  // const [formData, setFormData] = useState({
-  //   name: '',
-  //   email: '',
-  //   password: '',
-  //   password2: '',
-  // });
-
-  // const { name, email, password, password2 } = formData;
-
-  // const onChange = e =>
-  //   setFormData({
-  //     ...formData,
-  //     [e.target.name]: e.target.value,
-  //   });
-
-  // const onSubmit = async e => {
-  //   e.preventDefault();
-  //   if (password !== password2) {
-  //     setAlert('passwords do not match', 'danger');
-  //   } else {
-  //     register({
-  //       name,
-  //       email,
-  //       password,
-  //     });
-  //   }
-  // };
-
-  // if (isAuthenticated) {
-  //   return <Redirect to='/bloglist' />;
-  // }
-
+const Register = ({ register }) => {
+  
   return (
-    <Fragment class='justify-content-center'>
+    <div class='justify-content-center'>
       <section class='container '>
         <h1 class='large text-primary'>Welcome Admin</h1>
         <p class='lead'>
-          <i class='fas fa-user'></i> Create Admin
+          <i class='fas fa-user'>Create Admin</i> 
         </p>
         <form
           class='form'
-          action='create-profile.html'
-          // onChange={e => onChange(e)}
+          action='http://localhost:5000/api/users'
+          method="POST"
+          
         >
           <div class='form-group'>
             <input
@@ -53,8 +25,7 @@ const Register = () => {
               placeholder='Name'
               name='name'
               required
-              // value={name}
-              // onChange={e => onChange(e)}
+              
             />
           </div>
           <div class='form-group'>
@@ -62,8 +33,8 @@ const Register = () => {
               type='email'
               placeholder='Email Address'
               name='email'
-              // value={email}
-              // onChange={e => onChange(e)}
+              
+              required
             />
             <small class='form-text'></small>
           </div>
@@ -73,8 +44,8 @@ const Register = () => {
               placeholder='Password'
               name='password'
               minLength='6'
-              // value={password}
-              // onChange={e => onChange(e)}
+              required
+              
             />
           </div>
           <div class='form-group'>
@@ -83,16 +54,21 @@ const Register = () => {
               placeholder='Confirm Password'
               name='password2'
               minLength='6'
-              // value={password2}
-              // onChange={e => onChange(e)}
+              required
+              
             />
           </div>
-          <input type='submit' class='btn btn-primary' value='Register' />
+          <input type='submit' class='btn-lg btn-primary' ></input>
         </form>
       </section>
-    </Fragment>
+    </div>
   );
 };
+
+Register.propTypes = {
+  register: PropTypes.func.isRequired,
+};
+
 export default Register;
 
 
