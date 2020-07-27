@@ -1,5 +1,4 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
@@ -12,6 +11,7 @@ const Register = ({ register }) => {
   });
 
   const { name, email, password, password2 } = formData;
+
   // holy Ghost help me
   // useEffect(() => {
   //   fetch('http://localhost:5000/api/users')
@@ -35,11 +35,9 @@ const Register = ({ register }) => {
     if (password !== password2) {
       return 'passwords do not match', 'danger';
     } else {
-      register({
-        name,
-        email,
-        password,
-      });
+      axios
+        .post('http://localhost:5000/api/users')
+        .then(response => setFormData(response.data));
     }
   };
   return (
@@ -52,9 +50,9 @@ const Register = ({ register }) => {
         <form
           class='form'
           action='create-profile.html'
-          onChange={e => onChange(e)}
+          method='POST'
+          // onChange={e => onChange(e)}
           onSubmit={e => onSubmit(e)}
-
         >
           <div class='form-group'>
             <input
@@ -111,33 +109,3 @@ Register.propTypes = {
 };
 
 export default Register;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
