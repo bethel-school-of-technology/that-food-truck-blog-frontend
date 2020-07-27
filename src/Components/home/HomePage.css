@@ -6,10 +6,25 @@
   img {
 
     object-fit: fill;
+    width:200px;
 }
 
 .card-horizontal {
   display: flex;
   flex: 1 1 auto;
+}
+
+.h3{
+  font-family:'Covered By Your Grace', cursive;
+  font-size: 50px
+}
+
+.card{
+  font-family:  'Covered By Your Grace', cursive;
+  padding: 10px;
+}
+
+.card-header{
+  font-size: 30px;
 }
 

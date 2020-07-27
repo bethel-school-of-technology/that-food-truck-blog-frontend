@@ -49,7 +49,7 @@ export class HomePage extends Component {
     render() {
         return (
             <div className="container">
-                <div id="carouselExampleIndicators" className="carousel slide carousel-fade" data-ride="carousel">
+                <div id="carouselExampleIndicators" className="carousel slide carousel-fade shadow p-3 mb-5 bg-white rounded" data-ride="carousel">
                     <ol className="carousel-indicators">
                         <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
                         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -81,13 +81,14 @@ export class HomePage extends Component {
                 </div>
 
                 <div className="h3 text-center m-3">
-                    Welcome to That Food Truck's Blog
+                    WELCOME TO THAT FOOD TRUCK'S BLOG
                 </div>
+                <br />
+                <br />
 
-
-                <div className="card text-center">
+                <div className="card text-center shadow-sm p-3 mb-5 bg-white rounded">
                     <div className="card-header">
-                        Featured
+                        FEATURED
                     </div>
                     <div className="container-fluid">
                         <div className="row">
@@ -108,11 +109,11 @@ export class HomePage extends Component {
                             </div>
                         </div>
                     </div>
-
                 </div>
-                <div className="card text-center">
+                <br />
+                <div className="card text-center shadow-sm p-3 mb-5 bg-white rounded">
                     <div className="card-header">
-                        More
+                        LOCATIONS
                     </div>
                     {Cards.map((card, index) => {
                         if (index % 2) {
