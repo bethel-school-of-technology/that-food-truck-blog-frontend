@@ -50,6 +50,9 @@ const Register = () => {
         email,
         password,
       };
+
+      // i want to clear the form after how would i do that?
+
       try {
         const config = {
           headers: {
@@ -62,7 +65,7 @@ const Register = () => {
           body,
           config
         );
-        console.log(res.data);
+        //console.log(res.data);
       } catch (err) {
         console.error(err.res.data);
       }
