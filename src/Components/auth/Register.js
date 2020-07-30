@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
+import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
 
 const Register = () => {
@@ -65,12 +65,13 @@ const Register = () => {
           config
         );
         //console.log(res.data);
-        // redirect ?
+        //<Redirect to='/Login' />;
       } catch (err) {
         console.error(err.res.data);
       }
     }
   };
+
   return (
     <Fragment>
       <div className='justify-content-center'>
@@ -124,20 +125,18 @@ const Register = () => {
                 onChange={e => onChange(e)}
               />
             </div>
-            <input type='submit' className='btn btn-primary' value='Register' />
+            <Link to='/Login'>
+              <input
+                type='submit'
+                className='btn btn-primary'
+                value='Register'
+              />
+            </Link>
           </form>
         </section>
       </div>
     </Fragment>
   );
 };
-
-// Register.propTypes = {
-//   //register: PropTypes.func.isRequired,
-// };
-
-// const mapStatetoProps = state => ({
-//   //
-// });
 
 export default Register;
