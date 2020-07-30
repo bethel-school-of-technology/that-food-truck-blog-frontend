@@ -1,19 +1,19 @@
-// import React, { Component } from 'react';
+import React, { Component } from 'react';
 
-// interface ContainerProps {
-//   blogId: number;
-// }
+interface ContainerProps {
+  blogId: number;
+}
 
-// const BlogPage: React.FC = blogId => {
-//   return (
-//     <div>
-//       lets try this agian
-//       {blogId}
-//     </div>
-//   );
-// };
+const BlogPage: React.FC = blogId => {
+  return (
+    <div>
+      lets try this agian
+      {blogId}
+    </div>
+  );
+};
 
-// export default BlogPage;
+export default BlogPage;
 
 // import React from 'react'
 // import PropTypes from 'prop-types'
