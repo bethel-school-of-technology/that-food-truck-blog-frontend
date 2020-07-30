@@ -125,13 +125,12 @@ const Register = () => {
                 onChange={e => onChange(e)}
               />
             </div>
-            <Link to='/Login'>
-              <input
-                type='submit'
-                className='btn btn-primary'
-                value='Register'
-              />
-            </Link>
+
+            <input
+              type='submit'
+              className='btn btn-primary'
+              value='Register'
+            ></input>
           </form>
         </section>
       </div>
