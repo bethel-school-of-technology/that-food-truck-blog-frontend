@@ -12,6 +12,12 @@ import Register from './Components/auth/Register';
 // import PrivateRoute from './Components/routing/PrivateRoute';
 
 import './App.css';
+//import setAuthToken from './Components/utils/setAuthToken';
+
+//will check for token
+// if (localStorage.token) {
+//   setAuthToken(localStorage.token);
+// }
 
 const App = () => {
   return (

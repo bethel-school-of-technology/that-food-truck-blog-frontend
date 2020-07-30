@@ -17,19 +17,6 @@ const Register = () => {
   const { name, email, password, password2 } = formData;
   // the above const is deconstructing formData so we do not have to type out formData.name ect... every time we need a value
 
-  // holy Ghost help me
-  // useEffect(() => {
-  //   fetch('http://localhost:5000/api/users')
-  //     .then(data => data.json())
-  //     .then(data => setFormData(data));
-  // }, []);
-
-  // useEffect(() => {
-  //   axios
-  //     .post('http://localhost:5000/api/users')
-  //     .then(response => setFormData(response.data));
-  // }, []);
-
   const onChange = e =>
     setFormData({
       ...formData,
@@ -65,7 +52,6 @@ const Register = () => {
           config
         );
         //console.log(res.data);
-        //<Redirect to='/Login' />;
       } catch (err) {
         console.error(err.res.data);
       }

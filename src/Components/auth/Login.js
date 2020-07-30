@@ -1,7 +1,9 @@
 import React, { Fragment, useEffect, useState } from 'react';
 //import PropTypes from 'prop-types';
 import './Login.css';
-// import axios from 'axios';
+import axios from 'axios';
+// import setAuthToken from '../utils/setAuthToken';
+// import jwt_decode from 'jwt-decode';
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -9,43 +11,37 @@ const Login = () => {
     password: '',
   });
 
-  // const { email, password } = formData;
+  const { email, password } = formData;
 
-  useEffect(() => {
-    fetch('http://localhost:5000/api/auth')
-      .then(data => data.json())
-      .then(data => {
-        setFormData(data);
-        console.log(data);
-      });
-  }, []);
-  //console.log(formData);
+  // authenticate user
+
+  // Get the JWT token
+
+  //store jwt token in localStorage
+
+  //give user access to protected routes createBlog, editBlog, register
+
+  // const onSubmit = async e => {
+  //   e.preventDefault();
+  //   try {
+  //     await axios
+  //       .post('http://localhost:5000/api/auth', {
+  //         headers: { Authorization: localStorage.getItem('jwtToken') },
+  //       })
+  //       .then(response => console.log(response))
+  //       .catch(error => console.log(error));
+
+  //     // // console.log(res.data);
+  //   } catch (err) {
+  //     console.error(err.res.data);
+  //   }
+  // };
 
   const onChange = e =>
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
-
-  // const onSubmit = async e => {
-  //   e.preventDefault();
-  //   try {
-  //     const config = {
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //     };
-  //     const body = JSON.stringify(formData);
-  //     const res = await axios.post(
-  //       'http://localhost:5000/api/auth',
-  //       body,
-  //       config
-  //     );
-  //     console.log(res.data);
-  //   } catch (err) {
-  //     console.error(err.res.data);
-  //   }
-  // };
 
   return (
     <Fragment>
