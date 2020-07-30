@@ -5,6 +5,7 @@ import Image3 from '../../pictures/truckphoto3.png';
 import Image4 from '../../pictures/truckphoto4.png';
 import './HomePage.css';
 
+//this is the interface that tells typescript what info to expect in the Card
 interface Cards {
     title: string;
     img: string;
@@ -12,7 +13,9 @@ interface Cards {
     blogId: string;
 }
 
+//this is the info to be put into the cards
 const Cards: Cards[] = [
+    //this is card one the info here is what you will see in the first card on the home page
     {
         title: 'string',
         img: Image2,
@@ -114,7 +117,10 @@ export class HomePage extends Component {
                     <div className="card-header">
                         More
                     </div>
+                    {/* This is a special for loop that will return html with all the info from the card class at the top of the page */}
                     {Cards.map((card, index) => {
+                        // this is a if statment that checks if this is a odd or even number in the for loop. 
+                        // if it is the first loop it will put the picture first if not it puts it after the text. 
                         if (index % 2) {
                             return (
 
@@ -154,7 +160,7 @@ export class HomePage extends Component {
                                                             <h5 className="card-title">{card.title}</h5>
                                                             <p className="card-text">
                                                                 Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc posthac, sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in diem certam indicere. Cras mattis iudicium purus sit amet fermentum.
-                                            </p>
+                                                            </p>
                                                         </div>
                                                         <div className="img-square-wrapper">
                                                             <img src={card.img} className="d-block w-100" alt="this is photo one"></img>
