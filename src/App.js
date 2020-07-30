@@ -2,10 +2,10 @@ import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Header from './Components/header/Header';
 import HomePage from './Components/home/HomePage';
-import BlogList from './Components/blog/BlogList';
+import BlogPosts from './Components/blog/BlogPosts';
 import About from './Components/about/About';
 import Footer from './Components/footer/Footer';
-import BlogPage from './Components/blog/BlogPage';
+import BlogPost from './Components/blog/BlogPost';
 import ContactForm from './Components/form/ContactForm';
 import Login from './Components/auth/Login';
 import Register from './Components/auth/Register';
@@ -21,8 +21,8 @@ const App = () => {
         <Switch>
           <Route exact path='/' component={HomePage} />
           <Route exact path='/About' component={About} />
-          <Route exact path='/BlogList/:blogId' component={BlogPage} />
-          <Route exact path='/BlogList' component={BlogList} />
+          <Route exact path='/BlogPost/:blogId' component={BlogPost} />
+          <Route exact path='/BlogPosts' component={BlogPosts} />
           <Route exact path='/ContactForm' component={ContactForm} />
           {/* below Must be Privite routes */}
           <Route exact path='/Login' component={Login} />

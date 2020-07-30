@@ -1,68 +1,101 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 import './Login.css';
+// import axios from 'axios';
 
-const Login = props => {
+const Login = () => {
   const [formData, setFormData] = useState({
-    email,
-    password,
+    email: '',
+    password: '',
   });
 
-  const { email, password } = formData;
+  // const { email, password } = formData;
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    fetch('http://localhost:5000/api/auth')
+      .then(data => data.json())
+      .then(data => {
+        setFormData(data);
+        console.log(data);
+      });
+  }, []);
+  //console.log(formData);
+
+  const onChange = e =>
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+
+  // const onSubmit = async e => {
+  //   e.preventDefault();
+  //   try {
+  //     const config = {
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //     };
+  //     const body = JSON.stringify(formData);
+  //     const res = await axios.post(
+  //       'http://localhost:5000/api/auth',
+  //       body,
+  //       config
+  //     );
+  //     console.log(res.data);
+  //   } catch (err) {
+  //     console.error(err.res.data);
+  //   }
+  // };
 
   return (
     <Fragment>
       <div className='row justify-content-center'>
         <div class='col-9 col-md-4'>
-          <form>
+          <form
+          //  onSubmit={e => onSubmit(e)}
+          >
             <img
-              class='mb-4'
+              className='mb-4'
               src='../assets/brand/bootstrap-solid.svg'
               alt=''
               width='72'
               height='72'
             />
-            <h1 class='h3 m-3 font-weight-normal'>Admin Sign In</h1>
-            <div class='form-group'>
-              <label for='inputEmail' class='sr-only'>
+            <h1 className='h3 m-3 font-weight-normal'>Admin Sign In</h1>
+            <div className='form-group'>
+              <label for='inputEmail' className='sr-only'>
                 Email address
               </label>
               <input
                 type='email'
                 id='inputEmail'
-                class='form-control'
+                className='form-control'
                 placeholder='Email address'
+                onChange={e => onChange(e)}
                 required
-                autofocus
+                autoFocus
               />
             </div>
 
-            <div class='form-group'>
-              <label for='inputPassword' class='sr-only'>
+            <div className='form-group'>
+              <label for='inputPassword' className='sr-only'>
                 Password
               </label>
               <input
                 type='password'
                 id='inputPassword'
-                class='form-control'
+                className='form-control'
                 placeholder='Password'
+                onChange={e => onChange(e)}
                 required
               />
             </div>
-            <div class='form-group'>
-              <div class='checkbox mb-3'>
-                <label>
-                  <input type='checkbox' value='remember-me' /> Remember me how
-                  do i hook this up
-                </label>
-              </div>
-            </div>
-            <button class=' btn-lg  btn-primary ' type='submit'>
-              Sign in
-            </button>
-            <p class='mt-5 mb-3 text-muted'>&copy; 2017-2020</p>
+            <input
+              className=' btn-lg  btn-primary '
+              type='submit'
+              value='Sign in'
+            />
+            <p className='mt-5 mb-3 text-muted'>&copy; 2017-2020</p>
           </form>
         </div>
       </div>
@@ -70,12 +103,12 @@ const Login = props => {
   );
 };
 
-Login.propTypes = {
-  //proptypes
-};
+// Login.propTypes = {
+//   //proptypes
+// };
 
-const mapStateToProps = state => ({
-  //
-});
+// const mapStateToProps = state => ({
+//   //
+// });
 
 export default Login;

@@ -18,7 +18,6 @@ const Register = () => {
   // the above const is deconstructing formData so we do not have to type out formData.name ect... every time we need a value
 
   // holy Ghost help me
-
   // useEffect(() => {
   //   fetch('http://localhost:5000/api/users')
   //     .then(data => data.json())
@@ -66,6 +65,7 @@ const Register = () => {
           config
         );
         //console.log(res.data);
+        // redirect ?
       } catch (err) {
         console.error(err.res.data);
       }
@@ -86,8 +86,8 @@ const Register = () => {
                 placeholder='Name'
                 name='name'
                 required
-                value={name}
                 //value = {name} is associating to the name value in the state
+                value={name}
                 onChange={e => onChange(e)}
               />
             </div>
@@ -132,12 +132,12 @@ const Register = () => {
   );
 };
 
-Register.propTypes = {
-  //register: PropTypes.func.isRequired,
-};
+// Register.propTypes = {
+//   //register: PropTypes.func.isRequired,
+// };
 
-const mapStatetoProps = state => ({
-  //
-});
+// const mapStatetoProps = state => ({
+//   //
+// });
 
 export default Register;
