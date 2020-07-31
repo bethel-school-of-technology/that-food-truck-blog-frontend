@@ -11,7 +11,7 @@ import Mitch from '../../pictures/mitch.png';
 const About = props => {
   return <div className="About">
      <h2 className="Mission text-center"> Our Mission </h2>
-                    <p className="card-body mb-2"> Our hearts are in sharing and expanding the Gospel of Jesus through our Food Truck Businesses. Our goal is that all know Jesus would encounter the love of God through our food, and those that don't know the Fathers love would encounter His love for them. 
+                    <p className="card-body mb-2"> Our hearts are to share and expand the Gospel of Jesus through our Food Truck Businesses. Our goal is that all would know Jesus would encounter the love of God through our food, and those that don't know the Fathers love would encounter His love for them. 
                         Every meal is made in excellence knowing we want our customers to taste the goodness of God in every bite. 
                     </p>
                     <img className="rounded mx-auto d-block" width="550" height="400" src={Image3} alt= "food truck" /> 
