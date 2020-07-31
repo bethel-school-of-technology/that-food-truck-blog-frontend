@@ -3,6 +3,9 @@ import React, { Component, Fragment } from 'react'
 export class Card extends Component {
 
     render() {
+        //sets Cards to the props passed in as Cards
+        //need an array of objects that have feilds title, about, ing
+        //you also need to pass into props the Title 
         let Cards = this.props.Cards;
         return (
 
@@ -10,8 +13,9 @@ export class Card extends Component {
                 <div className="card-header">
                     {this.props.Title}
                 </div>
-
+                {/* Loops through the Card Prop */}
                 {Cards.map((card, index) => {
+                    //if index is odd puts piture second if even puts it last
                     if (index % 2) {
                         return (
                             <div className="card-body">
