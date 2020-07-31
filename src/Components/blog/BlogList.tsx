@@ -1,78 +1,66 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
-interface Blogs {
-  title: string;
-  catagory: string;
-  about: string;
-  blogId: string;
-}
 
-const Blogs: Blogs[] = [
-  {
-    title: 'Summer Menu',
-    catagory: 'menu',
-    about: 'come join us for some summer fun with our all new sumer Menu',
-    blogId: '/Blog List/1',
-  },
-  {
-    title: 'Summer Menu',
-    catagory: 'menu',
-    about: 'come join us for some summer fun with our all new sumer Menu',
-    blogId: '/Blog List/2',
-  },
-  {
-    title: 'Summer Menu',
-    catagory: 'menu',
-    about: 'come join us for some summer fun with our all new sumer Menu',
-    blogId: '/Blog List/3',
-  },
-  {
-    title: 'Summer Menu',
-    catagory: 'menu',
-    about: 'come join us for some summer fun with our all new sumer Menu',
-    blogId: '/Blog List/4',
-  },
-  {
-    title: 'Summer Menu',
-    catagory: 'menu',
-    about: 'come join us for some summer fun with our all new sumer Menu',
-    blogId: '/Blog List/5',
-  },
-];
+class BlogList extends Component {
+  state = {
+    blogList: []
+  };
 
-export class BlogList extends Component {
+  fetchBlogList = () => {
+    var encodedURI = 'http://localhost:5000/api/posts';
+    console.log(encodedURI)
+    return axios.get(encodedURI).then(response => {
+      console.log(response.data)
+      this.setState(() => {
+        return {
+          blogList: response.data
+        };
+      });
+    });
+  };
+
+  componentDidMount() {
+    console.log("componentDidMount")
+    this.fetchBlogList();
+
+  }
+  
   render() {
     return (
-      <div className='container'>
+      <div className='container mb-3'>
         <div className='card text-center mt-3'>
-          <div className='card-blogId'>
+          <div className='card-header'>
             <h5 className='card-title'>Blogs</h5>
             <h6 className='card-subtitle mb-2 text-muted'>
               Come and get to know us with some of our recent blogs
             </h6>
-            <p className='card-text'>Meet the team or find our sesonal Menu!</p>
+            <p className='card-subtitle'>Meet the team or find our sesonal Menu!</p>
           </div>
+          <div className="card-body">
           <ul className='list-group list-group-flush'>
-            {Blogs.map((blog, index) => {
+            {this.state.blogList.map((blog) => {
               return (
-                <li className='list-group-item' key={index}>
-                  <div className='card'>
-                    <div className='card-blogId'>
-                      <h5 className='card-title'>{blog.title}</h5>
-                      <h6 className='card-subtitle mb-2 text-muted'>
-                        {blog.catagory}
-                      </h6>
-                      <p className='card-text'>{blog.about}</p>
-                    </div>
-                  </div>
-                  <a
-                    href={blog.blogId}
-                    className='card-link stretched-link'
-                  ></a>
-                </li>
+                <div>{blog}</div>
+                // <li className='list-group-item' key={blog.id}>
+                //   <div className='card'>
+                //     <div className='card-blogId'>
+                //       <h5 className='card-title'>{blog.title}</h5>
+                //       <h6 className='card-subtitle mb-2 text-muted'>
+                //         {blog.date}
+                //       </h6>
+                //       <p className='card-text'>{blog.text}</p>
+                //     </div>
+                //   </div>
+                //   <a
+                //     href={blog.id}
+                //     className='card-link stretched-link'
+                //   ></a>
+                // </li>
               );
             })}
           </ul>
+          </div>
         </div>
       </div>
     );

@@ -2,6 +2,7 @@ import React, { Fragment, useState, useEffect } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+<<<<<<< HEAD
 
 const Register = ({ register }) => {
   const [formData, setFormData] = useState({
@@ -42,17 +43,29 @@ const Register = ({ register }) => {
       });
     }
   };
+=======
+import { queryAllByAttribute } from '@testing-library/react';
+
+const Register = ({ register }) => {
+  
+>>>>>>> LoginForm
   return (
-    <Fragment class='justify-content-center'>
+    <div class='justify-content-center'>
       <section class='container '>
         <h1 class='large text-primary'>Welcome Admin</h1>
         <p class='lead'>
-          <i class='fas fa-user'></i> Create Admin
+          <i class='fas fa-user'>Create Admin</i> 
         </p>
         <form
           class='form'
+<<<<<<< HEAD
           action='create-profile.html'
           onChange={e => onChange(e)}
+=======
+          action='http://localhost:5000/api/users'
+          method="POST"
+          
+>>>>>>> LoginForm
         >
           <div class='form-group'>
             <input
@@ -60,8 +73,12 @@ const Register = ({ register }) => {
               placeholder='Name'
               name='name'
               required
+<<<<<<< HEAD
               value={name}
               onChange={e => onChange(e)}
+=======
+              
+>>>>>>> LoginForm
             />
           </div>
           <div class='form-group'>
@@ -69,8 +86,13 @@ const Register = ({ register }) => {
               type='email'
               placeholder='Email Address'
               name='email'
+<<<<<<< HEAD
               value={email}
               onChange={e => onChange(e)}
+=======
+              
+              required
+>>>>>>> LoginForm
             />
             <small class='form-text'></small>
           </div>
@@ -80,8 +102,13 @@ const Register = ({ register }) => {
               placeholder='Password'
               name='password'
               minLength='6'
+<<<<<<< HEAD
               value={password}
               onChange={e => onChange(e)}
+=======
+              required
+              
+>>>>>>> LoginForm
             />
           </div>
           <div class='form-group'>
@@ -90,14 +117,19 @@ const Register = ({ register }) => {
               placeholder='Confirm Password'
               name='password2'
               minLength='6'
+<<<<<<< HEAD
               value={password2}
               onChange={e => onChange(e)}
+=======
+              required
+              
+>>>>>>> LoginForm
             />
           </div>
-          <input type='submit' class='btn btn-primary' value='Register' />
+          <input type='submit' class='btn-lg btn-primary' ></input>
         </form>
       </section>
-    </Fragment>
+    </div>
   );
 };
 

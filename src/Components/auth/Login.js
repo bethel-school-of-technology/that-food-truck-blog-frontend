@@ -3,8 +3,12 @@ import PropTypes from 'prop-types';
 import './Login.css';
 const Login = props => {
   return (
-    <div className="row justify-content-center">
-      <div class="col-9 col-md-4">
+    <div className='container col-9 col-md-5 mb-3'>
+        <div class="card row justify-content-center">
+          <div class="card-header">
+          <h1 class='h3 m-3 font-weight-normal'>Admin Sign In</h1>
+          </div>
+          <div class="card-body">
       <form >
         
         <img
@@ -14,7 +18,7 @@ const Login = props => {
           width='72'
           height='72'
         />
-        <h1 class='h3 m-3 font-weight-normal'>Admin Sign In</h1>
+        
         <div class="form-group">
         <label for='inputEmail' class='sr-only'>
           Email address
@@ -56,6 +60,7 @@ const Login = props => {
         
         
       </form>
+      </div>
       </div>
       </div>
     
