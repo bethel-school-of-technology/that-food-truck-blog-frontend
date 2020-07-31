@@ -27,3 +27,60 @@ function App() {
 }
 
 export default App;
+
+
+
+
+
+    
+                    
+                    {/* <div className="media"> 
+                    <h3 className="Veam text-center"> Our Founders </h3>
+                    <u> 
+                    <li className="text-center"> Val Bonilla  
+                    <img width="200" height="200" src={Val} alt="Val" /> 
+                      </li>
+                      <li className="text-center">Ethan Ferrier 
+                        <img width="220" height="200" src={Ethan} alt="Ethan"/>
+                        </li> 
+                        <li className="text-center"> Aubrena Taylor
+                          <img width="220" height="200" src={Aubrena} alt="Aubrena"/>
+                        </li>
+                        <li className="text-center"> Mitch Mccuen 
+                          <img width="220" height="200" src={Mitch} alt="Mitch"/>
+                        </li>
+                      </u>
+                    
+                  
+                    </div> */}
+
+
+
+
+
+
+                    *****ghihsdng
+
+
+                                        
+                    <div className="media"> 
+                    <h3 className="Veam text-center"> Our Founders </h3>
+                    
+                    <div className="media-left">
+                    <u> 
+                    <li className="text-center"> Val Bonilla  
+                    <img  src={Val} className="media-object" width="200" height="200" alt="Val"/> 
+                      </li>
+                      <li className="text-center">Ethan Ferrier 
+                        <img width="220" height="200" src={Ethan} alt="Ethan"/>
+                        </li> 
+                        <li className="text-center"> Aubrena Taylor
+                          <img width="220" height="200" src={Aubrena} alt="Aubrena"/>
+                        </li>
+                        <li className="text-center"> Mitch Mccuen 
+                          <img width="220" height="200" src={Mitch} alt="Mitch"/>
+                        </li>
+                      </u>
+                    
+                  
+                    </div>
