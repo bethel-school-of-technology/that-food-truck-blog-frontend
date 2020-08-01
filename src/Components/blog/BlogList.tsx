@@ -12,10 +12,8 @@ class BlogList extends Component {
     console.log(encodedURI)
     return axios.get(encodedURI).then(response => {
       console.log(response.data)
-      this.setState(() => {
-        return {
-          blogList: response.data
-        };
+      this.setState({
+        blogList: response.data
       });
     });
   };
@@ -25,7 +23,9 @@ class BlogList extends Component {
     this.fetchBlogList();
 
   }
-  
+
+
+
   render() {
     return (
       <div className='container mb-3'>
@@ -38,28 +38,28 @@ class BlogList extends Component {
             <p className='card-subtitle'>Meet the team or find our sesonal Menu!</p>
           </div>
           <div className="card-body">
-          <ul className='list-group list-group-flush'>
-            {this.state.blogList.map((blog) => {
-              return (
-                <div>{blog}</div>
-                // <li className='list-group-item' key={blog.id}>
-                //   <div className='card'>
-                //     <div className='card-blogId'>
-                //       <h5 className='card-title'>{blog.title}</h5>
-                //       <h6 className='card-subtitle mb-2 text-muted'>
-                //         {blog.date}
-                //       </h6>
-                //       <p className='card-text'>{blog.text}</p>
-                //     </div>
-                //   </div>
-                //   <a
-                //     href={blog.id}
-                //     className='card-link stretched-link'
-                //   ></a>
-                // </li>
-              );
-            })}
-          </ul>
+            <ul className='list-group list-group-flush'>
+              {Object.keys(this.state.blogList).map((blog, index) => {
+                return (
+                  <div>{blog}</div>
+                  // <li className='list-group-item' key={blog.id}>
+                  //   <div className='card'>
+                  //     <div className='card-blogId'>
+                  //       <h5 className='card-title'>{blog.title}</h5>
+                  //       <h6 className='card-subtitle mb-2 text-muted'>
+                  //         {blog.date}
+                  //       </h6>
+                  //       <p className='card-text'>{blog.text}</p>
+                  //     </div>
+                  //   </div>
+                  //   <a
+                  //     href={blog.id}
+                  //     className='card-link stretched-link'
+                  //   ></a>
+                  // </li>
+                );
+              })}
+            </ul>
           </div>
         </div>
       </div>
