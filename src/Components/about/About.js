@@ -32,7 +32,57 @@ const About = props => {
                     <li className="list-group-item"> Santa Barbara, California </li>
                     </ul> </div>
                     </div>
-  </div>;
+
+
+  <div className="row">
+  <div className="col-md-7">
+    <div className="thumbnail">
+  
+        <img width="220" height="200" src={Val} alt="Val"  className="mx-auto d-block"/>
+        <div className="caption">
+          <p className="text-center"> Val </p>
+        </div>
+    </div>
+  </div>
+  
+  <div className="col-md-4">
+    <div className="thumbnail">
+
+        <img width="220" height="200" src={Aubrena} alt="Aubrena" w-100 className="mx-auto d-block"/>
+        <div className="caption">
+          <p className="text-center">Aubrena</p>
+        </div>
+
+    </div>
+  </div>
+  </div>
+
+<div className="row">
+  <div className="col-md-7">
+    <div className="thumbnail">
+
+        <img width="210" height="200" src={Ethan} alt="Ethan" w-100 className="mx-auto d-block"/>
+        <div className="caption">
+          <p className="text-center">Ethan </p>
+        </div>
+   
+    </div>
+  </div>
+
+
+<div className="col-md-4">
+    <div className="thumbnail">
+
+        <img width="220" height="200" src={Mitch} alt="Mitch" w-100 className="mx-auto d-block"/>
+        <div className="caption">
+          <p className="text-center">Mitch</p>
+        </div>
+    
+    </div>
+  </div>
+</div>
+
+ </div>;
 };
 
 About.propTypes = {};
