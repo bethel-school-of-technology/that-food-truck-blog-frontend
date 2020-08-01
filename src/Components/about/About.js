@@ -33,7 +33,9 @@ const About = props => {
                     </ul> </div>
                     </div>
 
-
+<div className="text-center">
+  <h2> Our Founders </h2>
+</div>
   <div className="row">
   <div className="col-md-7">
     <div className="thumbnail">
