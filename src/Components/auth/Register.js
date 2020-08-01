@@ -59,16 +59,21 @@ const Register = () => {
   };
 
   return (
-    <Fragment>
-      <div className='justify-content-center'>
-        <section className='container '>
-          <h1 className='large text-primary'>Welcome Admin</h1>
-          <p className='lead'>
-            <i className='fas fa-user'></i> Create Admin
-          </p>
+    
+    <div className='container col-9 col-md-5 mb-3'>
+        <div class='card row justify-content-center'>
+          <div class='card-header'>
+          <div className='h3 card-title'>Create Admin</div>
+          <dive class='h6 card-subtitle mb-2 text-muted'>
+              It's that simple
+            </dive>
+      </div>
+      <div class="card-body">
           <form className='form' method='POST' onSubmit={e => onSubmit(e)}>
             <div className='form-group'>
+              <label for='name'>Name</label>
               <input
+              className='form-control'
                 type='text'
                 placeholder='Name'
                 name='name'
@@ -79,7 +84,9 @@ const Register = () => {
               />
             </div>
             <div className='form-group'>
+              <label for='email'>Email</label>
               <input
+              className='form-control'
                 type='email'
                 placeholder='Email Address'
                 name='email'
@@ -90,7 +97,9 @@ const Register = () => {
               <small className='form-text'></small>
             </div>
             <div className='form-group'>
+              <label for='password'>Password</label>
               <input
+              className='form-control'
                 type='password'
                 placeholder='Password'
                 name='password'
@@ -101,7 +110,9 @@ const Register = () => {
               />
             </div>
             <div className='form-group'>
+              <label for='password2'>Confirm Password</label>
               <input
+              className='form-control'
                 type='password'
                 placeholder='Confirm Password'
                 name='password2'
@@ -113,14 +124,16 @@ const Register = () => {
             </div>
 
             <input
+            className='form-control'
               type='submit'
-              className='btn btn-primary'
+              className='btn-sm btn-primary'
               value='Register'
             ></input>
           </form>
-        </section>
-      </div>
-    </Fragment>
+        </div>
+        </div>
+        </div>
+      
   );
 };
 
