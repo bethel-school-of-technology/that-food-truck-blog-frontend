@@ -44,9 +44,16 @@ const Login = () => {
     });
 
   return (
-    <Fragment>
-      <div className='row justify-content-center'>
-        <div class='col-9 col-md-4'>
+
+    <div className='container col-9 col-md-5 mb-3'>
+      <div class='card row justify-content-center'>
+        <div class='card-header'>
+          <div className='h3 card-title'>Admin Sign In</div>
+          <dive class='h6 card-subtitle mb-2 text-muted'>
+            for our amazing team only, thank you.
+        </dive>
+        </div>
+        <div className='card-body'>
           <form
           //  onSubmit={e => onSubmit(e)}
           >
@@ -57,9 +64,8 @@ const Login = () => {
               width='72'
               height='72'
             />
-            <h1 className='h3 m-3 font-weight-normal'>Admin Sign In</h1>
             <div className='form-group'>
-              <label for='inputEmail' className='sr-only'>
+              <label for='inputEmail'>
                 Email address
               </label>
               <input
@@ -74,7 +80,7 @@ const Login = () => {
             </div>
 
             <div className='form-group'>
-              <label for='inputPassword' className='sr-only'>
+              <label for='inputPassword' >
                 Password
               </label>
               <input
@@ -86,16 +92,18 @@ const Login = () => {
                 required
               />
             </div>
-            <input
-              className=' btn-lg  btn-primary '
-              type='submit'
-              value='Sign in'
-            />
-            <p className='mt-5 mb-3 text-muted'>&copy; 2017-2020</p>
+            <div className="row">
+              <input
+                className='ml-3 btn-lg  btn-primary '
+                type='submit'
+                value='Sign in'
+              />
+              <p className='col-8 mb-3 text-muted text-right'>&copy; 2017-2020</p>
+            </div>
           </form>
         </div>
       </div>
-    </Fragment>
+    </div>
   );
 };
 
