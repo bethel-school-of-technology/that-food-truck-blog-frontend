@@ -4,7 +4,7 @@ export class Card extends Component {
 
     render() {
         //sets Cards to the props passed in as Cards
-        //need an array of objects that have feilds title, about, ing
+        //need an array of objects that have feilds title, about, img
         //you also need to pass into props the Title 
         let Cards = this.props.Cards;
         return (
