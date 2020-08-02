@@ -25,7 +25,7 @@ class BlogPage extends Component {
 
   }
   render = () => {
-    const { blogList = [] } = this.state;
+    const { blogList } = this.state;
     return (
       <div className="card text-center m-3">
         <div className="card-header">
