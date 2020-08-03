@@ -29,7 +29,7 @@ const Footer = () => {
               <li> @FoodTruckBlog</li>
 
               <Link
-                href='https://www.facebook.com'
+                to='https://www.facebook.com'
                 class='facebook social'
                 target='_blank'
               >
@@ -37,7 +37,7 @@ const Footer = () => {
               </Link>
 
               <Link
-                href='https://www.twitter.com'
+                to='https://www.twitter.com'
                 class='twitter social'
                 target='_blank'
               >
@@ -45,7 +45,7 @@ const Footer = () => {
               </Link>
 
               <Link
-                href='https://www.Instagram.com'
+                to='https://www.Instagram.com'
                 class='instagram social'
                 target='_blank'
               >
@@ -57,11 +57,11 @@ const Footer = () => {
           <div class='col-md-4 col-sm-6'>
             <h4> Pages </h4>
             <ul class='list-unstyled'>
-            <li><Link to="/" className="text-reset ">Home</Link></li>
-            <li><Link to="/About" className="text-reset ">About</Link></li>
-            <li><Link to="/BlogList" className="text-reset ">Blog</Link></li>
-            <li><Link to="/ContactForm" className="text-reset ">Contact</Link></li>
-            <li><Link to="/Login" className="text-reset ">Login</Link></li>
+              <li><Link to="/" className="text-reset ">Home</Link></li>
+              <li><Link to="/About" className="text-reset ">About</Link></li>
+              <li><Link to="/BlogList" className="text-reset ">Blog</Link></li>
+              <li><Link to="/ContactForm" className="text-reset ">Contact</Link></li>
+              <li><Link to="/Login" className="text-reset ">Login</Link></li>
             </ul>
           </div>
         </div>
