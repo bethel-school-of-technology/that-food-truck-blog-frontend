@@ -1,46 +1,51 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 
-class BlogPage extends Component {
-  state = {
-    blogList: []
-  };
+const BlogPage = () => {
+  const [blogData, setBlogData] = useState({
+    title: '',
+    date: '',
+    text: '',
+  });
 
-  fetchBlogList() {
-    var encodedURI = 'http://localhost:5000/api/posts/5f147b920a17ff173018aae3';
+  const { title, date, text } = blogData;
+  let { blogId } = useParams();
+  // console.log(blogId)
+  // console.log(useParams())
+
+  const fetchBlogList = () => {
+    var encodedURI = 'http://localhost:5000/api/posts/' + blogId;
     console.log(encodedURI)
     return axios.get(encodedURI).then(response => {
-      console.log(response.data)
-      this.setState({
-        blogList: response.data
+      // console.log(response.data)
+      setBlogData({
+        title: response.data.title,
+        date: response.data.date,
+        text: response.data.text
       });
+      // console.log(blogData)
     });
   };
 
-  componentDidMount = () => {
-    console.log("componentDidMount")
-    this.fetchBlogList();
+  useEffect(() => { fetchBlogList() }, [])
 
-  }
-  render = () => {
-    const { blogList } = this.state;
-    return (
-      <div className="card text-center m-3">
-        <div className="card-header">
-          {blogList.title}
-        </div>
-        <div className="card-horizontal">
-          <div className="card-body">
-            <p className="card-text">{blogList.date}</p>
-            <p className="card-text"> {blogList.text}</p>
-          </div>
 
-        </div>
+  return (
+    <div className="card text-center m-3">
+      <div className="card-header">
+        {title}
       </div>
-    );
-  };
+      <div className="card-horizontal">
+        <div className="card-body">
+          <p className="card-text">{date}</p>
+          <p className="card-text"> {text}</p>
+        </div>
+
+      </div>
+    </div>
+  );
 };
 
 

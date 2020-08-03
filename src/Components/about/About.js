@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Image3 from '../../pictures/truckphoto3.png';
 import Val from '../../pictures/val.png';
 import Ethan from '../../pictures/ethan.png';
