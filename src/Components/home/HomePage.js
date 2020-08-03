@@ -6,15 +6,9 @@ import Image4 from '../../pictures/truckphoto4.png';
 import './HomePage.css';
 import Card from '../Card'
 
-//this is the interface that tells typescript what info to expect in the Card
-interface Cards {
-  title: string;
-  img: string;
-  about: string;
-  blogId: string;
-}
 
-const Cards: Cards[] = [
+
+const Cards = [
   //this is card one the info here is what you will see in the first card on the home page
   {
     title: 'string',
@@ -48,7 +42,7 @@ const Cards: Cards[] = [
   }
 ]
 
-const FeaturedCards: Cards[] = [
+const FeaturedCards = [
   {
     title: 'string',
     img: Image1,
