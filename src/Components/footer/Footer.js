@@ -9,13 +9,13 @@ import {
 
 const Footer = () => {
   return (
-    <footer class='footer navbar-fixed-bottom'>
-      <div class='container'>
-        <div class='row'>
+    <footer className='footer navbar-fixed-bottom'>
+      <div className='container'>
+        <div className='row'>
           {/* column 1 */}
-          <div class='col-md-4 col-sm-6'>
+          <div className='col-md-4 col-sm-6'>
             <h4> Contact Info </h4>
-            <ul class='list-unstyled'>
+            <ul className='list-unstyled'>
               <li> The Food Truck Blog Inc. </li>
               <li> 2244 Golden Sunset Dr.</li>
               <li> 530-222-9448 </li>
@@ -23,11 +23,12 @@ const Footer = () => {
             </ul>
           </div>
           {/* column 2 */}
-          <div class='col-md-4 col-sm-6'>
+          <div className='col-md-4 col-sm-6'>
             <h4> Social Media Links </h4>
-            <ul class='list-unstyled'>
+            <ul className='list-unstyled'>
               <li> @FoodTruckBlog</li>
-
+              {/* Warning: Each child in a list should have a unique "key" prop. */}
+              {/*Warning: Failed prop type: The prop `to` is marked as required in `Link`, but its value is `undefined`.  */}
               <Link
                 to='https://www.facebook.com'
                 class='facebook social'
@@ -54,7 +55,7 @@ const Footer = () => {
             </ul>
           </div>
           {/* column 2 */}
-          <div class='col-md-4 col-sm-6'>
+          <div className='col-md-4 col-sm-6'>
             <h4> Pages </h4>
             <ul class='list-unstyled'>
               <li><Link to="/" className="text-reset ">Home</Link></li>
