@@ -1,9 +1,6 @@
-import React, { Fragment, useEffect, useState } from 'react';
-//import PropTypes from 'prop-types';
+import React, { Fragment, useState } from 'react';
 import './Login.css';
 import axios from 'axios';
-// import setAuthToken from '../utils/setAuthToken';
-// import jwt_decode from 'jwt-decode';
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -13,27 +10,50 @@ const Login = () => {
 
   const { email, password } = formData;
 
-  // authenticate user
+  // const onSubmit = e => {
+  //   e.preventDefault();
+  //   try {
+  //     // axios
+  //     //   .post('http://localhost:5000/api/auth', { email, password })
+  //     //   .then(response => {
+  //     //     if (response.data.accessToken) {
+  //     //       localStorage.setItem('user', JSON.stringify(response.data));
+  //     //     }
+  //     axios
+  //       .post('http://localhost:5000/api/auth', User, {
+  //         headers: { Authorization: localStorage.getItem('jwtToken') },
+  //       })
+  //       .then(response => console.log(response))
+  //       .catch(error => console.log(error));
 
-  // Get the JWT token
+  //     return response.data;
 
-  //store jwt token in localStorage
-
-  //give user access to protected routes createBlog, editBlog, register
+  //     // const logout = () => {
+  //     //   localStorage.removeItem('user');
+  //     // };
+  //   } catch (err) {
+  //     console.error(err.response.data);
+  //   }
+  // };
 
   const onSubmit = async e => {
     e.preventDefault();
     try {
-      await axios
-        .post('http://localhost:5000/api/auth', {
-          headers: { Authorization: localStorage.getItem('jwtToken') },
-        })
-        .then(response => console.log(response))
-        .catch(error => console.log(error));
-
-      // // console.log(res.data);
-    } catch (err) {
-      console.error(err.res.data);
+      const config = {
+        headers: {
+          'Content-Type': 'application/json',
+          //Authorization: localStorage.getItem('jwtToken'),
+        },
+      };
+      const body = localStorage.getItem('user');
+      const res = await axios.post(
+        'http://localhost:5000/api/auth',
+        body,
+        config
+      );
+      localStorage.setItem('user', 'token');
+    } catch (error) {
+      return console.log(error);
     }
   };
 
@@ -54,9 +74,7 @@ const Login = () => {
             </dive>
           </div>
           <div className='card-body'>
-            <form
-            //  onSubmit={e => onSubmit(e)}
-            >
+            <form onSubmit={e => onSubmit(e)}>
               <img
                 className='mb-4'
                 src='../assets/brand/bootstrap-solid.svg'
