@@ -16,7 +16,7 @@ const CreateBlog = props => {
 
   return (
 
-    <div className='container col-9 col-md-5 mb-3'>
+    <div className='container col-9 col-md-7 mb-3'>
       <div class='card row justify-content-center'>
         <div class='card-header'>
           <div className='h3 card-title'>Create Blog Form</div>
@@ -36,10 +36,10 @@ const CreateBlog = props => {
               height='72'
             />
             <div className='form-group'>
-              <label for='inputEmail'>Title</label>
+              <label for='title'>Title</label>
               <input
                 type='text'
-                id='inputEmail'
+                id='title'
                 className='form-control'
                 placeholder='Title'
                 // onChange={e => onChange(e)}
@@ -49,12 +49,13 @@ const CreateBlog = props => {
             </div>
 
             <div className='form-group'>
-              <label for='inputPassword'>Body</label>
+              <label for='body'>Body</label>
               <textarea
                 type='text'
-                id='inputPassword'
+                id='body'
                 className='form-control'
                 placeholder='Body'
+                rows="9"
                 // onChange={e => onChange(e)}
                 required
               />

@@ -10,6 +10,7 @@ import ContactForm from './Components/form/ContactForm';
 import Login from './Components/auth/Login';
 import Register from './Components/auth/Register';
 import CreateBlog from './Components/blogForms/CreateBlog'
+import EditBlog from './Components/blogForms/EditBlog'
 // import PrivateRoute from './Components/routing/PrivateRoute';
 
 import './App.css';
@@ -35,6 +36,7 @@ const App = () => {
           <Route exact path='/Login' component={Login} />
           <Route exact path='/Register' component={Register} />
           <Route exact path='/CreateBlog' component={CreateBlog} />
+          <Route exact path='/EditBlog' component={EditBlog} />
           {/* <Route exact path='/Create-blog' component={Register} />
           <Route exact path='/Edit-blog' component={Register} /> */}
         </Switch>
