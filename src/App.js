@@ -21,7 +21,28 @@ import './App.css';
 //   setAuthToken(localStorage.token);
 // }
 
+//buy creating the 
 const App = () => {
+  const [userData, setUserData] = useState({
+    token: '',
+    userAuth: false,
+  })
+
+  const { token, userAuth } = userData;
+
+  const getUser = (email, password) => {
+    var encodedURI = 'http://localhost:5000/api/auth';
+    console.log(encodedURI)
+    return axios.post(encodedURI).then(response => {
+      console.log(response.data)
+      setUserData({
+        token: response.data.toket,
+        userAuth: true
+      });
+    });
+  }
+
+
   return (
     <Router>
       <Fragment>
@@ -33,7 +54,7 @@ const App = () => {
           <Route exact path='/BlogList' component={BlogList} />
           <Route exact path='/ContactForm' component={ContactForm} />
           {/* below Must be Privite routes */}
-          <Route exact path='/Login' component={Login} />
+          <Route exact path='/Login' component={Login} userData={userData} />
           <Route exact path='/Register' component={Register} />
           <Route exact path='/CreateBlog' component={CreateBlog} />
           <Route exact path='/EditBlog' component={EditBlog} />
