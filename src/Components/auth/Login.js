@@ -10,58 +10,38 @@ const Login = () => {
 
   const { email, password } = formData;
 
-  // const onSubmit = e => {
-  //   e.preventDefault();
-  //   try {
-  //     // axios
-  //     //   .post('http://localhost:5000/api/auth', { email, password })
-  //     //   .then(response => {
-  //     //     if (response.data.accessToken) {
-  //     //       localStorage.setItem('user', JSON.stringify(response.data));
-  //     //     }
-  //     axios
-  //       .post('http://localhost:5000/api/auth', User, {
-  //         headers: { Authorization: localStorage.getItem('jwtToken') },
-  //       })
-  //       .then(response => console.log(response))
-  //       .catch(error => console.log(error));
-
-  //     return response.data;
-
-  //     // const logout = () => {
-  //     //   localStorage.removeItem('user');
-  //     // };
-  //   } catch (err) {
-  //     console.error(err.response.data);
-  //   }
-  // };
+  const onChange = e =>
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
 
   const onSubmit = async e => {
     e.preventDefault();
     try {
+      const loginUser = {
+        email,
+        password,
+      };
+
       const config = {
         headers: {
           'Content-Type': 'application/json',
-          //Authorization: localStorage.getItem('jwtToken'),
+          Authorization: localStorage.getItem('jwtToken'),
         },
       };
-      const body = localStorage.getItem('user');
+      const body = JSON.stringify(loginUser);
       const res = await axios.post(
         'http://localhost:5000/api/auth',
         body,
         config
       );
       localStorage.setItem('user', 'token');
+      console.log(res.data);
     } catch (error) {
       return console.log(error);
     }
   };
-
-  const onChange = e =>
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
 
   return (
     <Fragment>
