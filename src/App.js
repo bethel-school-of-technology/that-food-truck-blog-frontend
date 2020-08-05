@@ -13,6 +13,34 @@ import Register from './Components/auth/Register';
 import './App.css';
 
 const App = () => {
+  const [userData, setUserData] = useState({
+    token1 = '',
+    userAuth: false
+  })
+
+  const { token, userAuth } = userData;
+
+  const getUser = (email, password) => {
+    try {
+      const config = {
+        headers: {
+          'Content-Type': 'application/json',
+          //Authorization: localStorage.getItem('jwtToken'),
+        },
+      };
+      const body = localStorage.getItem('user');
+      const res = await axios.post(
+        'http://localhost:5000/api/auth',
+        body,
+        config
+      );
+      localStorage.setItem('user', 'token');
+    } catch (error) {
+      return console.log(error);
+    }
+  }
+
+
   return (
     <Router>
       <Fragment>
