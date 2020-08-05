@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import './Login.css';
 import axios from 'axios';
 
@@ -23,11 +24,10 @@ const Login = () => {
         email,
         password,
       };
-
       const config = {
         headers: {
           'Content-Type': 'application/json',
-          Authorization: localStorage.getItem('jwtToken'),
+          // Authorization:'Bearer' token ,
         },
       };
       const body = JSON.stringify(loginUser);
@@ -36,8 +36,10 @@ const Login = () => {
         body,
         config
       );
-      localStorage.setItem('user', 'token');
-      console.log(res.data);
+
+      const token = res.data;
+      localStorage.setItem('jwtToken', JSON.stringify(token));
+      localStorage.getItem('jwtToken');
     } catch (error) {
       return console.log(error);
     }
@@ -69,9 +71,10 @@ const Login = () => {
                   id='inputEmail'
                   className='form-control'
                   placeholder='Email address'
+                  name='email'
+                  value={email}
                   onChange={e => onChange(e)}
                   required
-                  autoFocus
                 />
               </div>
 
@@ -82,6 +85,8 @@ const Login = () => {
                   id='inputPassword'
                   className='form-control'
                   placeholder='Password'
+                  name='password'
+                  value={password}
                   onChange={e => onChange(e)}
                   required
                 />
