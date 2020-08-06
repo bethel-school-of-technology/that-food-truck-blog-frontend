@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import { Redirect, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import './Login.css';
 import axios from 'axios';
 

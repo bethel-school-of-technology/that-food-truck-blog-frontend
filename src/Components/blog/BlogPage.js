@@ -27,7 +27,6 @@ const BlogPage = () => {
       // console.log(blogData)
     });
   };
-
   useEffect(() => {
     fetchBlogList();
   }, []);

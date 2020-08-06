@@ -57,12 +57,14 @@ const Register = () => {
 
   return (
     <div className='container col-9 col-md-5 mb-3'>
-      <div class='card row justify-content-center'>
-        <div class='card-header'>
+      <div className='card row justify-content-center'>
+        <div className='card-header'>
           <div className='h3 card-title'>Create Admin</div>
-          <div class='h6 card-subtitle mb-2 text-muted'>It's that simple</div>
+          <dive className='h6 card-subtitle mb-2 text-muted'>
+            It's that simple
+          </dive>
         </div>
-        <div class='card-body'>
+        <div className='card-body'>
           <form
             className='form'
             id='regForm'
@@ -121,17 +123,18 @@ const Register = () => {
                 required
               />
             </div>
+            <div>
+              <button
+                className=' btn-sm btn-primary'
+                type='submit'
+                onClick={() => {
+                  history.push('/');
+                }}
+              >
+                Register
+              </button>
+            </div>
           </form>
-          <button
-            className=' btn-sm btn-primary'
-            type='submit'
-            form='regForm'
-            onClick={() => {
-              history.push('/');
-            }}
-          >
-            Register
-          </button>
         </div>
       </div>
     </div>
