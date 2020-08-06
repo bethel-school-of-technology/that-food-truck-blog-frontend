@@ -14,14 +14,9 @@ import EditBlog from './Components/blogForms/EditBlog'
 // import PrivateRoute from './Components/routing/PrivateRoute';
 
 import './App.css';
-//import setAuthToken from './Components/utils/setAuthToken';
-
-//will check for token
-// if (localStorage.token) {
-//   setAuthToken(localStorage.token);
-// }
 
 const App = () => {
+
   return (
     <Router>
       <Fragment>
@@ -32,7 +27,7 @@ const App = () => {
           <Route exact path='/BlogList/:blogId' component={BlogPage} />
           <Route exact path='/BlogList' component={BlogList} />
           <Route exact path='/ContactForm' component={ContactForm} />
-          {/* below Must be Privite routes */}
+          {/* below Must be Private routes */}
           <Route exact path='/Login' component={Login} />
           <Route exact path='/Register' component={Register} />
           <Route exact path='/CreateBlog' component={CreateBlog} />

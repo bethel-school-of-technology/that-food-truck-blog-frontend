@@ -1,5 +1,5 @@
-import React, { Fragment, useState, useEffect } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import React, { Fragment, useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 
 const Register = () => {
@@ -10,21 +10,14 @@ const Register = () => {
     password2: '',
   });
 
-  // ^ the above name, email ect. are the default state values
-  // formData = this is the actual state. this is an object with all the field values
-  //setFormData = this is a function used to update the state.
-
   const { name, email, password, password2 } = formData;
-  // the above const is deconstructing formData so we do not have to type out formData.name ect... every time we need a value
 
   const onChange = e =>
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
-  // ... formData is using the spread opperator to make a copy of the formData
-  //[e.target.name]: e.target.value will target the name attribute attached to each input. ie in the email input the name is email so on and so forth.
-  //
+
   const onSubmit = async e => {
     e.preventDefault();
     if (password !== password2) {
@@ -36,8 +29,6 @@ const Register = () => {
         email,
         password,
       };
-
-      // i want to clear the form after how would i do that?
 
       try {
         const config = {
@@ -51,9 +42,15 @@ const Register = () => {
           body,
           config
         );
+        if (res) return <Redirect to='/login' />;
         //console.log(res.data);
       } catch (err) {
-        console.error(err.res.data);
+        const errors = err.res.data;
+        if (errors) {
+          alert('Server Error');
+        } else {
+          return '';
+        }
       }
     }
   };
