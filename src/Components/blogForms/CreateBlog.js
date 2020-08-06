@@ -48,9 +48,9 @@ const CreateBlog = props => {
     <div className='container col-9 col-md-7 mb-3'>
       <div class='card row justify-content-center'>
         <div class='card-header'>
-          <div className='h3 card-title'>Create Blog Form</div>
+          <div className='h3 card-title'>Create a New Blog Form</div>
           <dive class='h6 card-subtitle mb-2 text-muted'>
-            Create your next blog. make it Great!
+            Create a blog here!
         </dive>
         </div>
         <div className='card-body'>
