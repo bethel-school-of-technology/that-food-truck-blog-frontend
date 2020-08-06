@@ -2,7 +2,6 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 const EditBlog = props => {
-  //validate user
   //check localstoreage for jwt token
   //get JWT token
 
@@ -21,7 +20,7 @@ const EditBlog = props => {
           <div className='h3 card-title'>Edit Blog </div>
           <dive class='h6 card-subtitle mb-2 text-muted'>
             Lets fix this Blog!
-        </dive>
+          </dive>
         </div>
         <div className='card-body'>
           <form
@@ -56,7 +55,7 @@ const EditBlog = props => {
                 className='form-control'
                 value='This is where the old body will go'
                 disabled
-                rows="9"
+                rows='9'
                 // onChange={e => onChange(e)}
                 required
               />
@@ -69,7 +68,7 @@ const EditBlog = props => {
               />
               <p className='col-8 mb-3 text-muted text-right'>
                 &copy; 2017-2020
-            </p>
+              </p>
             </div>
           </form>
         </div>

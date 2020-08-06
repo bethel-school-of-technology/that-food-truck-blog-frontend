@@ -9,6 +9,8 @@ const Login = () => {
     password: '',
   });
 
+  const history = useHistory();
+
   const { email, password } = formData;
 
   const onChange = e =>
@@ -48,12 +50,12 @@ const Login = () => {
   return (
     <Fragment>
       <div className='container col-9 col-md-5 mb-3'>
-        <div class='card row justify-content-center'>
-          <div class='card-header'>
+        <div className='card row justify-content-center'>
+          <div className='card-header'>
             <div className='h3 card-title'>Admin Sign In</div>
-            <dive class='h6 card-subtitle mb-2 text-muted'>
+            <dive className='h6 card-subtitle mb-2 text-muted'>
               for our amazing team only, thank you.
-              <p>username: admin1 password: 123456</p>
+              <p>username: Admin1 password: 123456</p>
             </dive>
           </div>
           <div className='card-body'>
@@ -93,12 +95,18 @@ const Login = () => {
                 />
               </div>
               <div className='row'>
-                <button className='ml-3 btn-lg  btn-primary ' type='submit'>
+                <button
+                  className='ml-3 btn-lg  btn-primary '
+                  type='submit'
+                  onClick={() => {
+                    history.push('/');
+                  }}
+                >
                   Sign In
                 </button>
-                <p className='col-8 mb-3 text-muted text-right'>
+                {/* <p className='col-8 mb-3 text-muted text-right'>
                   &copy; 2017-2020
-                </p>
+                </p> */}
               </div>
             </form>
           </div>

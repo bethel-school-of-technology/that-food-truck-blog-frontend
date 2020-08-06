@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 const Register = () => {
@@ -9,6 +9,8 @@ const Register = () => {
     password: '',
     password2: '',
   });
+
+  const history = useHistory();
 
   const { name, email, password, password2 } = formData;
 
@@ -42,8 +44,6 @@ const Register = () => {
           body,
           config
         );
-        if (res) return <Redirect to='/login' />;
-        //console.log(res.data);
       } catch (err) {
         const errors = err.res.data;
         if (errors) {
@@ -56,16 +56,13 @@ const Register = () => {
   };
 
   return (
-
     <div className='container col-9 col-md-5 mb-3'>
       <div class='card row justify-content-center'>
         <div class='card-header'>
           <div className='h3 card-title'>Create Admin</div>
-          <dive class='h6 card-subtitle mb-2 text-muted'>
-            It's that simple
-            </dive>
+          <dive class='h6 card-subtitle mb-2 text-muted'>It's that simple</dive>
         </div>
-        <div class="card-body">
+        <div class='card-body'>
           <form className='form' method='POST' onSubmit={e => onSubmit(e)}>
             <div className='form-group'>
               <label for='name'>Name</label>
@@ -120,17 +117,19 @@ const Register = () => {
               />
             </div>
 
-            <input
-              className='form-control'
+            <button
+              className=' btn-sm btn-primary'
               type='submit'
-              className='btn-sm btn-primary'
-              value='Register'
-            ></input>
+              onClick={() => {
+                history.push('/login');
+              }}
+            >
+              Register
+            </button>
           </form>
         </div>
       </div>
     </div>
-
   );
 };
 
