@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import './Login.css';
 import axios from 'axios';
 
@@ -27,7 +27,6 @@ const Login = () => {
       const config = {
         headers: {
           'Content-Type': 'application/json',
-          // Authorization:'Bearer' token ,
         },
       };
       const body = JSON.stringify(loginUser);
@@ -40,8 +39,9 @@ const Login = () => {
       const token = res.data;
       localStorage.setItem('jwtToken', JSON.stringify(token));
       localStorage.getItem('jwtToken');
+      // <Redirect to='/home' />;
     } catch (error) {
-      return console.log(error);
+      return alert('Invalid Credentials');
     }
   };
 
@@ -92,11 +92,9 @@ const Login = () => {
                 />
               </div>
               <div className='row'>
-                <input
-                  className='ml-3 btn-lg  btn-primary '
-                  type='submit'
-                  value='Sign in'
-                />
+                <button className='ml-3 btn-lg  btn-primary ' type='submit'>
+                  Sign In
+                </button>
                 <p className='col-8 mb-3 text-muted text-right'>
                   &copy; 2017-2020
                 </p>
