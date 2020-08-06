@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from 'react';
+import { Redirect, useHistory } from 'react-router-dom';
 import './Login.css';
 import axios from 'axios';
 
@@ -10,58 +11,39 @@ const Login = () => {
 
   const { email, password } = formData;
 
-  // const onSubmit = e => {
-  //   e.preventDefault();
-  //   try {
-  //     // axios
-  //     //   .post('http://localhost:5000/api/auth', { email, password })
-  //     //   .then(response => {
-  //     //     if (response.data.accessToken) {
-  //     //       localStorage.setItem('user', JSON.stringify(response.data));
-  //     //     }
-  //     axios
-  //       .post('http://localhost:5000/api/auth', User, {
-  //         headers: { Authorization: localStorage.getItem('jwtToken') },
-  //       })
-  //       .then(response => console.log(response))
-  //       .catch(error => console.log(error));
-
-  //     return response.data;
-
-  //     // const logout = () => {
-  //     //   localStorage.removeItem('user');
-  //     // };
-  //   } catch (err) {
-  //     console.error(err.response.data);
-  //   }
-  // };
-
-  const onSubmit = async e => {
-    e.preventDefault();
-    try {
-      const config = {
-        headers: {
-          'Content-Type': 'application/json',
-          //Authorization: localStorage.getItem('jwtToken'),
-        },
-      };
-      const body = localStorage.getItem('user');
-      const res = await axios.post(
-        'http://localhost:5000/api/auth',
-        body,
-        config
-      );
-      localStorage.setItem('user', 'token');
-    } catch (error) {
-      return console.log(error);
-    }
-  };
-
   const onChange = e =>
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
+
+  const onSubmit = async e => {
+    e.preventDefault();
+    try {
+      const loginUser = {
+        email,
+        password,
+      };
+      const config = {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      };
+      const body = JSON.stringify(loginUser);
+      const res = await axios.post(
+        'http://localhost:5000/api/auth',
+        body,
+        config
+      );
+
+      const token = res.data;
+      localStorage.setItem('jwtToken', JSON.stringify(token));
+      localStorage.getItem('jwtToken');
+      // <Redirect to='/home' />;
+    } catch (error) {
+      return alert('Invalid Credentials');
+    }
+  };
 
   return (
     <Fragment>
@@ -89,9 +71,10 @@ const Login = () => {
                   id='inputEmail'
                   className='form-control'
                   placeholder='Email address'
+                  name='email'
+                  value={email}
                   onChange={e => onChange(e)}
                   required
-                  autoFocus
                 />
               </div>
 
@@ -102,16 +85,16 @@ const Login = () => {
                   id='inputPassword'
                   className='form-control'
                   placeholder='Password'
+                  name='password'
+                  value={password}
                   onChange={e => onChange(e)}
                   required
                 />
               </div>
               <div className='row'>
-                <input
-                  className='ml-3 btn-lg  btn-primary '
-                  type='submit'
-                  value='Sign in'
-                />
+                <button className='ml-3 btn-lg  btn-primary ' type='submit'>
+                  Sign In
+                </button>
                 <p className='col-8 mb-3 text-muted text-right'>
                   &copy; 2017-2020
                 </p>
