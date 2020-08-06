@@ -58,16 +58,16 @@ class Header extends Component {
                   className='dropdown-menu'
                   aria-labelledby='dropdownMenuButton'
                 >
-                  <Link className='dropdown-item' to='#'>
+                  <Link className='dropdown-item' to='/SpringMenu'>
                     SPRING
                   </Link>
-                  <Link className='dropdown-item' to='#'>
+                  <Link className='dropdown-item' to='/SummerMenu'>
                     SUMMER
                   </Link>
-                  <Link className='dropdown-item' to='#'>
+                  <Link className='dropdown-item' to='/FallMenu'>
                     FALL
                   </Link>
-                  <Link className='dropdown-item' to='#'>
+                  <Link className='dropdown-item' to='/WinterMenu'>
                     WINTER
                   </Link>
                 </div>
