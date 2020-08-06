@@ -53,6 +53,7 @@ const Login = () => {
             <div className='h3 card-title'>Admin Sign In</div>
             <dive class='h6 card-subtitle mb-2 text-muted'>
               for our amazing team only, thank you.
+              <p>username: admin1 password: 123456</p>
             </dive>
           </div>
           <div className='card-body'>
