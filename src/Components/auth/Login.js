@@ -104,9 +104,6 @@ const Login = () => {
                 >
                   Sign In
                 </button>
-                {/* <p className='col-8 mb-3 text-muted text-right'>
-                  &copy; 2017-2020
-                </p> */}
               </div>
             </form>
           </div>
@@ -115,13 +112,5 @@ const Login = () => {
     </Fragment>
   );
 };
-
-// Login.propTypes = {
-//   //proptypes
-// };
-
-// const mapStateToProps = state => ({
-//   //
-// });
 
 export default Login;

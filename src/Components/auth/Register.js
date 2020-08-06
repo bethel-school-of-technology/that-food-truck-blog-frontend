@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
@@ -60,10 +60,15 @@ const Register = () => {
       <div class='card row justify-content-center'>
         <div class='card-header'>
           <div className='h3 card-title'>Create Admin</div>
-          <dive class='h6 card-subtitle mb-2 text-muted'>It's that simple</dive>
+          <div class='h6 card-subtitle mb-2 text-muted'>It's that simple</div>
         </div>
         <div class='card-body'>
-          <form className='form' method='POST' onSubmit={e => onSubmit(e)}>
+          <form
+            className='form'
+            id='regForm'
+            method='POST'
+            onSubmit={e => onSubmit(e)}
+          >
             <div className='form-group'>
               <label for='name'>Name</label>
               <input
@@ -109,24 +114,24 @@ const Register = () => {
                 className='form-control'
                 type='password'
                 placeholder='Confirm Password'
-                name='password2'
                 minLength='6'
-                required
+                name='password2'
                 value={password2}
                 onChange={e => onChange(e)}
+                required
               />
             </div>
-
-            <button
-              className=' btn-sm btn-primary'
-              type='submit'
-              onClick={() => {
-                history.push('/login');
-              }}
-            >
-              Register
-            </button>
           </form>
+          <button
+            className=' btn-sm btn-primary'
+            type='submit'
+            form='regForm'
+            onClick={() => {
+              history.push('/');
+            }}
+          >
+            Register
+          </button>
         </div>
       </div>
     </div>
