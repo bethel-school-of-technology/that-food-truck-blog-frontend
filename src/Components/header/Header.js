@@ -8,7 +8,7 @@ class Header extends Component {
     return (
       <div className='container-fluid'>
         <nav className='navbar navbar-expand-lg navbar-light  '>
-          <img width='100' height='100' src={logo} alt='logo' />
+          <img  src={logo} alt='logo' />
           <button
             className='navbar-toggler'
             type='button'
