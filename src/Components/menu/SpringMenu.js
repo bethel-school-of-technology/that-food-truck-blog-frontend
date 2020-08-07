@@ -7,44 +7,29 @@ import lambGyro from './Lamb-Gyro.jpg';
 
 const SpringMenu = () => {
     return(
+      <div className="container">
+        <div className="menu-page row">
 
-<div className='menu-page'>
-  <div id="demo" className="carousel slide" data-ride="carousel">
+        <div clasName="menu">
+          <ul className="menu-list col">
+            <li className="menu-item row-cols-1">Falafel Wrap..........$10</li>
+            <li className="menu-item row-cols-1">Chicken Tacos..........$8</li>
+            <li className="menu-item row-cols-1">Kale Salad..........$10</li>
+            <li className="menu-item row-cols-1">Lamb Gyro..........$11</li>
+          </ul>
+          </div>
+        <div className="menu-pictures">
+          <ul className="img-list col">
+            <li className="menu-item-img"><img className="food-image -w" src={falafelWrap} alt="Falafel Wrap" /></li>
+            <li className="menu-item-img"><img className="food-image -w" src={chxTacos} alt="Chicken Tacos" /></li>
+            <li className="menu-item-img"><img className="food-image -w" src={kaleSalad} alt="Kale Salad" /></li>
+            <li className="menu-item-img"><img className="food-image -w" src={lambGyro} alt="Lamb Gyro" /></li>
 
-
-<ul className="carousel-indicators">
-  <li data-target="#demo" data-slide-to="0" class="active"></li>
-  <li data-target="#demo" data-slide-to="1"></li>
-  <li data-target="#demo" data-slide-to="2"></li>
-</ul>
-
-
-<div className="carousel-inner">
-  <div className="carousel-item active">
-    <img src={falafelWrap} alt="Falafel Wrap" />
-  </div>
-  <div className="carousel-item">
-    <img src={chxTacos} alt="Chicken Tacos" />
-  </div>
-  <div className="carousel-item">
-    <img src={kaleSalad} alt="Kale Sald" />
-  </div>
-  <div className="carousel-item">
-  <img src={lambGyro} alt="Lamb Gyro" />
-  </div>
-</div>
-
-
-<a className="carousel-control-prev" href="#demo" data-slide="prev">
-  <span class="carousel-control-prev-icon"></span>
-</a>
-<a className="carousel-control-next" href="#demo" data-slide="next">
-  <span className="carousel-control-next-icon"></span>
-</a>
-
-</div>
-
+          </ul>
         </div>
+        </div>
+        </div>
+  
 
 
 

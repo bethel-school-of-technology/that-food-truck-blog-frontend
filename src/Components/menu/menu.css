@@ -1,0 +1,14 @@
+ul{
+    list-style-type: none;
+}
+
+.menu-page{
+    justify-content: center;
+}
+
+img{
+    width: 300px;
+}
+.menu-list{
+    margin-left: 0px;
+}
