@@ -1,22 +1,19 @@
 import React, { Fragment, useState } from 'react';
-import { Redirect, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import './Login.css';
 import axios from 'axios';
-
 const Login = () => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
   });
-
+  const history = useHistory();
   const { email, password } = formData;
-
   const onChange = e =>
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
-
   const onSubmit = async e => {
     e.preventDefault();
     try {
@@ -35,26 +32,23 @@ const Login = () => {
         body,
         config
       );
-
       const token = res.data;
       localStorage.setItem('jwtToken', JSON.stringify(token));
       localStorage.getItem('jwtToken');
-      // <Redirect to='/home' />;
     } catch (error) {
       return alert('Invalid Credentials');
     }
   };
-
   return (
     <Fragment>
       <div className='container col-9 col-md-5 mb-3'>
-        <div class='card row justify-content-center'>
-          <div class='card-header'>
+        <div className='card row justify-content-center'>
+          <div className='card-header'>
             <div className='h3 card-title'>Admin Sign In</div>
-            <dive class='h6 card-subtitle mb-2 text-muted'>
+            <div className='h6 card-subtitle mb-2 text-muted'>
               for our amazing team only, thank you.
-              <p>username: admin1 password: 123456</p>
-            </dive>
+              <p>username: Admin1 password: 123456</p>
+            </div>
           </div>
           <div className='card-body'>
             <form onSubmit={e => onSubmit(e)}>
@@ -78,7 +72,6 @@ const Login = () => {
                   required
                 />
               </div>
-
               <div className='form-group'>
                 <label for='inputPassword'>Password</label>
                 <input
@@ -93,12 +86,15 @@ const Login = () => {
                 />
               </div>
               <div className='row'>
-                <button className='ml-3 btn-lg  btn-primary ' type='submit'>
+                <button
+                  className='ml-3 btn-lg  btn-primary '
+                  type='submit'
+                  onClick={() => {
+                    history.push('/');
+                  }}
+                >
                   Sign In
                 </button>
-                <p className='col-8 mb-3 text-muted text-right'>
-                  &copy; 2017-2020
-                </p>
               </div>
             </form>
           </div>
@@ -107,13 +103,4 @@ const Login = () => {
     </Fragment>
   );
 };
-
-// Login.propTypes = {
-//   //proptypes
-// };
-
-// const mapStateToProps = state => ({
-//   //
-// });
-
 export default Login;
