@@ -1,11 +1,15 @@
 import React, {Component} from 'react';
 import './menu.css'
+import falafelWrap from './FalafelWrap.jpg';
+import chxTacos from './grilledChxTacos.jpg';
+import kaleSalad from './kaleSalad.jpg'
+import lambGyro from './Lamb-Gyro.jpg';
 
 const SpringMenu = () => {
     return(
 
-        <div className='menu-page'>
-            <div id="demo" className="carousel slide" data-ride="carousel">
+<div className='menu-page'>
+  <div id="demo" className="carousel slide" data-ride="carousel">
 
 
 <ul className="carousel-indicators">
@@ -17,13 +21,16 @@ const SpringMenu = () => {
 
 <div className="carousel-inner">
   <div className="carousel-item active">
-    <img src="la.jpg" alt="Los Angeles" />
+    <img src={falafelWrap} alt="Falafel Wrap" />
   </div>
   <div className="carousel-item">
-    <img src="chicago.jpg" alt="Chicago" />
+    <img src={chxTacos} alt="Chicken Tacos" />
   </div>
   <div className="carousel-item">
-    <img src="ny.jpg" alt="New York" />
+    <img src={kaleSalad} alt="Kale Sald" />
+  </div>
+  <div className="carousel-item">
+  <img src={lambGyro} alt="Lamb Gyro" />
   </div>
 </div>
 
