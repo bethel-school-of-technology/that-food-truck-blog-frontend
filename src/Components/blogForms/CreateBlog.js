@@ -19,7 +19,7 @@ const CreateBlog = props => {
 
   const onSubmit = async e => {
     e.preventDefault();
-    // console.log(formData);
+    console.log(formData);
     const newBlog = {
       title,
       text,
@@ -39,7 +39,7 @@ const CreateBlog = props => {
       );
       console.log(res.data);
     } catch (err) {
-      console.error(err.res.data);
+      // console.error(err.res.data);
     }
   }
 
