@@ -53,10 +53,10 @@ const Login = () => {
         <div className='card row justify-content-center'>
           <div className='card-header'>
             <div className='h3 card-title'>Admin Sign In</div>
-            <dive className='h6 card-subtitle mb-2 text-muted'>
+            <div className='h6 card-subtitle mb-2 text-muted'>
               for our amazing team only, thank you.
               <p>username: Admin1 password: 123456</p>
-            </dive>
+            </div>
           </div>
           <div className='card-body'>
             <form onSubmit={e => onSubmit(e)}>

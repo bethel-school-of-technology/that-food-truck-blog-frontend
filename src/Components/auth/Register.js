@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { Fragment, useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 
 const Register = () => {
@@ -9,8 +9,6 @@ const Register = () => {
     password: '',
     password2: '',
   });
-
-  const history = useHistory();
 
   const { name, email, password, password2 } = formData;
 
@@ -44,33 +42,24 @@ const Register = () => {
           body,
           config
         );
+        if (res) return <Redirect to='/login' />;
+        //console.log(res.data);
       } catch (err) {
-        const errors = err.res.data;
-        if (errors) {
-          alert('Server Error');
-        } else {
-          return '';
-        }
+        console.log(err.res.data);
+        alert('Server Error');
       }
     }
   };
 
   return (
     <div className='container col-9 col-md-5 mb-3'>
-      <div className='card row justify-content-center'>
-        <div className='card-header'>
+      <div class='card row justify-content-center'>
+        <div class='card-header'>
           <div className='h3 card-title'>Create Admin</div>
-          <dive className='h6 card-subtitle mb-2 text-muted'>
-            It's that simple
-          </dive>
+          <dive class='h6 card-subtitle mb-2 text-muted'>It's that simple</dive>
         </div>
-        <div className='card-body'>
-          <form
-            className='form'
-            id='regForm'
-            method='POST'
-            onSubmit={e => onSubmit(e)}
-          >
+        <div class='card-body'>
+          <form className='form' method='POST' onSubmit={e => onSubmit(e)}>
             <div className='form-group'>
               <label for='name'>Name</label>
               <input
@@ -116,24 +105,20 @@ const Register = () => {
                 className='form-control'
                 type='password'
                 placeholder='Confirm Password'
-                minLength='6'
                 name='password2'
+                minLength='6'
+                required
                 value={password2}
                 onChange={e => onChange(e)}
-                required
               />
             </div>
-            <div>
-              <button
-                className=' btn-sm btn-primary'
-                type='submit'
-                onClick={() => {
-                  history.push('/');
-                }}
-              >
-                Register
-              </button>
-            </div>
+
+            <input
+              className='form-control'
+              type='submit'
+              className='btn-sm btn-primary'
+              value='Register'
+            ></input>
           </form>
         </div>
       </div>

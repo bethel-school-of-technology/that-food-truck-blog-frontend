@@ -21,12 +21,12 @@ const EditBlog = () => {
   const onSubmit = async e => {
     e.preventDefault();
     try {
-      //check localstoreage for jwt token
+      //check local storage for jwt token
       //get JWT token
       //input for each field.
       //title
       //text
-      //send data to backend
+      //send data to backend using put request
       //after submission send admin user to the blog/:id {this is done in the onClick assigned to the submit button}
     } catch (error) {
       return alert('error of something');
