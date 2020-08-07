@@ -89,9 +89,9 @@ const Login = () => {
                 <button
                   className='ml-3 btn-lg  btn-primary '
                   type='submit'
-                  onClick={() => {
-                    history.push('/');
-                  }}
+                  //onClick={() => {
+                  //  history.push('/');
+                //  }}
                 >
                   Sign In
                 </button>
