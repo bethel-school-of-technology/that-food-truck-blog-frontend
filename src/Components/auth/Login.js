@@ -41,9 +41,7 @@ const Login = () => {
       const token = res.data;
       localStorage.setItem('jwtToken', JSON.stringify(token));
       localStorage.getItem('jwtToken');
-      // if () {
-      //     return <Redirect to='/'/>
-      //   }
+      history.push('/');
     } catch (error) {
       return alert('Invalid Credentials');
     }
@@ -100,9 +98,6 @@ const Login = () => {
                 <button
                   className='ml-3 btn-lg  btn-primary '
                   type='submit'
-                  // onClick={() => {
-                  //   history.push('/');
-                  // }}
                 >
                   Sign In
                 </button>
