@@ -61,10 +61,10 @@ const FeaturedCards = [
 export class HomePage extends Component {
   render() {
     return (
-      <div className='container'>
+      <div className='container '>
         <div
           id='carouselExampleIndicators'
-          className='carousel slide carousel-fade'
+          className='carousel slide carousel-fade shadow-lg p-3 mb-5 bg-white rounded'
           data-ride='carousel'
         >
           <ol className='carousel-indicators'>
@@ -77,8 +77,8 @@ export class HomePage extends Component {
             <li data-target='#carouselExampleIndicators' data-slide-to='2'></li>
             <li data-target='#carouselExampleIndicators' data-slide-to='3'></li>
           </ol>
-          <div className='carousel-inner '>
-            <div className='carousel-item active' data-interval='10000'>
+          <div className='carousel-inner'>
+            <div className='carousel-item active ' data-interval='10000'>
               <img
                 src={Image1}
                 className='d-block w-100'

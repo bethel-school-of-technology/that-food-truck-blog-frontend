@@ -11,37 +11,14 @@ import Login from './Components/auth/Login';
 import Register from './Components/auth/Register';
 import CreateBlog from './Components/blogForms/CreateBlog'
 import EditBlog from './Components/blogForms/EditBlog'
+import SpringMenu from './Components/menu/SpringMenu'
+import SummerMenu from './Components/menu/SummerMenu'
 // import PrivateRoute from './Components/routing/PrivateRoute';
 
 import './App.css';
-//import setAuthToken from './Components/utils/setAuthToken';
-
-//will check for token
-// if (localStorage.token) {
-//   setAuthToken(localStorage.token);
-// }
 
 //buy creating the 
 const App = () => {
-  const [userData, setUserData] = useState({
-    token: '',
-    userAuth: false,
-  })
-
-  const { token, userAuth } = userData;
-
-  const getUser = (email, password) => {
-    var encodedURI = 'http://localhost:5000/api/auth';
-    console.log(encodedURI)
-    return axios.post(encodedURI).then(response => {
-      console.log(response.data)
-      setUserData({
-        token: response.data.toket,
-        userAuth: true
-      });
-    });
-  }
-
 
   return (
     <Router>
@@ -53,8 +30,10 @@ const App = () => {
           <Route exact path='/BlogList/:blogId' component={BlogPage} />
           <Route exact path='/BlogList' component={BlogList} />
           <Route exact path='/ContactForm' component={ContactForm} />
-          {/* below Must be Privite routes */}
-          <Route exact path='/Login' component={Login} userData={userData} />
+          {/* below Must be Private routes */}
+          <Route exact path='/SpringMenu' component={SpringMenu} />
+          <Route exact path='/SummerMenu' component={SummerMenu} />
+          <Route exact path='/Login' component={Login} />
           <Route exact path='/Register' component={Register} />
           <Route exact path='/CreateBlog' component={CreateBlog} />
           <Route exact path='/EditBlog' component={EditBlog} />
