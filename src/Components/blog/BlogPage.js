@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
 const BlogPage = () => {
   const [blogData, setBlogData] = useState({
     title: '',
@@ -38,6 +38,25 @@ const BlogPage = () => {
         <div className='card-body'>
           <p className='card-text'>{date}</p>
           <p className='card-text'> {text}</p>
+          <button
+            type='button'
+            className=' med-btn btn-primary  '
+            aria-label='Right Align'
+          >
+            <Link to={`/editBlog${blogId}`} />
+            <span className='glyphicon glyphicon-pencil'></span>edit
+          </button>
+          <button
+            type='button'
+            className=' med-btn btn-danger  '
+            aria-label='Right Align'
+          >
+            <span
+              className='glyphicon glyphicon-pencil'
+              aria-hidden='true'
+            ></span>
+            x
+          </button>
         </div>
       </div>
     </div>
