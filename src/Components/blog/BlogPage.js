@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import falafelWrap from '../../pictures/FalafelWrap.jpg';
 import chxTacos from '../../pictures/grilledChxTacos.jpg';
@@ -52,7 +51,7 @@ const BlogPage = () => {
 
       <div className="row justify-content-center">
         <div class="card  bg-dark text-center text-white col-10 ">
-          <img class="card-img" src={images[index]} alt="Card image" style={{ height: 500 }}></img>
+          <img class="card-img" src={images[index]} alt="menue item" style={{ height: 500 }}></img>
           <div class="card-img-overlay blogShadow" >
             <h5 class="card-title">{title}</h5>
             <p class="card-text">{date}</p>

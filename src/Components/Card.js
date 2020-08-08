@@ -29,7 +29,7 @@ export class Card extends Component {
                                                         <p className="card-text">{card.about}</p>
                                                     </div>
                                                     <div className="img-square-wrapper">
-                                                        <img src={card.img} className="d-block w-100" alt="this is photo one"></img>
+                                                        <img src={card.img} className="d-block w-100" alt="list item"></img>
                                                     </div>
                                                 </div>
                                             </div>
@@ -49,7 +49,7 @@ export class Card extends Component {
                                             <div className="card">
                                                 <div className="card-horizontal">
                                                     <div className="img-square-wrapper">
-                                                        <img src={card.img} className="d-block w-100" alt="this is photo one"></img>
+                                                        <img src={card.img} className="d-block w-100" alt="menue itme one"></img>
                                                     </div>
                                                     <div className="card-body">
                                                         <h5 className="card-title">{card.title}</h5>

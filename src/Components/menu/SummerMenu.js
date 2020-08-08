@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './menu.css'
 import burger from '../../pictures/classicburger.jpg';
 import friedChicken from '../../pictures/friedChxSand.jpg';
@@ -10,7 +10,7 @@ const SummerMenu = () => {
     <div className="container">
       <h1 className="text-center">SUMMER MENU</h1>
 
-      <div clasName="menu">
+      <div className="menu">
         <ul className="menu-list text-center w-100">
           <li className="menu-item row">Classic Buger..........$10</li>
           <li className="menu-item row">Crispy Chicken Sandwitch..........$12</li>

@@ -73,7 +73,7 @@ const BlogList = () => {
                         <div className="card">
                           <div className="card-horizontal">
                             <div className="img-square-wrapper col-3">
-                              <img src={images[index]} className="d-block w-100" style={{ height: 200 }} alt="this is photo one"></img>
+                              <img src={images[index]} className="d-block w-100" style={{ height: 200 }} alt="menue item"></img>
                             </div>
                             <div className="card-body">
 
