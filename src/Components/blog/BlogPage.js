@@ -31,20 +31,20 @@ const BlogPage = () => {
 
   const fetchBlogList = () => {
     var encodedURI = 'http://localhost:5000/api/posts/' + blogId;
-    console.log(encodedURI)
+    console.log(encodedURI);
     return axios.get(encodedURI).then(response => {
       // console.log(response.data)
       setBlogData({
         title: response.data.title,
         date: response.data.date,
-        text: response.data.text
+        text: response.data.text,
       });
       // console.log(blogData)
     });
   };
-
-  useEffect(() => { fetchBlogList() }, [])
-
+  useEffect(() => {
+    fetchBlogList();
+  }, []);
 
   return (
     <div className='container mb-3 '>
@@ -65,7 +65,4 @@ const BlogPage = () => {
   );
 };
 
-
 export default BlogPage;
-
-
