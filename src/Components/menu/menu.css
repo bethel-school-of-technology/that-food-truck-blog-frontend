@@ -1,28 +1,28 @@
-ul{
+ul {
     list-style-type: none;
 }
 
-h1{
+h1 {
     font-family: 'Covered By Your Grace', cursive;
     font-size: 100px;
 }
 
-.menu-item{
+.menu-item {
     font-family: 'Covered By Your Grace', cursive;
     font-size: 50px;
 }
 
 
-img{
+.food-image {
     width: 275px;
 }
-.menu-list{
+
+.menu-list {
     justify-content: center;
 }
 
-.menu-item-img{
-    display:flex;
+.menu-item-img {
+    display: flex;
     justify-content: space-around;
-    padding:50px;
+    padding: 50px;
 }
-
