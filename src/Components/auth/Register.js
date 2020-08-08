@@ -113,12 +113,9 @@ const Register = () => {
               />
             </div>
 
-            <input
-              className='form-control'
-              type='submit'
-              className='btn-sm btn-primary'
-              value='Register'
-            ></input>
+            <button className=' med-btn btn-primary' type='submit'>
+              Register
+            </button>
           </form>
         </div>
       </div>
