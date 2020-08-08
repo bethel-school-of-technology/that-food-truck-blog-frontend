@@ -8,6 +8,8 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 
 const Footer = () => {
+  const token = JSON.parse(localStorage.getItem('jwtToken')) ? JSON.parse(localStorage.getItem('jwtToken')).token : false
+
   return (
     <footer className='footer navbar-fixed-bottom'>
       <div className='container'>
@@ -80,7 +82,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link to='/Login' className='text-reset '>
-                  Login
+                  {token ? "Sign Out" : "Sign in"}
                 </Link>
               </li>
               <li>

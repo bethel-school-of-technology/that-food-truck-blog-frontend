@@ -8,6 +8,7 @@ import Footer from './Components/footer/Footer';
 import BlogPage from './Components/blog/BlogPage';
 import ContactForm from './Components/form/ContactForm';
 import Login from './Components/auth/Login';
+import SignOut from './Components/auth/SignOut';
 import Register from './Components/auth/Register';
 import CreateBlog from './Components/blogForms/CreateBlog'
 import EditBlog from './Components/blogForms/EditBlog'
@@ -34,6 +35,7 @@ const App = () => {
           <Route exact path='/SpringMenu' component={SpringMenu} />
           <Route exact path='/SummerMenu' component={SummerMenu} />
           <Route exact path='/Login' component={Login} />
+          <Route exact path='/SignOut' component={SignOut} />
           <Route exact path='/Register' component={Register} />
           <Route exact path='/CreateBlog' component={CreateBlog} />
           <Route exact path='/EditBlog/:id' component={EditBlog} />

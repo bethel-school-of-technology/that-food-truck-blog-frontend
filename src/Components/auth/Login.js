@@ -10,7 +10,15 @@ const Login = () => {
     password: '',
   });
 
+  const token = JSON.parse(localStorage.getItem('jwtToken')) ? JSON.parse(localStorage.getItem('jwtToken')).token : false
+  console.log("Login")
+  console.log(token);
+
   const history = useHistory();
+
+  if (token) {
+    history.push('/SignOut');
+  }
 
   const { email, password } = formData;
 
