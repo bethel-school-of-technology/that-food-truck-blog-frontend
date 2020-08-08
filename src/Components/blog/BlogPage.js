@@ -47,13 +47,15 @@ const BlogPage = () => {
 
 
   return (
-    <div className='container mb-3'>
-      <div class="card row bg-dark text-center text-white col-10 justify-content-center">
-        <img class="card-img" src={images[index]} alt="Card image" style={{ height: 500 }}></img>
-        <div class="card-img-overlay blogShadow" >
-          <h5 class="card-title">{title}</h5>
-          <p class="card-text">{date}</p>
-          <p class="card-text">{text}</p>
+    <div className='container mb-3 '>
+      <div className="row justify-content-center">
+        <div class="card  bg-dark text-center text-white col-10 ">
+          <img class="card-img" src={images[index]} alt="Card image" style={{ height: 500 }}></img>
+          <div class="card-img-overlay blogShadow" >
+            <h5 class="card-title">{title}</h5>
+            <p class="card-text">{date}</p>
+            <p class="card-text">{text}</p>
+          </div>
         </div>
       </div>
     </div>
