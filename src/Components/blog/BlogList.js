@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import falafelWrap from '../../pictures/FalafelWrap.jpg';
@@ -17,25 +17,33 @@ let images = [
 
 const BlogList = () => {
   const [blogListData, setBlogList] = useState({
-    blogList: []
+    blogList: [],
   });
+
+  //Get token out of LocalStorage, change it form a string into a Jason Object. Then Get the Value of the token. 
+
+  const token = JSON.parse(localStorage.getItem('jwtToken')) ? JSON.parse(localStorage.getItem('jwtToken')).token : false
+  console.log(token);
+
+
+
 
   const { blogList } = blogListData;
 
   const fetchBlogList = () => {
     var encodedURI = 'http://localhost:5000/api/posts';
-    console.log(encodedURI)
+    console.log(encodedURI);
     return axios.get(encodedURI).then(response => {
-      console.log(response.data)
+      console.log(response.data);
       setBlogList({
-        blogList: response.data
+        blogList: response.data,
       });
     });
   };
 
-  useEffect(() => { fetchBlogList() }, [])
-
-
+  useEffect(() => {
+    fetchBlogList();
+  }, []);
 
   return (
     <div className='container mb-3'>
@@ -44,13 +52,16 @@ const BlogList = () => {
           <h5 className='card-title'>Blogs</h5>
           <h6 className='card-subtitle mb-2 text-muted'>
             Come and get to know us with some of our recent blogs
-            </h6>
-          <p className='card-subtitle'>Meet the team or find our sesonal Menu!</p>
+          </h6>
+          <p className='card-subtitle'>
+            Meet the team or find our sesonal Menu!
+          </p>
         </div>
 
         <div className='list-group list-group-flush'>
           {blogList.map((blog, index) => {
             let url = "/BlogList/" + index + "/" + blog._id.toString();
+            let editUrl = "/EditBlog/" + blog._id.toString();
             let text = blog.text.substring(0, 400);
             return (
               <button className='list-group-item list-group-item-action' key={blog._id}>
@@ -60,7 +71,6 @@ const BlogList = () => {
                       <div className="col-12 mt-3">
                         <div className="card">
                           <div className="card-horizontal">
-
                             <div className="img-square-wrapper col-3">
                               <img src={images[index]} className="d-block w-100" style={{ height: 200 }} alt="this is photo one"></img>
                             </div>
@@ -71,7 +81,6 @@ const BlogList = () => {
 
                               </h6>
                               <p className='card-text' >{text}...</p>
-
                             </div>
                           </div>
                           <Link
@@ -79,6 +88,19 @@ const BlogList = () => {
                             className='card-link stretched-link'
                           ></Link>
                         </div>
+
+                        {/* if logged in return a button to edit blog */}
+                        {token ?
+                          <div class="card-footer row text-muted justify-content-center">
+                            <div className="col-2">
+                              <Link to={editUrl} clLinkss="btn text-white btn-secondary ">edit</Link>
+                            </div>
+                            <div className="col-2">
+                              <Link to={editUrl} clLinkss="btn text-white btn-secondary">Delete </Link>
+                            </div>
+                          </div>
+                          : null}
+
                       </div>
                     </div>
                   </div>
@@ -91,7 +113,6 @@ const BlogList = () => {
     </div>
 
   );
-
-}
+};
 
 export default BlogList;
