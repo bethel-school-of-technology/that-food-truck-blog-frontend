@@ -92,11 +92,11 @@ const BlogList = () => {
 
                           {/* if logged in return a button to edit blog */}
                           {token ?
-                            <div class=" row  justify-content-center m-1">
-                              <div className="col-2">
+                            <div className=" row  justify-content-center m-1">
+                              <div className="col-md-3 col-6 ">
                                 <Link to={editUrl} className="btn-sm m-3 btn-secondary">Edit</Link>
                               </div>
-                              <div className="col-2">
+                              <div className="col-lg-3 col-6">
                                 <Link to="/" className="btn-sm m-3 btn-secondary">Delete </Link>
                               </div>
                             </div>
