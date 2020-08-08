@@ -50,7 +50,7 @@ const BlogList = () => {
 
         <div className='list-group list-group-flush'>
           {blogList.map((blog, index) => {
-            let url = "/BlogList/" + blog._id.toString();
+            let url = "/BlogList/" + index + "/" + blog._id.toString();
             let text = blog.text.substring(0, 400);
             return (
               <button className='list-group-item list-group-item-action' key={blog._id}>

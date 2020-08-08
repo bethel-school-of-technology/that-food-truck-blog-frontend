@@ -27,7 +27,7 @@ const App = () => {
         <Switch>
           <Route exact path='/' component={HomePage} />
           <Route exact path='/About' component={About} />
-          <Route exact path='/BlogList/:blogId' component={BlogPage} />
+          <Route exact path='/BlogList/:index/:blogId' component={BlogPage} />
           <Route exact path='/BlogList' component={BlogList} />
           <Route exact path='/ContactForm' component={ContactForm} />
           {/* below Must be Private routes */}

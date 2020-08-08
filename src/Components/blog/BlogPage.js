@@ -1,7 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import falafelWrap from '../../pictures/FalafelWrap.jpg';
+import chxTacos from '../../pictures/grilledChxTacos.jpg';
+import kaleSalad from '../../pictures//kaleSalad.jpg'
+import lambGyro from '../../pictures/Lamb-Gyro.jpg';
+import burger from '../../pictures/classicburger.jpg';
+import friedChicken from '../../pictures/friedChxSand.jpg';
+import healthyBowl from '../../pictures/healthyBowl.jpg';
+import smoothie from '../../pictures/smoothie.jpg';
 
+import "./BlogPage.css"
+
+let images = [
+  falafelWrap, chxTacos, kaleSalad, lambGyro, burger, friedChicken, healthyBowl, smoothie,
+  falafelWrap, chxTacos, kaleSalad, lambGyro, burger, friedChicken, healthyBowl, smoothie,
+];
 
 const BlogPage = () => {
   const [blogData, setBlogData] = useState({
@@ -11,7 +25,7 @@ const BlogPage = () => {
   });
 
   const { title, date, text } = blogData;
-  let { blogId } = useParams();
+  let { blogId, index } = useParams();
   // console.log(blogId)
   // console.log(useParams())
 
@@ -33,18 +47,19 @@ const BlogPage = () => {
 
 
   return (
-    <div className="card text-center m-3">
-      <div className="card-header">
-        {title}
-      </div>
-      <div className="card-horizontal">
-        <div className="card-body">
-          <p className="card-text">{date}</p>
-          <p className="card-text"> {text}</p>
+    <div className='container mb-3'>
+      <div class="card row bg-dark text-center text-white col-10 justify-content-center">
+        <img class="card-img" src={images[index]} alt="Card image" style={{ height: 500 }}></img>
+        <div class="card-img-overlay shadow" >
+          <h5 class="card-title">{title}</h5>
+          <p class="card-text">{date}</p>
+          <p class="card-text">{text}</p>
         </div>
-
       </div>
     </div>
+
+
+
   );
 };
 
