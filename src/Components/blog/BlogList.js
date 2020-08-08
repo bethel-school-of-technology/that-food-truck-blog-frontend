@@ -20,6 +20,14 @@ const BlogList = () => {
     blogList: [],
   });
 
+  //Get token out of LocalStorage, change it form a string into a Jason Object. Then Get the Value of the token. 
+
+  const token = JSON.parse(localStorage.getItem('jwtToken')) ? JSON.parse(localStorage.getItem('jwtToken')).token : false
+  console.log(token);
+
+
+
+
   const { blogList } = blogListData;
 
   const fetchBlogList = () => {
@@ -53,6 +61,7 @@ const BlogList = () => {
         <div className='list-group list-group-flush'>
           {blogList.map((blog, index) => {
             let url = "/BlogList/" + index + "/" + blog._id.toString();
+            let editUrl = "/EditBlog/" + blog._id.toString();
             let text = blog.text.substring(0, 400);
             return (
               <button className='list-group-item list-group-item-action' key={blog._id}>
@@ -62,7 +71,6 @@ const BlogList = () => {
                       <div className="col-12 mt-3">
                         <div className="card">
                           <div className="card-horizontal">
-
                             <div className="img-square-wrapper col-3">
                               <img src={images[index]} className="d-block w-100" style={{ height: 200 }} alt="this is photo one"></img>
                             </div>
@@ -73,7 +81,6 @@ const BlogList = () => {
 
                               </h6>
                               <p className='card-text' >{text}...</p>
-
                             </div>
                           </div>
                           <Link
@@ -81,6 +88,19 @@ const BlogList = () => {
                             className='card-link stretched-link'
                           ></Link>
                         </div>
+
+                        {/* if logged in return a button to edit blog */}
+                        {token ?
+                          <div class="card-footer row text-muted justify-content-center">
+                            <div className="col-2">
+                              <Link to={editUrl} clLinkss="btn text-white btn-secondary ">edit</Link>
+                            </div>
+                            <div className="col-2">
+                              <Link to={editUrl} clLinkss="btn text-white btn-secondary">Delete </Link>
+                            </div>
+                          </div>
+                          : null}
+
                       </div>
                     </div>
                   </div>
