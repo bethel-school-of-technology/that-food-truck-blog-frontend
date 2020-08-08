@@ -53,9 +53,10 @@ const BlogList = () => {
           <h6 className='card-subtitle mb-2 text-muted'>
             Come and get to know us with some of our recent blogs
           </h6>
-          <p className='card-subtitle'>
+          <p className='card-subtitle mb-3'>
             Meet the team or find our sesonal Menu!
           </p>
+          {token ? <Link to="/CreateBlog" className="btn-md btn-secondary m-3 p-1 rounded">Create Blog</Link> : null}
         </div>
 
         <div className='list-group list-group-flush'>
@@ -87,20 +88,20 @@ const BlogList = () => {
                             to={url}
                             className='card-link stretched-link'
                           ></Link>
+
+
+                          {/* if logged in return a button to edit blog */}
+                          {token ?
+                            <div class=" row  justify-content-center m-1">
+                              <div className="col-2">
+                                <Link to={editUrl} className="btn-sm m-3 btn-secondary">Edit</Link>
+                              </div>
+                              <div className="col-2">
+                                <Link to="/" className="btn-sm m-3 btn-secondary">Delete </Link>
+                              </div>
+                            </div>
+                            : null}
                         </div>
-
-                        {/* if logged in return a button to edit blog */}
-                        {token ?
-                          <div class="card-footer row text-muted justify-content-center">
-                            <div className="col-2">
-                              <Link to={editUrl} clLinkss="btn text-white btn-secondary ">edit</Link>
-                            </div>
-                            <div className="col-2">
-                              <Link to={editUrl} clLinkss="btn text-white btn-secondary">Delete </Link>
-                            </div>
-                          </div>
-                          : null}
-
                       </div>
                     </div>
                   </div>
