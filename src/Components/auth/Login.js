@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import './Login.css';
 import axios from 'axios';
 
@@ -37,10 +38,12 @@ const Login = () => {
         body,
         config
       );
-
       const token = res.data;
       localStorage.setItem('jwtToken', JSON.stringify(token));
       localStorage.getItem('jwtToken');
+      // if () {
+      //     return <Redirect to='/'/>
+      //   }
     } catch (error) {
       return alert('Invalid Credentials');
     }

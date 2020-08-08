@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 
@@ -42,7 +42,7 @@ const Register = () => {
           body,
           config
         );
-        if (res) return <Redirect to='/login' />;
+        //if (res) return <Redirect to='/login' />;
         //console.log(res.data);
       } catch (err) {
         console.log(err.res.data);
