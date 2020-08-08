@@ -12,6 +12,7 @@ import Register from './Components/auth/Register';
 import CreateBlog from './Components/blogForms/CreateBlog'
 import EditBlog from './Components/blogForms/EditBlog'
 import SpringMenu from './Components/menu/SpringMenu'
+import SummerMenu from './Components/menu/SummerMenu'
 // import PrivateRoute from './Components/routing/PrivateRoute';
 
 import './App.css';
@@ -30,6 +31,7 @@ const App = () => {
           <Route exact path='/ContactForm' component={ContactForm} />
           {/* below Must be Private routes */}
           <Route exact path='/SpringMenu' component={SpringMenu} />
+          <Route exact path='/SummerMenu' component={SummerMenu} />
           <Route exact path='/Login' component={Login} />
           <Route exact path='/Register' component={Register} />
           <Route exact path='/CreateBlog' component={CreateBlog} />
