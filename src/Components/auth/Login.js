@@ -1,6 +1,5 @@
 import React, { Fragment, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { Redirect } from 'react-router-dom';
 import './Login.css';
 import axios from 'axios';
 
@@ -10,7 +9,15 @@ const Login = () => {
     password: '',
   });
 
+  const token = JSON.parse(localStorage.getItem('jwtToken')) ? JSON.parse(localStorage.getItem('jwtToken')).token : false
+  console.log("Login")
+  console.log(token);
+
   const history = useHistory();
+
+  if (token) {
+    history.push('/SignOut');
+  }
 
   const { email, password } = formData;
 

@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
+<<<<<<< HEAD
 import { useHistory } from 'react-router-dom';
+=======
+>>>>>>> dev
 import axios from 'axios';
 
 const CreateBlog = () => {

@@ -8,6 +8,8 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 
 const Footer = () => {
+  const token = JSON.parse(localStorage.getItem('jwtToken')) ? JSON.parse(localStorage.getItem('jwtToken')).token : false
+
   return (
     <footer className='footer navbar-fixed-bottom'>
       <div className='container'>
@@ -57,7 +59,7 @@ const Footer = () => {
           {/* column 2 */}
           <div className='col-md-4 col-sm-6'>
             <h4> Pages </h4>
-            <ul class='list-unstyled'>
+            <ul className='list-unstyled'>
               <li>
                 <Link to='/' className='text-reset '>
                   Home
@@ -80,7 +82,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link to='/Login' className='text-reset '>
-                  Login
+                  {token ? "Sign Out" : "Sign in"}
                 </Link>
               </li>
               <li>
