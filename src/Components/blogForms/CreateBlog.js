@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
-const CreateBlog = props => {
+const CreateBlog = () => {
   const [formData, setFormData] = useState({
     text: '',
     title: '',
@@ -29,7 +29,6 @@ const CreateBlog = props => {
       const config = {
         headers: {
           'Content-Type': 'application/json',
-          Authorization: 'Bearer',
         },
       };
       const body = JSON.stringify(newBlog);
