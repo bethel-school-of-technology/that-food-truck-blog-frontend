@@ -61,10 +61,10 @@ const FeaturedCards = [
 export class HomePage extends Component {
   render() {
     return (
-      <div className='container'>
+      <div className='container '>
         <div
           id='carouselExampleIndicators'
-          className='carousel slide carousel-fade'
+          className='carousel slide carousel-fade shadow-lg p-3 mb-5 bg-white rounded'
           data-ride='carousel'
         >
           <ol className='carousel-indicators'>
@@ -77,33 +77,33 @@ export class HomePage extends Component {
             <li data-target='#carouselExampleIndicators' data-slide-to='2'></li>
             <li data-target='#carouselExampleIndicators' data-slide-to='3'></li>
           </ol>
-          <div className='carousel-inner '>
-            <div className='carousel-item active' data-interval='10000'>
+          <div className='carousel-inner'>
+            <div className='carousel-item active ' data-interval='10000'>
               <img
                 src={Image1}
                 className='d-block w-100'
-                alt='this is photo one'
+                alt='carosel item one'
               ></img>
             </div>
             <div className='carousel-item' data-interval='10000'>
               <img
                 src={Image2}
                 className='d-block w-100'
-                alt='This is photo Two'
+                alt='carosel item Two'
               ></img>
             </div>
             <div className='carousel-item' data-interval='10000'>
               <img
                 src={Image3}
                 className='d-block w-100'
-                alt='This is photo Three'
+                alt='carosel item Three'
               ></img>
             </div>
             <div className='carousel-item' data-interval='10000'>
               <img
                 src={Image4}
                 className='d-block w-100'
-                alt='This is photo Four'
+                alt='carosel item Four'
               ></img>
             </div>
           </div>

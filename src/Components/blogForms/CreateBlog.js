@@ -44,14 +44,13 @@ const CreateBlog = props => {
   }
 
   return (
-
     <div className='container col-9 col-md-7 mb-3'>
       <div class='card row justify-content-center'>
         <div class='card-header'>
           <div className='h3 card-title'>Create Blog Form</div>
           <dive class='h6 card-subtitle mb-2 text-muted'>
             Create your next blog. make it Great!
-        </dive>
+          </dive>
         </div>
         <div className='card-body'>
           <form
@@ -97,13 +96,12 @@ const CreateBlog = props => {
               />
               <p className='col-8 mb-3 text-muted text-right'>
                 &copy; 2017-2020
-            </p>
+              </p>
             </div>
           </form>
         </div>
       </div>
     </div>
-
   );
 };
 

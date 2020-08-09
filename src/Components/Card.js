@@ -9,7 +9,7 @@ export class Card extends Component {
         let Cards = this.props.Cards;
         return (
 
-            <div className="card text-center m-3">
+            <div className="card text-center m-3 shadow p-3 mb-5 bg-white rounded">
                 <div className="card-header">
                     {this.props.Title}
                 </div>
@@ -18,7 +18,7 @@ export class Card extends Component {
                     //if index is odd puts piture second if even puts it last
                     if (index % 2) {
                         return (
-                            <div className="card-body">
+                            <div className="card-body ">
                                 <div className="container-fluid">
                                     <div className="row">
                                         <div className="col-12 mt-3">
@@ -29,7 +29,7 @@ export class Card extends Component {
                                                         <p className="card-text">{card.about}</p>
                                                     </div>
                                                     <div className="img-square-wrapper">
-                                                        <img src={card.img} className="d-block w-100" alt="this is photo one"></img>
+                                                        <img src={card.img} className="d-block w-100" alt="list item"></img>
                                                     </div>
                                                 </div>
                                             </div>
@@ -49,7 +49,7 @@ export class Card extends Component {
                                             <div className="card">
                                                 <div className="card-horizontal">
                                                     <div className="img-square-wrapper">
-                                                        <img src={card.img} className="d-block w-100" alt="this is photo one"></img>
+                                                        <img src={card.img} className="d-block w-100" alt="menue itme one"></img>
                                                     </div>
                                                     <div className="card-body">
                                                         <h5 className="card-title">{card.title}</h5>

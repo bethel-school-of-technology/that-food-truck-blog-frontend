@@ -8,6 +8,8 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 
 const Footer = () => {
+  const token = JSON.parse(localStorage.getItem('jwtToken')) ? JSON.parse(localStorage.getItem('jwtToken')).token : false
+
   return (
     <footer className='footer navbar-fixed-bottom'>
       <div className='container'>
@@ -31,7 +33,7 @@ const Footer = () => {
               {/*Warning: Failed prop type: The prop `to` is marked as required in `Link`, but its value is `undefined`.  */}
               <Link
                 to='https://www.facebook.com'
-                class='facebook social'
+                className='facebook social'
                 target='_blank'
               >
                 <FontAwesomeIcon icon={faFacebook} size='2x' />{' '}
@@ -39,7 +41,7 @@ const Footer = () => {
 
               <Link
                 to='https://www.twitter.com'
-                class='twitter social'
+                className='twitter social'
                 target='_blank'
               >
                 <FontAwesomeIcon icon={faTwitter} size='2x' />{' '}
@@ -47,7 +49,7 @@ const Footer = () => {
 
               <Link
                 to='https://www.Instagram.com'
-                class='instagram social'
+                className='instagram social'
                 target='_blank'
               >
                 <FontAwesomeIcon icon={faInstagram} size='2x' />{' '}
@@ -57,14 +59,42 @@ const Footer = () => {
           {/* column 2 */}
           <div className='col-md-4 col-sm-6'>
             <h4> Pages </h4>
-            <ul class='list-unstyled'>
-              <li><Link to="/" className="text-reset ">Home</Link></li>
-              <li><Link to="/About" className="text-reset ">About</Link></li>
-              <li><Link to="/BlogList" className="text-reset ">Blog</Link></li>
-              <li><Link to="/ContactForm" className="text-reset ">Contact</Link></li>
-              <li><Link to="/Login" className="text-reset ">Login</Link></li>
-              <li><Link to="/CreateBlog" className="text-reset ">Create Blog</Link></li>
-              <li><Link to="/EditBlog" className="text-reset ">Edit Blog</Link></li>
+            <ul className='list-unstyled'>
+              <li>
+                <Link to='/' className='text-reset '>
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link to='/About' className='text-reset '>
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link to='/BlogList' className='text-reset '>
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link to='/ContactForm' className='text-reset '>
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <Link to='/Login' className='text-reset '>
+                  {token ? "Sign Out" : "Sign in"}
+                </Link>
+              </li>
+              <li>
+                <Link to='/CreateBlog' className='text-reset '>
+                  Create Blog
+                </Link>
+              </li>
+              <li>
+                <Link to='/EditBlog' className='text-reset '>
+                  Edit Blog
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
