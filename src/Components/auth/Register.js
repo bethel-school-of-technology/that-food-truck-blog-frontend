@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 const Register = () => {
@@ -11,6 +11,8 @@ const Register = () => {
   });
 
   const { name, email, password, password2 } = formData;
+
+  const history = useHistory();
 
   const onChange = e =>
     setFormData({
@@ -42,8 +44,7 @@ const Register = () => {
           body,
           config
         );
-        //if (res) return <Redirect to='/login' />;
-        //console.log(res.data);
+        history.push('/');
       } catch (err) {
         console.log(err.res.data);
         alert('Server Error');
@@ -68,7 +69,6 @@ const Register = () => {
                 placeholder='Name'
                 name='name'
                 required
-                //value = {name} is associating to the name value in the state
                 value={name}
                 onChange={e => onChange(e)}
               />
