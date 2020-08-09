@@ -1,32 +1,49 @@
-import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 
-const EditBlog = props => {
-  //validate user
-  //check localstoreage for jwt token
-  //get JWT token
+const EditBlog = () => {
+  const [formData, setFormData] = useState({
+    title: '',
+    text: '',
+  });
 
-  //input for each field.
-  //title
-  //text
+  const { title, text } = formData;
 
-  //send data to backend
+  const history = useHistory();
 
-  //after submission send admin user to the blog/:id
+  const onChange = e =>
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+
+  const onSubmit = async e => {
+    e.preventDefault();
+    try {
+      //check local storage for jwt token
+      //get JWT token
+      //input for each field.
+      //title
+      //text
+      //send data to backend using put request
+      //after submission send admin user to the blog/:id {this is done in the onClick assigned to the submit button}
+    } catch (error) {
+      return alert('error of something');
+    }
+  };
 
   return (
     <div className='container col-9 col-md-7 mb-3'>
-      <div class='card row justify-content-center'>
-        <div class='card-header'>
+      <div className='card row justify-content-center'>
+        <div className='card-header'>
           <div className='h3 card-title'>Edit Blog </div>
-          <dive class='h6 card-subtitle mb-2 text-muted'>
+          <dive className='h6 card-subtitle mb-2 text-muted'>
             Lets fix this Blog!
-        </dive>
+          </dive>
         </div>
         <div className='card-body'>
-          <form
-          //  onSubmit={e => onSubmit(e)}
-          >
+          <form onSubmit={e => onSubmit(e)}>
             <img
               className='mb-4'
               src='../assets/brand/bootstrap-solid.svg'
@@ -40,9 +57,9 @@ const EditBlog = props => {
                 type='text'
                 id='title'
                 className='form-control'
-                value='This is where the old title goes'
-                // onChange={e => onChange(e)}
-                disabled
+                value={title}
+                name='title'
+                onChange={e => onChange(e)}
                 required
                 autoFocus
               />
@@ -54,22 +71,26 @@ const EditBlog = props => {
                 type='text'
                 id='body'
                 className='form-control'
-                value='This is where the old body will go'
-                disabled
-                rows="9"
-                // onChange={e => onChange(e)}
+                value={text}
+                name='text'
+                rows='9'
+                onChange={e => onChange(e)}
                 required
               />
             </div>
             <div className='row'>
-              <input
+              <button
                 className='ml-3 btn-lg  btn-primary '
                 type='submit'
-                value='Sign in'
-              />
+                onClick={() => {
+                  history.push('/blogList');
+                }}
+              >
+                Submit
+              </button>
               <p className='col-8 mb-3 text-muted text-right'>
                 &copy; 2017-2020
-            </p>
+              </p>
             </div>
           </form>
         </div>
@@ -77,7 +98,5 @@ const EditBlog = props => {
     </div>
   );
 };
-
-EditBlog.propTypes = {};
 
 export default EditBlog;

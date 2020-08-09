@@ -82,28 +82,28 @@ export class HomePage extends Component {
               <img
                 src={Image1}
                 className='d-block w-100'
-                alt='this is photo one'
+                alt='carosel item one'
               ></img>
             </div>
             <div className='carousel-item' data-interval='10000'>
               <img
                 src={Image2}
                 className='d-block w-100'
-                alt='This is photo Two'
+                alt='carosel item Two'
               ></img>
             </div>
             <div className='carousel-item' data-interval='10000'>
               <img
                 src={Image3}
                 className='d-block w-100'
-                alt='This is photo Three'
+                alt='carosel item Three'
               ></img>
             </div>
             <div className='carousel-item' data-interval='10000'>
               <img
                 src={Image4}
                 className='d-block w-100'
-                alt='This is photo Four'
+                alt='carosel item Four'
               ></img>
             </div>
           </div>

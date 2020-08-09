@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './menu.css'
 import falafelWrap from '../../pictures/FalafelWrap.jpg';
 import chxTacos from '../../pictures/grilledChxTacos.jpg';
@@ -10,7 +10,7 @@ const SpringMenu = () => {
     <div className="container">
       <h1 className="text-center">SPRING MENU</h1>
 
-      <div clasName="menu">
+      <div className="menu">
         <ul className="menu-list text-center w-100">
           <li className="menu-item row">Falafel Wrap..........$10</li>
           <li className="menu-item row">Chicken Tacos..........$8</li>

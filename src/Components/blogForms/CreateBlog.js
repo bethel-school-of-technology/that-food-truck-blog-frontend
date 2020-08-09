@@ -1,33 +1,59 @@
-import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+import axios from 'axios';
 
 const CreateBlog = props => {
-  //validate user
+  const [formData, setFormData] = useState({
+    text: '',
+    title: '',
+  });
 
-  //check localstoreage for jwt token
+  const { title, text } = formData;
 
-  //get JWT token
+  const onChange = e =>
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
 
-  // input fields for title and text
+  const onSubmit = async e => {
+    e.preventDefault();
+    // console.log(formData);
+    const newBlog = {
+      title,
+      text,
+    };
 
-  //refer to register page for submission to backend
-
-  //after sumbission send admin user to /bloglist
+    try {
+      //this is an authorized only route must bring in token from localstorage
+      const config = {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: 'Bearer',
+        },
+      };
+      const body = JSON.stringify(newBlog);
+      const res = await axios.post(
+        'http://localhost:5000/api/posts',
+        body,
+        config
+      );
+      console.log(res.data);
+    } catch (err) {
+      console.error(err.res.data);
+    }
+  };
 
   return (
-
     <div className='container col-9 col-md-7 mb-3'>
       <div class='card row justify-content-center'>
         <div class='card-header'>
           <div className='h3 card-title'>Create Blog Form</div>
           <dive class='h6 card-subtitle mb-2 text-muted'>
             Create your next blog. make it Great!
-        </dive>
+          </dive>
         </div>
         <div className='card-body'>
-          <form
-          //  onSubmit={e => onSubmit(e)}
-          >
+          <form onSubmit={e => onSubmit(e)}>
             <img
               className='mb-4'
               src='../assets/brand/bootstrap-solid.svg'
@@ -42,7 +68,9 @@ const CreateBlog = props => {
                 id='title'
                 className='form-control'
                 placeholder='Title'
-                // onChange={e => onChange(e)}
+                name='title'
+                value={title}
+                onChange={e => onChange(e)}
                 required
                 autoFocus
               />
@@ -55,8 +83,10 @@ const CreateBlog = props => {
                 id='body'
                 className='form-control'
                 placeholder='Body'
-                rows="9"
-                // onChange={e => onChange(e)}
+                name='text'
+                value={text}
+                rows='9'
+                onChange={e => onChange(e)}
                 required
               />
             </div>
@@ -64,17 +94,16 @@ const CreateBlog = props => {
               <input
                 className='ml-3 btn-lg  btn-primary '
                 type='submit'
-                value='Sign in'
+                value='Create Blog'
               />
               <p className='col-8 mb-3 text-muted text-right'>
                 &copy; 2017-2020
-            </p>
+              </p>
             </div>
           </form>
         </div>
       </div>
     </div>
-
   );
 };
 
