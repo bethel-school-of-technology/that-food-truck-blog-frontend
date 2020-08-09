@@ -1,14 +1,22 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 const CreateBlog = () => {
+  const user = JSON.parse(localStorage.getItem('user'));
+  //const user = JSON.parse(localStorage.getItem('user'));
+  // is for getting the token from storage...i think
+
+  //console.log(user);
   const [formData, setFormData] = useState({
     text: '',
     title: '',
   });
 
   const { title, text } = formData;
+
+  const history = useHistory();
+  // const history = useHistory(); is for redirect to whatever page you would like
 
   const onChange = e =>
     setFormData({
@@ -24,22 +32,29 @@ const CreateBlog = () => {
       text,
     };
 
-    try {
-      //this is an authorized only route must bring in token from localstorage
-      const config = {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      };
-      const body = JSON.stringify(newBlog);
-      const res = await axios.post(
-        'http://localhost:5000/api/posts',
-        body,
-        config
-      );
-      console.log(res.data);
-    } catch (err) {
-      console.error(err.res.data);
+    if (!user) {
+      //if there is NOT(!) a user
+
+      alert('not authorized');
+    } else {
+      try {
+        const config = {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: localStorage.getItem('user'),
+          },
+        };
+        const body = JSON.stringify(newBlog);
+        const res = await axios.post(
+          'http://localhost:5000/api/posts',
+          body,
+          config
+        );
+        history.push('/bloglist');
+        console.log(res.data);
+      } catch (err) {
+        console.error(err.res.data);
+      }
     }
   };
 
@@ -68,6 +83,7 @@ const CreateBlog = () => {
                 id='title'
                 className='form-control'
                 placeholder='Title'
+                //for the onchange to work you must have the name and value properties
                 name='title'
                 value={title}
                 onChange={e => onChange(e)}
