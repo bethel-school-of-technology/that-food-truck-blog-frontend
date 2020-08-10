@@ -14,6 +14,8 @@ import CreateBlog from './Components/blogForms/CreateBlog'
 import EditBlog from './Components/blogForms/EditBlog'
 import SpringMenu from './Components/menu/SpringMenu'
 import SummerMenu from './Components/menu/SummerMenu'
+import WinterMenu from './Components/menu/WinterMenu'
+import FallMenu from './Components/menu/FallMenu'
 // import PrivateRoute from './Components/routing/PrivateRoute';
 
 import './App.css';
@@ -34,11 +36,14 @@ const App = () => {
           {/* below Must be Private routes */}
           <Route exact path='/SpringMenu' component={SpringMenu} />
           <Route exact path='/SummerMenu' component={SummerMenu} />
+          <Route exact path='/WinterMenu' component={WinterMenu} />
+          <Route exact path='/FallMenu' component={FallMenu} />
           <Route exact path='/Login' component={Login} />
           <Route exact path='/SignOut' component={SignOut} />
           <Route exact path='/Register' component={Register} />
           <Route exact path='/CreateBlog' component={CreateBlog} />
           <Route exact path='/EditBlog/:id' component={EditBlog} />
+      
           {/* <Route exact path='/Create-blog' component={Register} />
           <Route exact path='/Edit-blog' component={Register} /> */}
         </Switch>
