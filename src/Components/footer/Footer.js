@@ -6,12 +6,12 @@ import {
   faTwitter,
   faInstagram,
 } from '@fortawesome/free-brands-svg-icons';
-
+import './footer.css'
 const Footer = () => {
   const token = JSON.parse(localStorage.getItem('jwtToken')) ? JSON.parse(localStorage.getItem('jwtToken')).token : false
 
   return (
-    <footer className='footer navbar-fixed-bottom'>
+    <footer className='footer navbar-fixed-bottom d-flex justify-content-center text-center'>
       <div className='container'>
         <div className='row'>
           {/* column 1 */}
