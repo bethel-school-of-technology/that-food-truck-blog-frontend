@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+//import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 const EditBlog = () => {
@@ -10,7 +10,10 @@ const EditBlog = () => {
 
   const { title, text } = formData;
 
-  const history = useHistory();
+  //const history = useHistory();
+
+  const token = JSON.parse(localStorage.getItem('jwtToken')) ? JSON.parse(localStorage.getItem('jwtToken')).token : false
+  console.log(token);
 
   const onChange = e =>
     setFormData({
@@ -20,9 +23,31 @@ const EditBlog = () => {
 
   const onSubmit = async e => {
     e.preventDefault();
+
+    if(!token){
+      alert('UNAUTHORIZED');
+    } else{
+
+    const updateBlog={
+      title,
+      text,
+    }
+
     try {
-      //check local storage for jwt token
-      //get JWT token
+      const config = {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      };
+      const body = JSON.stringify(updateBlog);
+      const res = await axios.put(
+        'http://localhost:5000/api/posts/:id',
+        body,
+        config
+      );
+      //history.push('/');
+      console.log(res.data);
+     
       //input for each field.
       //title
       //text
@@ -31,6 +56,7 @@ const EditBlog = () => {
     } catch (error) {
       return alert('error of something');
     }
+  }
   };
 
   return (
@@ -82,9 +108,6 @@ const EditBlog = () => {
               <button
                 className='ml-3 btn-lg  btn-primary '
                 type='submit'
-                onClick={() => {
-                  history.push('/blogList');
-                }}
               >
                 Submit
               </button>
