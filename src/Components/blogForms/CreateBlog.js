@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
-const CreateBlog = props => {
+const CreateBlog = () => {
   const [formData, setFormData] = useState({
     text: '',
     title: '',
@@ -15,7 +15,8 @@ const CreateBlog = props => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
-    });
+    }); 
+    ///refers to the name attribute and value of the attribute being passed to it
 
   const onSubmit = async e => {
     e.preventDefault();
@@ -39,7 +40,7 @@ const CreateBlog = props => {
       );
       console.log(res.data);
     } catch (err) {
-      // console.error(err.res.data);
+      console.error(err.res);
     }
   }
 
@@ -71,6 +72,8 @@ const CreateBlog = props => {
                 id='title'
                 className='form-control'
                 placeholder='Title'
+                value={title}
+                name='title'
                 onChange={e => onChange(e)}
                 required
                 autoFocus
@@ -85,6 +88,8 @@ const CreateBlog = props => {
                 className='form-control'
                 placeholder='Body'
                 rows="9"
+                value={text}
+                name='text'
                 onChange={e => onChange(e)}
                 required
               />
