@@ -8,7 +8,7 @@ class Header extends Component {
     return (
       <div className='container-fluid'>
         <nav className='navbar navbar-expand-lg navbar-light  '>
-          <img width='100' height='100' src={logo} alt='logo' />
+          <img  src={logo} alt='logo' />
           <button
             className='navbar-toggler'
             type='button'
@@ -58,16 +58,16 @@ class Header extends Component {
                   className='dropdown-menu'
                   aria-labelledby='dropdownMenuButton'
                 >
-                  <Link className='dropdown-item' to='#'>
+                  <Link className='dropdown-item' to='/SpringMenu'>
                     SPRING
                   </Link>
-                  <Link className='dropdown-item' to='#'>
+                  <Link className='dropdown-item' to='/SummerMenu'>
                     SUMMER
                   </Link>
-                  <Link className='dropdown-item' to='#'>
+                  <Link className='dropdown-item' to='/FallMenu'>
                     FALL
                   </Link>
-                  <Link className='dropdown-item' to='#'>
+                  <Link className='dropdown-item' to='/WinterMenu'>
                     WINTER
                   </Link>
                 </div>

@@ -45,14 +45,18 @@ const CreateBlog = () => {
   }
 
   return (
-
     <div className='container col-9 col-md-7 mb-3'>
       <div class='card row justify-content-center'>
         <div class='card-header'>
           <div className='h3 card-title'>Create a New Blog Form</div>
           <dive class='h6 card-subtitle mb-2 text-muted'>
+<<<<<<< HEAD
             Create a blog here!
         </dive>
+=======
+            Create your next blog. make it Great!
+          </dive>
+>>>>>>> 678ee04e0103e73990e501746961781e01d3c46a
         </div>
         <div className='card-body'>
           <form
@@ -102,13 +106,12 @@ const CreateBlog = () => {
               />
               <p className='col-8 mb-3 text-muted text-right'>
                 &copy; 2017-2020
-            </p>
+              </p>
             </div>
           </form>
         </div>
       </div>
     </div>
-
   );
 };
 

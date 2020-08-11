@@ -1,9 +1,7 @@
-import React, { Fragment, useEffect, useState } from 'react';
-//import PropTypes from 'prop-types';
+import React, { Fragment, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import './Login.css';
 import axios from 'axios';
-// import setAuthToken from '../utils/setAuthToken';
-// import jwt_decode from 'jwt-decode';
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -11,31 +9,17 @@ const Login = () => {
     password: '',
   });
 
+  const token = JSON.parse(localStorage.getItem('jwtToken')) ? JSON.parse(localStorage.getItem('jwtToken')).token : false
+  console.log("Login")
+  console.log(token);
+
+  const history = useHistory();
+
+  if (token) {
+    history.push('/SignOut');
+  }
+
   const { email, password } = formData;
-
-  // authenticate user
-
-  // Get the JWT token
-
-  //store jwt token in localStorage
-
-  //give user access to protected routes createBlog, editBlog, register
-
-  const onSubmit = async e => {
-    e.preventDefault();
-    try {
-      await axios
-        .post('http://localhost:5000/api/auth', {
-          headers: { Authorization: localStorage.getItem('jwtToken') },
-        })
-        .then(response => console.log(response))
-        .catch(error => console.log(error));
-
-      // // console.log(res.data);
-    } catch (err) {
-      console.error(err.res.data);
-    }
-  };
 
   const onChange = e =>
     setFormData({
@@ -43,20 +27,46 @@ const Login = () => {
       [e.target.name]: e.target.value,
     });
 
+  const onSubmit = async e => {
+    e.preventDefault();
+    try {
+      const loginUser = {
+        email,
+        password,
+      };
+      const config = {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      };
+      const body = JSON.stringify(loginUser);
+      const res = await axios.post(
+        'http://localhost:5000/api/auth',
+        body,
+        config
+      );
+      const token = res.data;
+      localStorage.setItem('jwtToken', JSON.stringify(token));
+      localStorage.getItem('jwtToken');
+      history.push('/');
+    } catch (error) {
+      return alert('Invalid Credentials');
+    }
+  };
+
   return (
     <Fragment>
       <div className='container col-9 col-md-5 mb-3'>
-        <div class='card row justify-content-center'>
-          <div class='card-header'>
+        <div className='card row justify-content-center'>
+          <div className='card-header'>
             <div className='h3 card-title'>Admin Sign In</div>
-            <dive class='h6 card-subtitle mb-2 text-muted'>
+            <div className='h6 card-subtitle mb-2 text-muted'>
               for our amazing team only, thank you.
-            </dive>
+              <p>username: Admin1 password: 123456</p>
+            </div>
           </div>
           <div className='card-body'>
-            <form
-            //  onSubmit={e => onSubmit(e)}
-            >
+            <form onSubmit={e => onSubmit(e)}>
               <img
                 className='mb-4'
                 src='../assets/brand/bootstrap-solid.svg'
@@ -71,9 +81,10 @@ const Login = () => {
                   id='inputEmail'
                   className='form-control'
                   placeholder='Email address'
+                  name='email'
+                  value={email}
                   onChange={e => onChange(e)}
                   required
-                  autoFocus
                 />
               </div>
 
@@ -84,19 +95,19 @@ const Login = () => {
                   id='inputPassword'
                   className='form-control'
                   placeholder='Password'
+                  name='password'
+                  value={password}
                   onChange={e => onChange(e)}
                   required
                 />
               </div>
               <div className='row'>
-                <input
+                <button
                   className='ml-3 btn-lg  btn-primary '
                   type='submit'
-                  value='Sign in'
-                />
-                <p className='col-8 mb-3 text-muted text-right'>
-                  &copy; 2017-2020
-                </p>
+                >
+                  Sign In
+                </button>
               </div>
             </form>
           </div>
@@ -105,13 +116,5 @@ const Login = () => {
     </Fragment>
   );
 };
-
-// Login.propTypes = {
-//   //proptypes
-// };
-
-// const mapStateToProps = state => ({
-//   //
-// });
 
 export default Login;
