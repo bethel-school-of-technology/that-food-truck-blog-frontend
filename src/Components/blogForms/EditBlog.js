@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
@@ -8,11 +8,9 @@ const EditBlog = () => {
     text: '',
   });
 
-  //Get User token from Local Storage and set it to token
-  const token = JSON.parse(localStorage.getItem('jwtToken')) ? JSON.parse(localStorage.getItem('jwtToken')).token : false
-  //log Create Blog then log the token to the console 
-  console.log("Create Blog")
-  console.log(token);
+  const token = JSON.parse(localStorage.getItem('jwtToken'))
+    ? JSON.parse(localStorage.getItem('jwtToken')).token
+    : false;
 
   const history = useHistory();
   //If no token is found redirect user to Home Page
@@ -34,17 +32,17 @@ const EditBlog = () => {
     if (!token) {
       alert('UNAUTHORIZED');
     } else {
-
       const updateBlog = {
         title,
         text,
-      }
-
+      };
       try {
+        //
+        //
         const config = {
           headers: {
             'Content-Type': 'application/json',
-            'token': token
+            token: token,
           },
         };
         const body = JSON.stringify(updateBlog);
@@ -55,14 +53,13 @@ const EditBlog = () => {
         );
         //history.push('/');
         console.log(res.data);
-
-        //input for each field.
-        //title
-        //text
-        //send data to backend using put request
-        //after submission send admin user to the blog/:id {this is done in the onClick assigned to the submit button}
+        //
+        //
+        //
       } catch (error) {
+        console.log(error);
         return alert('error of something');
+        //------------this error is getting triggered so the error is in the try above---------------------
       }
     }
   };
@@ -72,10 +69,11 @@ const EditBlog = () => {
       <div className='card row justify-content-center'>
         <div className='card-header'>
           <div className='h3 card-title'>Edit Blog </div>
-          <dive className='h6 card-subtitle mb-2 text-muted'>
+          <div className='h6 card-subtitle mb-2 text-muted'>
             Lets fix this Blog!
-          </dive>
+          </div>
         </div>
+
         <div className='card-body'>
           <form onSubmit={e => onSubmit(e)}>
             <img
@@ -113,10 +111,7 @@ const EditBlog = () => {
               />
             </div>
             <div className='row'>
-              <button
-                className='ml-3 btn-lg  btn-primary '
-                type='submit'
-              >
+              <button className='ml-3 btn-lg  btn-primary ' type='submit'>
                 Submit
               </button>
               <p className='col-8 mb-3 text-muted text-right'>
