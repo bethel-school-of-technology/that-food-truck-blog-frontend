@@ -22,11 +22,6 @@ const EditBlog = () => {
 
   const { title, text } = formData;
 
-  //const history = useHistory();
-
-  const token = JSON.parse(localStorage.getItem('jwtToken')) ? JSON.parse(localStorage.getItem('jwtToken')).token : false
-  console.log(token);
-
   const onChange = e =>
     setFormData({
       ...formData,
@@ -49,6 +44,7 @@ const EditBlog = () => {
         const config = {
           headers: {
             'Content-Type': 'application/json',
+            'token': token
           },
         };
         const body = JSON.stringify(updateBlog);
