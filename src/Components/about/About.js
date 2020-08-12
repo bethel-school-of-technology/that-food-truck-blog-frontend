@@ -7,7 +7,7 @@ import Mitch from '../../pictures/mitch.png';
 
 const About = () => {
   return (
-    <div className='About container'>
+    <div className='About container shadow-lg p-3 mb-5 bg-white rounded'>
       <div className='card justify-content-center'>
         <h2 className='Mission text-center'> Our Mission </h2>
         <p className='card-body mb-2'>
