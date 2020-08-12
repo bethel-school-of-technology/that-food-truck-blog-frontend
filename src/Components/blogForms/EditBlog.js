@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-//import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 const EditBlog = () => {
@@ -7,6 +7,18 @@ const EditBlog = () => {
     title: '',
     text: '',
   });
+
+  //Get User token from Local Storage and set it to token
+  const token = JSON.parse(localStorage.getItem('jwtToken')) ? JSON.parse(localStorage.getItem('jwtToken')).token : false
+  //log Create Blog then log the token to the console 
+  console.log("Create Blog")
+  console.log(token);
+
+  const history = useHistory();
+  //If no token is found redirect user to Home Page
+  if (!token) {
+    history.push('/');
+  }
 
   const { title, text } = formData;
 
@@ -24,39 +36,39 @@ const EditBlog = () => {
   const onSubmit = async e => {
     e.preventDefault();
 
-    if(!token){
+    if (!token) {
       alert('UNAUTHORIZED');
-    } else{
+    } else {
 
-    const updateBlog={
-      title,
-      text,
-    }
+      const updateBlog = {
+        title,
+        text,
+      }
 
-    try {
-      const config = {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      };
-      const body = JSON.stringify(updateBlog);
-      const res = await axios.put(
-        'http://localhost:5000/api/posts/:id',
-        body,
-        config
-      );
-      //history.push('/');
-      console.log(res.data);
-     
-      //input for each field.
-      //title
-      //text
-      //send data to backend using put request
-      //after submission send admin user to the blog/:id {this is done in the onClick assigned to the submit button}
-    } catch (error) {
-      return alert('error of something');
+      try {
+        const config = {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        };
+        const body = JSON.stringify(updateBlog);
+        const res = await axios.put(
+          'http://localhost:5000/api/posts/:id',
+          body,
+          config
+        );
+        //history.push('/');
+        console.log(res.data);
+
+        //input for each field.
+        //title
+        //text
+        //send data to backend using put request
+        //after submission send admin user to the blog/:id {this is done in the onClick assigned to the submit button}
+      } catch (error) {
+        return alert('error of something');
+      }
     }
-  }
   };
 
   return (

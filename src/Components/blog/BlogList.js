@@ -25,9 +25,6 @@ const BlogList = () => {
   const token = JSON.parse(localStorage.getItem('jwtToken')) ? JSON.parse(localStorage.getItem('jwtToken')).token : false
   console.log(token);
 
-
-
-
   const { blogList } = blogListData;
 
   const fetchBlogList = () => {
