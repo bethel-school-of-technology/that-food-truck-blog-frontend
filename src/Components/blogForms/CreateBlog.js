@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
@@ -8,6 +9,19 @@ const CreateBlog = () => {
     title: '',
   });
 
+  //Get User token from Local Storage and set it to token
+  const token = JSON.parse(localStorage.getItem('jwtToken')) ? JSON.parse(localStorage.getItem('jwtToken')).token : false
+  //log Create Blog then log the token to the console 
+  console.log("Create Blog")
+  console.log(token);
+
+  const history = useHistory();
+  //If no token is found redirect user to Home Page
+  if (!token) {
+    history.push('/');
+  }
+
+
 
   const { title, text } = formData;
 
@@ -15,8 +29,10 @@ const CreateBlog = () => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
-    }); 
-    ///refers to the name attribute and value of the attribute being passed to it
+    });
+
+
+  ///refers to the name attribute and value of the attribute being passed to it
 
   const onSubmit = async e => {
     e.preventDefault();
@@ -50,13 +66,8 @@ const CreateBlog = () => {
         <div class='card-header'>
           <div className='h3 card-title'>Create a New Blog Form</div>
           <dive class='h6 card-subtitle mb-2 text-muted'>
-<<<<<<< HEAD
-            Create a blog here!
-        </dive>
-=======
             Create your next blog. make it Great!
           </dive>
->>>>>>> 678ee04e0103e73990e501746961781e01d3c46a
         </div>
         <div className='card-body'>
           <form
