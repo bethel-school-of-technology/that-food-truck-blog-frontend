@@ -59,7 +59,7 @@ const CreateBlog = () => {
   };
 
   return (
-    <div className='container col-9 col-md-7 mb-3'>
+    <div className='container col-9 col-md-7 mb-3 shadow-lg  bg-white rounded'>
       <div className='card row justify-content-center'>
         <div className='card-header'>
           <div className='h3 card-title'>Create Blog Form</div>

@@ -79,7 +79,7 @@ const BlogList = () => {
           ) : null}
         </div>
 
-        <div className='list-group list-group-flush'>
+        <div className='list-group list-group-flush shadow-lg p-3  bg-white rounded '>
           {blogList.map((blog, index) => {
             let url = '/BlogList/' + index + '/' + blog._id.toString();
             let editUrl = '/EditBlog/' + blog._id.toString();

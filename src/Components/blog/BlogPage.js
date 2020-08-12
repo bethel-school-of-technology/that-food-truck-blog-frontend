@@ -63,7 +63,7 @@ const BlogPage = () => {
   return (
     <div className='container mb-3 '>
       <div className='row justify-content-center'>
-        <div className='card  bg-dark text-center text-white col-10 '>
+        <div className='card  bg-dark text-center text-white col-10  '>
           <img
             className='card-img'
             src={images[index]}
