@@ -10,17 +10,19 @@ import ContactForm from './Components/form/ContactForm';
 import Login from './Components/auth/Login';
 import SignOut from './Components/auth/SignOut';
 import Register from './Components/auth/Register';
-import CreateBlog from './Components/blogForms/CreateBlog'
-import EditBlog from './Components/blogForms/EditBlog'
-import SpringMenu from './Components/menu/SpringMenu'
-import SummerMenu from './Components/menu/SummerMenu'
+import CreateBlog from './Components/blogForms/CreateBlog';
+import EditBlog from './Components/blogForms/EditBlog';
+import SpringMenu from './Components/menu/SpringMenu';
+import SummerMenu from './Components/menu/SummerMenu';
+import FallMenu from './Components/menu/FallMenu';
+import WinterMenu from './Components/menu/WinterMenu';
+
 // import PrivateRoute from './Components/routing/PrivateRoute';
 
 import './App.css';
 
-//buy creating the 
+//buy creating the
 const App = () => {
-
   return (
     <Router>
       <Fragment>
@@ -34,6 +36,8 @@ const App = () => {
           {/* below Must be Private routes */}
           <Route exact path='/SpringMenu' component={SpringMenu} />
           <Route exact path='/SummerMenu' component={SummerMenu} />
+          <Route exact path='/FallMenu' component={FallMenu} />
+          <Route exact path='/WinterMenu' component={WinterMenu} />
           <Route exact path='/Login' component={Login} />
           <Route exact path='/SignOut' component={SignOut} />
           <Route exact path='/Register' component={Register} />
