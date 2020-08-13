@@ -3,9 +3,9 @@ import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 const CreateBlog = () => {
-  const user = JSON.parse(localStorage.getItem('user'));
-  //const user = JSON.parse(localStorage.getItem('user'));
-  // is for getting the token from storage...i think
+  const token = JSON.parse(localStorage.getItem('jwtToken'))
+    ? JSON.parse(localStorage.getItem('jwtToken')).token
+    : false;
 
   //console.log(user);
   const [formData, setFormData] = useState({
@@ -27,21 +27,20 @@ const CreateBlog = () => {
   const onSubmit = async e => {
     e.preventDefault();
     // console.log(formData);
-    const newBlog = {
-      title,
-      text,
-    };
 
-    if (!user) {
+    if (!token) {
       //if there is NOT(!) a user
 
       alert('not authorized');
     } else {
       try {
+        const newBlog = {
+          title,
+          text,
+        };
         const config = {
           headers: {
             'Content-Type': 'application/json',
-            Authorization: localStorage.getItem('user'),
           },
         };
         const body = JSON.stringify(newBlog);
@@ -53,7 +52,7 @@ const CreateBlog = () => {
         history.push('/bloglist');
         console.log(res.data);
       } catch (err) {
-        console.error(err.res.data);
+        console.log(err);
       }
     }
   };

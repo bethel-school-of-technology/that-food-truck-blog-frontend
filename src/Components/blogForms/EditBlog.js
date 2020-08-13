@@ -37,10 +37,14 @@ const EditBlog = () => {
         text,
       };
       try {
+        //stringify token
+        //pull id frmom url
+        //
+
         const config = {
           headers: {
             'Content-Type': 'application/json',
-            token: token,
+            token: JSON.stringify(token),
           },
         };
         const body = JSON.stringify(updateBlog);
@@ -67,7 +71,13 @@ const EditBlog = () => {
     if (!token) {
       alert('unauthorized');
     } else {
-      const headers = {
+      //get token
+      //stringify token ?
+      //get id from post
+      //config
+      //body stringify post
+
+      const config = {
         Authorization: 'token',
       };
       const body = {
@@ -75,7 +85,7 @@ const EditBlog = () => {
       };
 
       const res = await axios.delete('http://localhost:5000/api/posts/:id', {
-        headers,
+        config,
         body,
       });
     }

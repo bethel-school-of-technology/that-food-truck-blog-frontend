@@ -25,13 +25,11 @@ const Register = () => {
     if (password !== password2) {
       alert('passwords do not match', 'danger');
     } else {
-      // console.log(formData);
       const newUser = {
         name,
         email,
         password,
       };
-
       try {
         const config = {
           headers: {
@@ -46,7 +44,6 @@ const Register = () => {
         );
         history.push('/');
       } catch (err) {
-        console.log(err.res.data);
         alert('Server Error');
       }
     }
