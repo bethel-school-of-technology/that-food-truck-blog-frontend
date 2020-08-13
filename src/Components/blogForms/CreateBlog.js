@@ -8,6 +8,8 @@ const CreateBlog = () => {
     title: '',
   });
 
+  const token = JSON.parse(localStorage.getItem('jwtToken')) ? JSON.parse(localStorage.getItem('jwtToken')).token : false
+  console.log(token);
 
   const { title, text } = formData;
 
@@ -15,8 +17,8 @@ const CreateBlog = () => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
-    }); 
-    ///refers to the name attribute and value of the attribute being passed to it
+    });
+  ///refers to the name attribute and value of the attribute being passed to it
 
   const onSubmit = async e => {
     e.preventDefault();
@@ -30,6 +32,7 @@ const CreateBlog = () => {
       const config = {
         headers: {
           'Content-Type': 'application/json',
+          token: token
         },
       };
       const body = JSON.stringify(newBlog);
@@ -49,14 +52,9 @@ const CreateBlog = () => {
       <div class='card row justify-content-center'>
         <div class='card-header'>
           <div className='h3 card-title'>Create a New Blog Form</div>
-          <dive class='h6 card-subtitle mb-2 text-muted'>
-<<<<<<< HEAD
+          <div class='h6 card-subtitle mb-2 text-muted'>
             Create a blog here!
-        </dive>
-=======
-            Create your next blog. make it Great!
-          </dive>
->>>>>>> 678ee04e0103e73990e501746961781e01d3c46a
+        </div>
         </div>
         <div className='card-body'>
           <form
