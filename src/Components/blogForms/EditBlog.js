@@ -47,7 +47,7 @@ const EditBlog = () => {
         const config = {
           headers: {
             'Content-Type': 'application/json',
-            token: JSON.stringify(token),
+            'x-auth-token': token
           },
         };
         const body = JSON.stringify(updateBlog);
