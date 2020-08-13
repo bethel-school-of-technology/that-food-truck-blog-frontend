@@ -91,7 +91,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to='/EditBlog' className='text-reset '>
+                <Link to='/EditBlog/3' className='text-reset '>
                   Edit Blog
                 </Link>
               </li>

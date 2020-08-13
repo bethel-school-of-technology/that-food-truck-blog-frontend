@@ -12,6 +12,9 @@ const EditBlog = () => {
     ? JSON.parse(localStorage.getItem('jwtToken')).token
     : false;
 
+  console.log("Edit blog");
+  console.log(token);
+
   const history = useHistory();
   //If no token is found redirect user to Home Page
   if (!token) {

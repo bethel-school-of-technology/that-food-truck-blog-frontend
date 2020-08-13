@@ -18,6 +18,10 @@ const CreateBlog = () => {
   const history = useHistory();
   // const history = useHistory(); is for redirect to whatever page you would like
 
+  if (!token) {
+    history.push('/');
+  }
+
   const onChange = e =>
     setFormData({
       ...formData,
@@ -26,13 +30,13 @@ const CreateBlog = () => {
 
   const onSubmit = async e => {
     e.preventDefault();
-    // console.log(formData);
+    console.log(formData);
 
     if (!token) {
       //if there is NOT(!) a user
-
       alert('not authorized');
     } else {
+
       try {
         const newBlog = {
           title,
@@ -41,6 +45,7 @@ const CreateBlog = () => {
         const config = {
           headers: {
             'Content-Type': 'application/json',
+            'x-auth-token': token
           },
         };
         const body = JSON.stringify(newBlog);
@@ -49,8 +54,10 @@ const CreateBlog = () => {
           body,
           config
         );
-        history.push('/bloglist');
-        console.log(res.data);
+        console.log(res.data._id);
+        let id = res.data._id;
+        let url = "/BlogList/7/" + id
+        history.push(url);
       } catch (err) {
         console.log(err);
       }
