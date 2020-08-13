@@ -132,13 +132,13 @@ const EditBlog = () => {
                 Submit
               </button>
 
-              <button className='ml-3 btn-lg  btn-danger ' type='Delete'>
+              <button
+                onDelete={e => onDelete(e)}
+                className='ml-3 btn-lg  btn-danger '
+                type='submit'
+              >
                 Delete
               </button>
-
-              <p className='col-8 mb-3 text-muted text-right'>
-                &copy; 2017-2020
-              </p>
             </div>
           </form>
         </div>
