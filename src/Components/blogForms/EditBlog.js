@@ -37,8 +37,6 @@ const EditBlog = () => {
         text,
       };
       try {
-        //
-        //
         const config = {
           headers: {
             'Content-Type': 'application/json',
@@ -61,6 +59,25 @@ const EditBlog = () => {
         return alert('error of something');
         //------------this error is getting triggered so the error is in the try above---------------------
       }
+    }
+  };
+
+  const onDelete = async e => {
+    e.preventDefault();
+    if (!token) {
+      alert('unauthorized');
+    } else {
+      const headers = {
+        Authorization: 'token',
+      };
+      const body = {
+        foo: 'bar',
+      };
+
+      const res = await axios.delete('http://localhost:5000/api/posts/:id', {
+        headers,
+        body,
+      });
     }
   };
 
@@ -114,6 +131,11 @@ const EditBlog = () => {
               <button className='ml-3 btn-lg  btn-primary ' type='submit'>
                 Submit
               </button>
+
+              <button className='ml-3 btn-lg  btn-danger ' type='Delete'>
+                Delete
+              </button>
+
               <p className='col-8 mb-3 text-muted text-right'>
                 &copy; 2017-2020
               </p>

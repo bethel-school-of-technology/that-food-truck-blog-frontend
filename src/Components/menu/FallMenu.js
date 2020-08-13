@@ -14,9 +14,9 @@ const FallMenu = () => {
         <ul className='menu-list text-center w-100'>
           <li className='menu-item row'>Kale Salad..........$10</li>
           <li className='menu-item row'>
-            Thanksgiving "Leftovers" Sandwitch..........$12
+            Thanksgiving "Leftovers" Sandwich..........$12
           </li>
-          <li className='menu-item row'>Philly Cheesesteak..........$10</li>
+          <li className='menu-item row'>Philly Cheesesteak..........$12</li>
           <li className='menu-item row'>Reuben..........$12</li>
         </ul>
       </div>
