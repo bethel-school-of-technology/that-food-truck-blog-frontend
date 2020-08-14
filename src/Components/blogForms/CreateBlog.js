@@ -7,7 +7,6 @@ const CreateBlog = () => {
     ? JSON.parse(localStorage.getItem('jwtToken')).token
     : false;
 
-  //console.log(user);
   const [formData, setFormData] = useState({
     text: '',
     title: '',
@@ -51,11 +50,11 @@ const CreateBlog = () => {
           body,
           config
         );
-        console.log(res.data._id);
         let id = res.data._id;
         let url = '/BlogList/7/' + id;
         history.push(url);
       } catch (err) {
+        //need an error message here
         console.log(err);
       }
     }
@@ -86,7 +85,6 @@ const CreateBlog = () => {
                 id='title'
                 className='form-control'
                 placeholder='Title'
-                //for the onchange to work you must have the name and value properties
                 name='title'
                 value={title}
                 onChange={e => onChange(e)}
@@ -125,7 +123,5 @@ const CreateBlog = () => {
     </div>
   );
 };
-
-CreateBlog.propTypes = {};
 
 export default CreateBlog;

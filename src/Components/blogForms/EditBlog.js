@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
@@ -50,43 +50,32 @@ const EditBlog = () => {
           config
         );
 
-        history.push('/');
-        console.log(res.data);
-        //
-        //
-        //
+        history.push('/BlogList');
       } catch (error) {
-        console.log(error);
         return alert('error of something');
-        //------------this error is getting triggered so the error is in the try above---------------------
       }
     }
   };
 
-  const onDelete = async e => {
-    e.preventDefault();
-    if (!token) {
-      alert('unauthorized');
-    } else {
-      //get token
-      //stringify token ?
-      //get id from post
-      //config
-      //body stringify post
+  // const onDelete = async e => {
+  //   e.preventDefault();
+  //   if (!token) {
+  //     alert('unauthorized');
+  //   } else {
 
-      const config = {
-        Authorization: 'token',
-      };
-      const body = {
-        foo: 'bar',
-      };
+  //     const config = {
+  //       Authorization: 'token',
+  //     };
+  //     const body = {
+  //       foo: 'bar',
+  //     };
 
-      const res = await axios.delete('http://localhost:5000/api/posts/:id', {
-        config,
-        body,
-      });
-    }
-  };
+  //     const res = await axios.delete('http://localhost:5000/api/posts/:id', {
+  //       config,
+  //       body,
+  //     });
+  //   }
+  // };
 
   return (
     <div className='container col-9 col-md-7 mb-3 shadow-lg  bg-white rounded'>
@@ -140,7 +129,7 @@ const EditBlog = () => {
               </button>
 
               <button
-                onDelete={e => onDelete(e)}
+                //onDelete={e => onDelete(e)}
                 className='ml-3 btn-lg  btn-danger '
                 type='submit'
               >
