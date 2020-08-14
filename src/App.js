@@ -10,17 +10,19 @@ import ContactForm from './Components/form/ContactForm';
 import Login from './Components/auth/Login';
 import SignOut from './Components/auth/SignOut';
 import Register from './Components/auth/Register';
-import CreateBlog from './Components/blogForms/CreateBlog'
-import EditBlog from './Components/blogForms/EditBlog'
-import SpringMenu from './Components/menu/SpringMenu'
-import SummerMenu from './Components/menu/SummerMenu'
+import CreateBlog from './Components/blogForms/CreateBlog';
+import EditBlog from './Components/blogForms/EditBlog';
+import SpringMenu from './Components/menu/SpringMenu';
+import SummerMenu from './Components/menu/SummerMenu';
+import FallMenu from './Components/menu/FallMenu';
+import WinterMenu from './Components/menu/WinterMenu';
+
 // import PrivateRoute from './Components/routing/PrivateRoute';
 
 import './App.css';
 
-//buy creating the 
+//buy creating the
 const App = () => {
-
   return (
     <Router>
       <Fragment>
@@ -30,17 +32,16 @@ const App = () => {
           <Route exact path='/About' component={About} />
           <Route exact path='/BlogList/:index/:blogId' component={BlogPage} />
           <Route exact path='/BlogList' component={BlogList} />
+          <Route exact path='/CreateBlog' component={CreateBlog} />
+          <Route exact path='/EditBlog/:id' component={EditBlog} />
           <Route exact path='/ContactForm' component={ContactForm} />
-          {/* below Must be Private routes */}
-          <Route exact path='/SpringMenu' component={SpringMenu} />
-          <Route exact path='/SummerMenu' component={SummerMenu} />
           <Route exact path='/Login' component={Login} />
           <Route exact path='/SignOut' component={SignOut} />
           <Route exact path='/Register' component={Register} />
-          <Route exact path='/CreateBlog' component={CreateBlog} />
-          <Route exact path='/EditBlog/:id' component={EditBlog} />
-          {/* <Route exact path='/Create-blog' component={Register} />
-          <Route exact path='/Edit-blog' component={Register} /> */}
+          <Route exact path='/SpringMenu' component={SpringMenu} />
+          <Route exact path='/SummerMenu' component={SummerMenu} />
+          <Route exact path='/FallMenu' component={FallMenu} />
+          <Route exact path='/WinterMenu' component={WinterMenu} />
         </Switch>
 
         <Footer />

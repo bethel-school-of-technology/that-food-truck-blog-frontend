@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import axios from 'axios';
 
 const CreateBlog = () => {
+  const token = JSON.parse(localStorage.getItem('jwtToken'))
+    ? JSON.parse(localStorage.getItem('jwtToken')).token
+    : false;
+
+  //console.log(user);
   const [formData, setFormData] = useState({
     text: '',
     title: '',
@@ -28,6 +32,13 @@ const CreateBlog = () => {
   // destructering formdata to keep clean and short code 
   const { title, text } = formData;
 
+  const history = useHistory();
+  // const history = useHistory(); is for redirect to whatever page you would like
+
+  if (!token) {
+    history.push('/');
+  }
+
   const onChange = e =>
     setFormData({
       ...formData,
@@ -39,47 +50,49 @@ const CreateBlog = () => {
 
   const onSubmit = async e => {
     e.preventDefault();
-    const newBlog = {
-      title,
-      text,
-    };
-    //e.preventDefault is a non cancelable event. when its clicked it is good to go. without this it would automatically submit.
-    //prevents this from happening until requested to run
+    console.log(formData);
 
+    if (!token) {
+      //if there is NOT(!) a user
+      alert('not authorized');
+    } else {
 
-    //the try has a const of config that holds header, token and content-type.
-    //then const body stringifying newblog. taking it from plain text and making it JSON to submit to the backend.
-    // const response. we have await axios -taking in the body and config. we are callin in the config an
-    //passing in the config and the body.
-
-    try {
-      const config = {
-        headers: {
-          'Content-Type': 'application/json',
-          token: token
-        },
-      };
-      const body = JSON.stringify(newBlog);
-      const res = await axios.post(
-        'http://localhost:5000/api/posts',
-        body,
-        config
-      );
-      console.log(res.data);
-    } catch (err) {
-      console.error(err.res);
+      try {
+        const newBlog = {
+          title,
+          text,
+        };
+        const config = {
+          headers: {
+            'Content-Type': 'application/json',
+            'x-auth-token': token
+          },
+        };
+        const body = JSON.stringify(newBlog);
+        const res = await axios.post(
+          'http://localhost:5000/api/posts',
+          body,
+          config
+        );
+        console.log(res.data._id);
+        let id = res.data._id;
+        let url = "/BlogList/7/" + id
+        history.push(url);
+      } catch (err) {
+        console.log(err);
+      }
     }
   }
   //im axios and i make a post request to this localhost. body and config is the http request body.
 
   return (
-    <div className='container col-9 col-md-7 mb-3'>
-      <div class='card row justify-content-center'>
-        <div class='card-header'>
-          <div className='h3 card-title'>Create a New Blog Form</div>
-          <dive class='h6 card-subtitle mb-2 text-muted'>
+    <div className='container col-9 col-md-7 mb-3 shadow-lg  bg-white rounded'>
+      <div className='card row justify-content-center'>
+        <div className='card-header'>
+          <div className='h3 card-title'>Create Blog Form</div>
+          <div className='h6 card-subtitle mb-2 text-muted'>
             Create your next blog. make it Great!
-          </dive>
+          </div>
         </div>
         <div className='card-body'>
           <form
@@ -99,6 +112,8 @@ const CreateBlog = () => {
                 id='title'
                 className='form-control'
                 placeholder='Title'
+                //for the onchange to work you must have the name and value properties
+                name='title'
                 value={title}
                 name='title'
                 onChange={e => onChange(e)}

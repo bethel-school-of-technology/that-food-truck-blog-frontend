@@ -12,7 +12,7 @@ export default class ContactForm extends React.Component {
   render() {
     const { status } = this.state;
     return (
-      <div className='container col-9 col-md-5 mb-3'>
+      <div className='container col-9 col-md-5 mb-3 shadow-lg  bg-white rounded'>
         <div class='card row justify-content-center'>
           <div class='card-header'>
             <div className='h3 card-title'>Contact Us</div>

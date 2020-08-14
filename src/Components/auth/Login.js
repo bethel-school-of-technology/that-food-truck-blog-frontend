@@ -9,9 +9,11 @@ const Login = () => {
     password: '',
   });
 
-  const token = JSON.parse(localStorage.getItem('jwtToken')) ? JSON.parse(localStorage.getItem('jwtToken')).token : false
-  console.log("Login")
-  console.log(token);
+  const token = JSON.parse(localStorage.getItem('jwtToken'))
+    ? JSON.parse(localStorage.getItem('jwtToken')).token
+    : false;
+  //console.log('Login');
+  //console.log(token);
 
   const history = useHistory();
 
@@ -56,7 +58,7 @@ const Login = () => {
 
   return (
     <Fragment>
-      <div className='container col-9 col-md-5 mb-3'>
+      <div className='container col-9 col-md-5 mb-3 shadow-lg bg-white rounded'>
         <div className='card row justify-content-center'>
           <div className='card-header'>
             <div className='h3 card-title'>Admin Sign In</div>
@@ -102,10 +104,7 @@ const Login = () => {
                 />
               </div>
               <div className='row'>
-                <button
-                  className='ml-3 btn-lg  btn-primary '
-                  type='submit'
-                >
+                <button className='ml-3 btn-lg  btn-primary ' type='submit'>
                   Sign In
                 </button>
               </div>

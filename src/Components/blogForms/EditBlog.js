@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
@@ -8,9 +8,20 @@ const EditBlog = () => {
     text: '',
   });
 
-  const { title, text } = formData;
+  const token = JSON.parse(localStorage.getItem('jwtToken'))
+    ? JSON.parse(localStorage.getItem('jwtToken')).token
+    : false;
+
+  console.log("Edit blog");
+  console.log(token);
 
   const history = useHistory();
+  //If no token is found redirect user to Home Page
+  if (!token) {
+    history.push('/');
+  }
+
+  const { title, text } = formData;
 
   const onChange = e =>
     setFormData({
@@ -20,28 +31,79 @@ const EditBlog = () => {
 
   const onSubmit = async e => {
     e.preventDefault();
-    try {
-      //check local storage for jwt token
-      //get JWT token
-      //input for each field.
-      //title
-      //text
-      //send data to backend using put request
-      //after submission send admin user to the blog/:id {this is done in the onClick assigned to the submit button}
-    } catch (error) {
-      return alert('error of something');
+
+    if (!token) {
+      alert('UNAUTHORIZED');
+    } else {
+      const updateBlog = {
+        title,
+        text,
+      };
+      try {
+        //stringify token
+        //pull id frmom url
+        //
+
+        const config = {
+          headers: {
+            'Content-Type': 'application/json',
+            token: JSON.stringify(token),
+          },
+        };
+        const body = JSON.stringify(updateBlog);
+        const res = await axios.put(
+          'http://localhost:5000/api/posts/:id',
+          body,
+          config
+        );
+        //history.push('/');
+        console.log(res.data);
+        //
+        //
+        //
+      } catch (error) {
+        console.log(error);
+        return alert('error of something');
+        //------------this error is getting triggered so the error is in the try above---------------------
+      }
+    }
+  };
+
+  const onDelete = async e => {
+    e.preventDefault();
+    if (!token) {
+      alert('unauthorized');
+    } else {
+      //get token
+      //stringify token ?
+      //get id from post
+      //config
+      //body stringify post
+
+      const config = {
+        Authorization: 'token',
+      };
+      const body = {
+        foo: 'bar',
+      };
+
+      const res = await axios.delete('http://localhost:5000/api/posts/:id', {
+        config,
+        body,
+      });
     }
   };
 
   return (
-    <div className='container col-9 col-md-7 mb-3'>
+    <div className='container col-9 col-md-7 mb-3 shadow-lg  bg-white rounded'>
       <div className='card row justify-content-center'>
         <div className='card-header'>
           <div className='h3 card-title'>Edit Blog </div>
-          <dive className='h6 card-subtitle mb-2 text-muted'>
+          <div className='h6 card-subtitle mb-2 text-muted'>
             Lets fix this Blog!
-          </dive>
+          </div>
         </div>
+
         <div className='card-body'>
           <form onSubmit={e => onSubmit(e)}>
             <img
@@ -79,18 +141,17 @@ const EditBlog = () => {
               />
             </div>
             <div className='row'>
-              <button
-                className='ml-3 btn-lg  btn-primary '
-                type='submit'
-                onClick={() => {
-                  history.push('/blogList');
-                }}
-              >
+              <button className='ml-3 btn-lg  btn-primary ' type='submit'>
                 Submit
               </button>
-              <p className='col-8 mb-3 text-muted text-right'>
-                &copy; 2017-2020
-              </p>
+
+              <button
+                onDelete={e => onDelete(e)}
+                className='ml-3 btn-lg  btn-danger '
+                type='submit'
+              >
+                Delete
+              </button>
             </div>
           </form>
         </div>
