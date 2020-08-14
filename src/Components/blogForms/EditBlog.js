@@ -3,20 +3,16 @@ import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 const EditBlog = () => {
+  const token = JSON.parse(localStorage.getItem('jwtToken'))
+    ? JSON.parse(localStorage.getItem('jwtToken')).token
+    : false;
+
   const [formData, setFormData] = useState({
     title: '',
     text: '',
   });
 
-  const token = JSON.parse(localStorage.getItem('jwtToken'))
-    ? JSON.parse(localStorage.getItem('jwtToken')).token
-    : false;
-
-  console.log("Edit blog");
-  console.log(token);
-
   const history = useHistory();
-  //If no token is found redirect user to Home Page
   if (!token) {
     history.push('/');
   }
@@ -35,19 +31,16 @@ const EditBlog = () => {
     if (!token) {
       alert('UNAUTHORIZED');
     } else {
-      const updateBlog = {
-        title,
-        text,
-      };
       try {
-        //stringify token
-        //pull id frmom url
-        //
+        const updateBlog = {
+          title,
+          text,
+        };
 
         const config = {
           headers: {
             'Content-Type': 'application/json',
-            'x-auth-token': token
+            'x-auth-token': token,
           },
         };
         const body = JSON.stringify(updateBlog);
@@ -56,7 +49,8 @@ const EditBlog = () => {
           body,
           config
         );
-        //history.push('/');
+
+        history.push('/');
         console.log(res.data);
         //
         //
