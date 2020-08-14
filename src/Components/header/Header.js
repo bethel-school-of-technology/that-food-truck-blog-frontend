@@ -7,8 +7,8 @@ class Header extends Component {
   render() {
     return (
       <nav className='navbar navbar-expand-lg navbar-light  '>
-        <div className="d-flex flex-grow-1">
-          <img src={logo} alt='logo' />
+        <img src={logo} alt='logo' />
+        <div className="d-flex flex-grow-1 justify-content-end">
           <button
             className='navbar-toggler'
             type='button'
@@ -25,22 +25,22 @@ class Header extends Component {
         <div className='collapse navbar-collapse flex-grow-1 justify-content-end text-right' id='navbarSupportedContent'>
           <ul className='navbar-nav '>
             <li className='nav-item font-weight-bold'>
-              <Link className='nav-link' to='/'>
+              <Link className='nav-link text-reset' to='/'>
                 HOME<span className='sr-only'>(current)</span>
               </Link>
             </li>
             <li className='nav-item font-weight-bold'>
-              <Link className='nav-link' to='/About'>
+              <Link className='nav-link text-reset' to='/About'>
                 ABOUT
                 </Link>
             </li>
             <li className='nav-item font-weight-bold'>
-              <Link className='nav-link ' to='/BlogList'>
+              <Link className='nav-link text-reset ' to='/BlogList'>
                 BLOG
                 </Link>
             </li>
             <li className='nav-item font-weight-bold'>
-              <Link className='nav-link ' to='/ContactForm'>
+              <Link className='nav-link text-reset ' to='/ContactForm'>
                 CONTACT
                 </Link>
             </li>
