@@ -39,7 +39,6 @@ export default class ContactForm extends React.Component {
                 </p>
               ) : (
                 <fieldset>
-                  {/* name input */}
                   <div className='form-group'>
                     <label for='name'>Name</label>
                     <input
@@ -48,7 +47,7 @@ export default class ContactForm extends React.Component {
                       placeholder='Enter name'
                     />
                   </div>
-                  {/* email input */}
+
                   <div className='form-group'>
                     <label for='exampleInputEmail1'>Email address</label>
                     <input
@@ -60,10 +59,11 @@ export default class ContactForm extends React.Component {
                       placeholder='Enter email'
                     />
                   </div>
-                  {/* textarea input */}
+
                   <div className='form-group'>
-                    <label for='exampleTextarea'>Body</label>
+                    <label for='exampleTextarea'>Message</label>
                     <textarea
+                      placeholder='...'
                       name='message'
                       className='form-control'
                       id='exampleTextarea'

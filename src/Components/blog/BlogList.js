@@ -34,20 +34,15 @@ const BlogList = () => {
     blogList: [],
   });
 
-  //Get token out of LocalStorage, change it form a string into a Jason Object. Then Get the Value of the token.
-
   const token = JSON.parse(localStorage.getItem('jwtToken'))
     ? JSON.parse(localStorage.getItem('jwtToken')).token
     : false;
-  //console.log(token);
 
   const { blogList } = blogListData;
 
   const fetchBlogList = () => {
     var encodedURI = 'http://localhost:5000/api/posts';
-    //console.log(encodedURI);
     return axios.get(encodedURI).then(response => {
-      //console.log(response.data);
       setBlogList({
         blogList: response.data,
       });
@@ -67,7 +62,7 @@ const BlogList = () => {
             Come and get to know us with some of our recent blogs
           </h6>
           <p className='card-subtitle mb-3'>
-            Meet the team or find our sesonal Menu!
+            Meet the team or find our Seasonal Menu!
           </p>
           {token ? (
             <Link
@@ -124,19 +119,15 @@ const BlogList = () => {
                                 className='btn-sm m-3 btn-secondary'
                               >
                                 Edit
-                                </Link>
+                              </Link>
                             </div>
                             <div className='col-lg-3 col-6'>
-                              <Link
-                                to='/'
-                                className='btn-sm m-3 btn-secondary'
-                              >
+                              <Link to='/' className='btn-sm m-3 btn-secondary'>
                                 Delete{' '}
                               </Link>
                             </div>
                           </div>
                         ) : null}
-
                       </div>
                     </div>
                   </div>

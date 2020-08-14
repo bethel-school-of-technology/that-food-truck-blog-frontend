@@ -126,6 +126,4 @@ const About = () => {
   );
 };
 
-About.propTypes = {};
-
 export default About;
