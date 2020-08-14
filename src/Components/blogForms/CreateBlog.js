@@ -1,28 +1,35 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+<<<<<<< HEAD
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
 const CreateBlog = () => {
+=======
+import axios from 'axios';
+
+// json.parse turns the string into an object to return the token
+const CreateBlog = () => {
+  const token = JSON.parse(localStorage.getItem('jwtToken'))
+    ? JSON.parse(localStorage.getItem('jwtToken')).token
+    : false;
+
+  //console.log(user);
+>>>>>>> 3128eb83c5cffbc80517f1ecc6814a4d790ac908
   const [formData, setFormData] = useState({
     text: '',
     title: '',
   });
+  // formData is an empty the state. setFormData is called and what changes the state to be - the NEW state.
+  // text and title are the required fields from the backendroute. 
 
   //Get User token from Local Storage and set it to token
-  const token = JSON.parse(localStorage.getItem('jwtToken')) ? JSON.parse(localStorage.getItem('jwtToken')).token : false
+  
   //log Create Blog then log the token to the console 
   console.log("Create Blog")
   console.log(token);
 
-  const history = useHistory();
-  //If no token is found redirect user to Home Page
-  if (!token) {
-    history.push('/');
-  }
-
-
-
+  // destructering formdata to keep clean and short code 
   const { title, text } = formData;
 
   const history = useHistory();
@@ -44,6 +51,7 @@ const CreateBlog = () => {
   const onSubmit = async e => {
     e.preventDefault();
     console.log(formData);
+<<<<<<< HEAD
     const newBlog = {
       title,
       text,
@@ -64,14 +72,54 @@ const CreateBlog = () => {
       console.log(res.data);
     } catch (err) {
       console.error(err.res);
+=======
+
+    if (!token) {
+      //if there is NOT(!) a user
+      alert('not authorized');
+    } else {
+
+      try {
+        const newBlog = {
+          title,
+          text,
+        };
+        const config = {
+          headers: {
+            'Content-Type': 'application/json',
+            'x-auth-token': token
+          },
+        };
+        const body = JSON.stringify(newBlog);
+        const res = await axios.post(
+          'http://localhost:5000/api/posts',
+          body,
+          config
+        );
+        console.log(res.data._id);
+        let id = res.data._id;
+        let url = "/BlogList/7/" + id
+        history.push(url);
+      } catch (err) {
+        console.log(err);
+      }
+>>>>>>> 3128eb83c5cffbc80517f1ecc6814a4d790ac908
     }
   }
+  //im axios and i make a post request to this localhost. body and config is the http request body.
 
   return (
+<<<<<<< HEAD
     <div className='container col-9 col-md-7 mb-3'>
       <div class='card row justify-content-center'>
         <div class='card-header'>
           <div className='h3 card-title'>Create a New Blog Form</div>
+=======
+    <div className='container col-9 col-md-7 mb-3 shadow-lg  bg-white rounded'>
+      <div className='card row justify-content-center'>
+        <div className='card-header'>
+          <div className='h3 card-title'>Create Blog Form</div>
+>>>>>>> 3128eb83c5cffbc80517f1ecc6814a4d790ac908
           <div className='h6 card-subtitle mb-2 text-muted'>
             Create your next blog. make it Great!
           </div>
@@ -94,6 +142,11 @@ const CreateBlog = () => {
                 id='title'
                 className='form-control'
                 placeholder='Title'
+<<<<<<< HEAD
+=======
+                //for the onchange to work you must have the name and value properties
+                name='title'
+>>>>>>> 3128eb83c5cffbc80517f1ecc6814a4d790ac908
                 value={title}
                 name='title'
                 onChange={e => onChange(e)}
@@ -133,6 +186,5 @@ const CreateBlog = () => {
   );
 };
 
-CreateBlog.propTypes = {};
 
 export default CreateBlog;
