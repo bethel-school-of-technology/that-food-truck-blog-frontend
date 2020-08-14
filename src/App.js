@@ -17,11 +17,8 @@ import SummerMenu from './Components/menu/SummerMenu';
 import FallMenu from './Components/menu/FallMenu';
 import WinterMenu from './Components/menu/WinterMenu';
 
-// import PrivateRoute from './Components/routing/PrivateRoute';
-
 import './App.css';
 
-//buy creating the
 const App = () => {
   return (
     <Router>
@@ -43,7 +40,6 @@ const App = () => {
           <Route exact path='/FallMenu' component={FallMenu} />
           <Route exact path='/WinterMenu' component={WinterMenu} />
         </Switch>
-
         <Footer />
       </Fragment>
     </Router>
