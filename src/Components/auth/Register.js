@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 const Register = () => {
@@ -11,6 +12,8 @@ const Register = () => {
 
   const { name, email, password, password2 } = formData;
 
+  const history = useHistory();
+
   const onChange = e =>
     setFormData({
       ...formData,
@@ -22,13 +25,11 @@ const Register = () => {
     if (password !== password2) {
       alert('passwords do not match', 'danger');
     } else {
-      // console.log(formData);
       const newUser = {
         name,
         email,
         password,
       };
-
       try {
         const config = {
           headers: {
@@ -41,17 +42,15 @@ const Register = () => {
           body,
           config
         );
-        //if (res) return <Redirect to='/login' />;
-        //console.log(res.data);
+        history.push('/');
       } catch (err) {
-        console.log(err.res.data);
         alert('Server Error');
       }
     }
   };
 
   return (
-    <div className='container col-9 col-md-5 mb-3'>
+    <div className='container col-9 col-md-5 mb-3 shadow-lg  bg-white rounded'>
       <div class='card row justify-content-center'>
         <div class='card-header'>
           <div className='h3 card-title'>Create Admin</div>
@@ -67,7 +66,6 @@ const Register = () => {
                 placeholder='Name'
                 name='name'
                 required
-                //value = {name} is associating to the name value in the state
                 value={name}
                 onChange={e => onChange(e)}
               />

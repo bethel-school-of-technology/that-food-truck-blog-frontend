@@ -1,9 +1,20 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+<<<<<<< HEAD
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
 const CreateBlog = () => {
+=======
+import axios from 'axios';
+
+const CreateBlog = () => {
+  const token = JSON.parse(localStorage.getItem('jwtToken'))
+    ? JSON.parse(localStorage.getItem('jwtToken')).token
+    : false;
+
+  //console.log(user);
+>>>>>>> ethan
   const [formData, setFormData] = useState({
     text: '',
     title: '',
@@ -25,6 +36,13 @@ const CreateBlog = () => {
 
   const { title, text } = formData;
 
+  const history = useHistory();
+  // const history = useHistory(); is for redirect to whatever page you would like
+
+  if (!token) {
+    history.push('/');
+  }
+
   const onChange = e =>
     setFormData({
       ...formData,
@@ -37,6 +55,7 @@ const CreateBlog = () => {
   const onSubmit = async e => {
     e.preventDefault();
     console.log(formData);
+<<<<<<< HEAD
     const newBlog = {
       title,
       text,
@@ -57,17 +76,57 @@ const CreateBlog = () => {
       console.log(res.data);
     } catch (err) {
       console.error(err.res);
+=======
+
+    if (!token) {
+      //if there is NOT(!) a user
+      alert('not authorized');
+    } else {
+
+      try {
+        const newBlog = {
+          title,
+          text,
+        };
+        const config = {
+          headers: {
+            'Content-Type': 'application/json',
+            'x-auth-token': token
+          },
+        };
+        const body = JSON.stringify(newBlog);
+        const res = await axios.post(
+          'http://localhost:5000/api/posts',
+          body,
+          config
+        );
+        console.log(res.data._id);
+        let id = res.data._id;
+        let url = "/BlogList/7/" + id
+        history.push(url);
+      } catch (err) {
+        console.log(err);
+      }
+>>>>>>> ethan
     }
   }
 
   return (
+<<<<<<< HEAD
     <div className='container col-9 col-md-7 mb-3'>
       <div class='card row justify-content-center'>
         <div class='card-header'>
           <div className='h3 card-title'>Create a New Blog Form</div>
           <dive class='h6 card-subtitle mb-2 text-muted'>
+=======
+    <div className='container col-9 col-md-7 mb-3 shadow-lg  bg-white rounded'>
+      <div className='card row justify-content-center'>
+        <div className='card-header'>
+          <div className='h3 card-title'>Create Blog Form</div>
+          <div className='h6 card-subtitle mb-2 text-muted'>
+>>>>>>> ethan
             Create your next blog. make it Great!
-          </dive>
+          </div>
         </div>
         <div className='card-body'>
           <form
@@ -87,6 +146,11 @@ const CreateBlog = () => {
                 id='title'
                 className='form-control'
                 placeholder='Title'
+<<<<<<< HEAD
+=======
+                //for the onchange to work you must have the name and value properties
+                name='title'
+>>>>>>> ethan
                 value={title}
                 name='title'
                 onChange={e => onChange(e)}
