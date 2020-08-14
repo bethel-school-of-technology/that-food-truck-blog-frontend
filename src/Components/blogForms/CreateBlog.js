@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
+// json.parse turns the string into an object to return the token
 const CreateBlog = () => {
   const token = JSON.parse(localStorage.getItem('jwtToken'))
     ? JSON.parse(localStorage.getItem('jwtToken')).token
@@ -16,18 +17,10 @@ const CreateBlog = () => {
   // text and title are the required fields from the backendroute. 
 
   //Get User token from Local Storage and set it to token
-  const token = JSON.parse(localStorage.getItem('jwtToken')) ? JSON.parse(localStorage.getItem('jwtToken')).token : false
+  
   //log Create Blog then log the token to the console 
   console.log("Create Blog")
   console.log(token);
-
-  const history = useHistory();
-  //If no token is found redirect user to Home Page
-  if (!token) {
-    history.push('/');
-  }
-
-
 
   // destructering formdata to keep clean and short code 
   const { title, text } = formData;
