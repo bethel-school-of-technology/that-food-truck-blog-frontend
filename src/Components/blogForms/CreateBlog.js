@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 
 const CreateBlog = () => {
@@ -6,12 +8,22 @@ const CreateBlog = () => {
     text: '',
     title: '',
   });
-// formData is an empty the state. setFormData is called and what changes the state to be - the NEW state.
-    // text and title are the required fields from the backendroute. 
+  // formData is an empty the state. setFormData is called and what changes the state to be - the NEW state.
+  // text and title are the required fields from the backendroute. 
 
-    // ask Ethan
+  //Get User token from Local Storage and set it to token
   const token = JSON.parse(localStorage.getItem('jwtToken')) ? JSON.parse(localStorage.getItem('jwtToken')).token : false
+  //log Create Blog then log the token to the console 
+  console.log("Create Blog")
   console.log(token);
+
+  const history = useHistory();
+  //If no token is found redirect user to Home Page
+  if (!token) {
+    history.push('/');
+  }
+
+
 
   // destructering formdata to keep clean and short code 
   const { title, text } = formData;
@@ -21,8 +33,8 @@ const CreateBlog = () => {
       ...formData,
       [e.target.name]: e.target.value,
     });
-    // onChange event changes the state. ... is a spread opperator that copies and pastes the state.
-    // e is an event that is being triggured and and we are targeting the name and value to assign an event 
+
+
   ///refers to the name attribute and value of the attribute being passed to it
 
   const onSubmit = async e => {
@@ -31,14 +43,14 @@ const CreateBlog = () => {
       title,
       text,
     };
-        //e.preventDefault is a non cancelable event. when its clicked it is good to go. without this it would automatically submit.
-        //prevents this from happening until requested to run
+    //e.preventDefault is a non cancelable event. when its clicked it is good to go. without this it would automatically submit.
+    //prevents this from happening until requested to run
 
 
-//the try has a const of config that holds header, token and content-type.
-//then const body stringifying newblog. taking it from plain text and making it JSON to submit to the backend.
-// const response. we have await axios -taking in the body and config. we are callin in the config an
-//passing in the config and the body.
+    //the try has a const of config that holds header, token and content-type.
+    //then const body stringifying newblog. taking it from plain text and making it JSON to submit to the backend.
+    // const response. we have await axios -taking in the body and config. we are callin in the config an
+    //passing in the config and the body.
 
     try {
       const config = {
@@ -65,9 +77,9 @@ const CreateBlog = () => {
       <div class='card row justify-content-center'>
         <div class='card-header'>
           <div className='h3 card-title'>Create a New Blog Form</div>
-          <div class='h6 card-subtitle mb-2 text-muted'>
-            Create a blog here!
-        </div>
+          <dive class='h6 card-subtitle mb-2 text-muted'>
+            Create your next blog. make it Great!
+          </dive>
         </div>
         <div className='card-body'>
           <form
