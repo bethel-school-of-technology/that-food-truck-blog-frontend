@@ -7,6 +7,8 @@ import {
   faInstagram,
 } from '@fortawesome/free-brands-svg-icons';
 
+import './footer.css'
+
 const Footer = () => {
   const token = JSON.parse(localStorage.getItem('jwtToken')) ? JSON.parse(localStorage.getItem('jwtToken')).token : false
 
@@ -83,16 +85,6 @@ const Footer = () => {
               <li>
                 <Link to='/Login' className='text-reset '>
                   {token ? "Sign Out" : "Sign in"}
-                </Link>
-              </li>
-              <li>
-                <Link to='/CreateBlog' className='text-reset '>
-                  Create Blog
-                </Link>
-              </li>
-              <li>
-                <Link to='/EditBlog/3' className='text-reset '>
-                  Edit Blog
                 </Link>
               </li>
             </ul>

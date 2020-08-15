@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import axios from 'axios';
 
 const EditBlog = () => {
@@ -44,7 +44,7 @@ const EditBlog = () => {
           },
         };
         const body = JSON.stringify(updateBlog);
-        const res = await axios.put(
+        await axios.put(
           'http://localhost:5000/api/posts/:id',
           body,
           config
@@ -57,28 +57,8 @@ const EditBlog = () => {
     }
   };
 
-  // const onDelete = async e => {
-  //   e.preventDefault();
-  //   if (!token) {
-  //     alert('unauthorized');
-  //   } else {
-
-  //     const config = {
-  //       Authorization: 'token',
-  //     };
-  //     const body = {
-  //       foo: 'bar',
-  //     };
-
-  //     const res = await axios.delete('http://localhost:5000/api/posts/:id', {
-  //       config,
-  //       body,
-  //     });
-  //   }
-  // };
-
   return (
-    <div className='container col-9 col-md-7 mb-3 shadow-lg  bg-white rounded'>
+    <div className='container col-9 col-md-7 mb-3 mt-3 shadow-lg  bg-white rounded'>
       <div className='card row justify-content-center'>
         <div className='card-header'>
           <div className='h3 card-title'>Edit Blog </div>
@@ -97,7 +77,7 @@ const EditBlog = () => {
               height='72'
             />
             <div className='form-group'>
-              <label for='title'>Title</label>
+              <label htmlFor='title'>Title</label>
               <input
                 type='text'
                 id='title'
@@ -111,7 +91,7 @@ const EditBlog = () => {
             </div>
 
             <div className='form-group'>
-              <label for='body'>Body</label>
+              <label htmlFor='body'>Body</label>
               <textarea
                 type='text'
                 id='body'
@@ -128,13 +108,13 @@ const EditBlog = () => {
                 Submit
               </button>
 
-              <button
-                //onDelete={e => onDelete(e)}
+              <Link
                 className='ml-3 btn-lg  btn-danger '
                 type='submit'
+                to="/DeleteBlog"
               >
                 Delete
-              </button>
+              </Link>
             </div>
           </form>
         </div>

@@ -61,7 +61,7 @@ const CreateBlog = () => {
   };
 
   return (
-    <div className='container col-9 col-md-7 mb-3 shadow-lg  bg-white rounded'>
+    <div className='container col-9 col-md-7 mb-3 mt-3 shadow-lg  bg-white rounded'>
       <div className='card row justify-content-center'>
         <div className='card-header'>
           <div className='h3 card-title'>Create Blog Form</div>
@@ -79,7 +79,7 @@ const CreateBlog = () => {
               height='72'
             />
             <div className='form-group'>
-              <label for='title'>Title</label>
+              <label htmlFor='title'>Title</label>
               <input
                 type='text'
                 id='title'
@@ -94,7 +94,7 @@ const CreateBlog = () => {
             </div>
 
             <div className='form-group'>
-              <label for='body'>Body</label>
+              <label htmlFor='body'>Body</label>
               <textarea
                 type='text'
                 id='body'
