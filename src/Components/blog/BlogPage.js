@@ -61,7 +61,7 @@ const BlogPage = () => {
   }, []);
 
   return (
-    <div className='container mb-3 shadow '>
+    <div className='container mb-3 shadow card mt-3 mb-3'>
       <div className='row justify-content-center'>
         <div className='card border-0 text-center col-10  p-3'>
           <img
