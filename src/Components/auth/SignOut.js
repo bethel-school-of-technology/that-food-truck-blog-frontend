@@ -1,6 +1,5 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import './Login.css';
 
 const SignOut = () => {
   const token = JSON.parse(localStorage.getItem('jwtToken'))
