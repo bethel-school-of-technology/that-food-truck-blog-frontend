@@ -51,13 +51,12 @@ const EditBlog = () => {
           },
         };
         const body = JSON.stringify(updateBlog);
-        const res = await axios.put(
+        await axios.put(
           'http://localhost:5000/api/posts/:id',
           body,
           config
         );
         //history.push('/');
-        console.log(res.data);
         //
         //
         //
@@ -87,7 +86,7 @@ const EditBlog = () => {
         foo: 'bar',
       };
 
-      const res = await axios.delete('http://localhost:5000/api/posts/:id', {
+      await axios.delete('http://localhost:5000/api/posts/:id', {
         config,
         body,
       });
