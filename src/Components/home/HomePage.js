@@ -61,10 +61,10 @@ const FeaturedCards = [
 export class HomePage extends Component {
   render() {
     return (
-      <div className='container '>
+      <div className='container'>
         <div
           id='carouselExampleIndicators'
-          className='carousel slide carousel-fade shadow-lg p-3 mb-5 bg-white rounded'
+          className='carousel slide carousel-fade shadow-lg p-3 mb-5 bg-white rounded card mt-3'
           data-ride='carousel'
         >
           <ol className='carousel-indicators'>
