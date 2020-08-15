@@ -43,7 +43,7 @@ const BlogPage = () => {
 
   const fetchBlogList = () => {
     var encodedURI = 'http://localhost:5000/api/posts/' + blogId;
-    console.log(encodedURI);
+    // console.log(encodedURI);
     return axios.get(encodedURI).then(response => {
       // console.log(response.data)
       setBlogData({
