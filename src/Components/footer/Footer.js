@@ -9,6 +9,7 @@ import {
 
 import './footer.css'
 
+
 const Footer = () => {
   const token = JSON.parse(localStorage.getItem('jwtToken')) ? JSON.parse(localStorage.getItem('jwtToken')).token : false
 
