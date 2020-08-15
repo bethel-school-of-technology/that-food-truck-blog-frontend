@@ -7,7 +7,7 @@ class Header extends Component {
   render() {
     return (
       <nav className='navbar navbar-expand-lg navbar-light  '>
-        <img src={logo} alt='logo' />
+        <img src={logo} alt='logo' width="100px" />
         <div className="d-flex flex-grow-1 justify-content-end">
           <button
             className='navbar-toggler'
