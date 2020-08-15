@@ -1,22 +1,22 @@
-/* .navbar-nav {
-    font-family: 'Covered By Your Grace', cursive;
-}
+ .font {
+     font-family: 'Covered By Your Grace', cursive;
+ }
 
 
-@media (min-width: 768px) {
+ @media (min-width: 768px) {
 
-    .nav-item,
-    .btn {
-        font-size: 27px;
-        padding: 23px;
-    }
-}
+     .nav-item,
+     .btn {
+         font-size: 27px;
+         padding: 23px;
+     }
+ }
 
-.dropdown-item {
-    font-size: 20px;
+ .dropdown-item {
+     font-size: 20px;
 
-}
+ }
 
-a:hover {
-    opacity: .5;
-} */
+ a:hover {
+     opacity: .5;
+ }
