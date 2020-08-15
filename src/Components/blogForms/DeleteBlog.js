@@ -22,33 +22,37 @@ const DeleteBlog = () => {
     console.log(blogId);
     const url = 'http://localhost:5000/api/posts/' + blogId;
 
-    if (!token) {
-        alert('UNAUTHORIZED');
+    const onDelete = () => {
+        if (!token) {
+            alert('UNAUTHORIZED');
 
-    } else {
-        console.log(url);
-        try {
-            const config = {
-                headers: {
-                    'Content-Type': 'application/json',
-                    'x-auth-token': token
-                },
-            };
-            // const res = await axios.delete(
-            //     url,
-            //     config
-            // );
-            return axios.delete(url, "this is my blog", config).then(response => {
-                console.log(response.data);
+        } else {
+            console.log(url);
+            try {
+                const config = {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'x-auth-token': token
+                    },
+                };
+                // const res = await axios.delete(
+                //     url,
+                //     config
+                // );
+                return axios.delete(url, config).then(response => {
+                    console.log(response.data);
 
-            })
-            history.push('/');
+                })
+                history.push('/');
 
-        } catch (err) {
-            console.log(err);
-            history.push('/');
-        }
-    };
+            } catch (err) {
+                console.log(err);
+                history.push('/');
+            }
+        };
+    }
+
+    onDelete(url)
 
     return (
         <Fragment>
