@@ -10,8 +10,6 @@ import friedChicken from '../../pictures/friedChxSand.jpg';
 import healthyBowl from '../../pictures/healthyBowl.jpg';
 import smoothie from '../../pictures/smoothie.jpg';
 
-import './BlogPage.css';
-
 let images = [
   falafelWrap,
   chxTacos,
@@ -45,7 +43,7 @@ const BlogPage = () => {
 
   const fetchBlogList = () => {
     var encodedURI = 'http://localhost:5000/api/posts/' + blogId;
-    console.log(encodedURI);
+    // console.log(encodedURI);
     return axios.get(encodedURI).then(response => {
       // console.log(response.data)
       setBlogData({
@@ -61,7 +59,7 @@ const BlogPage = () => {
   }, []);
 
   return (
-    <div className='container mb-3 shadow '>
+    <div className='container mb-3 shadow card mt-3 mb-3'>
       <div className='row justify-content-center'>
         <div className='card border-0 text-center col-10  p-3'>
           <img

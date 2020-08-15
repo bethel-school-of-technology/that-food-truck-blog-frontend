@@ -1,22 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useHistory, Link } from 'react-router-dom';
 import axios from 'axios';
 
 const EditBlog = () => {
+  const token = JSON.parse(localStorage.getItem('jwtToken'))
+    ? JSON.parse(localStorage.getItem('jwtToken')).token
+    : false;
+
   const [formData, setFormData] = useState({
     title: '',
     text: '',
   });
 
-  const token = JSON.parse(localStorage.getItem('jwtToken'))
-    ? JSON.parse(localStorage.getItem('jwtToken')).token
-    : false;
-
-  console.log("Edit blog");
-  console.log(token);
-
   const history = useHistory();
-  //If no token is found redirect user to Home Page
   if (!token) {
     history.push('/');
   }
@@ -35,67 +31,34 @@ const EditBlog = () => {
     if (!token) {
       alert('UNAUTHORIZED');
     } else {
-      const updateBlog = {
-        title,
-        text,
-      };
       try {
-        //stringify token
-        //pull id frmom url
-        //
+        const updateBlog = {
+          title,
+          text,
+        };
 
         const config = {
           headers: {
             'Content-Type': 'application/json',
-            token: JSON.stringify(token),
+            'x-auth-token': token,
           },
         };
         const body = JSON.stringify(updateBlog);
-        const res = await axios.put(
+        await axios.put(
           'http://localhost:5000/api/posts/:id',
           body,
           config
         );
-        //history.push('/');
-        console.log(res.data);
-        //
-        //
-        //
+
+        history.push('/BlogList');
       } catch (error) {
-        console.log(error);
         return alert('error of something');
-        //------------this error is getting triggered so the error is in the try above---------------------
       }
     }
   };
 
-  const onDelete = async e => {
-    e.preventDefault();
-    if (!token) {
-      alert('unauthorized');
-    } else {
-      //get token
-      //stringify token ?
-      //get id from post
-      //config
-      //body stringify post
-
-      const config = {
-        Authorization: 'token',
-      };
-      const body = {
-        foo: 'bar',
-      };
-
-      const res = await axios.delete('http://localhost:5000/api/posts/:id', {
-        config,
-        body,
-      });
-    }
-  };
-
   return (
-    <div className='container col-9 col-md-7 mb-3 shadow-lg  bg-white rounded'>
+    <div className='container col-9 col-md-7 mb-3 mt-3 shadow-lg  bg-white rounded'>
       <div className='card row justify-content-center'>
         <div className='card-header'>
           <div className='h3 card-title'>Edit Blog </div>
@@ -114,7 +77,7 @@ const EditBlog = () => {
               height='72'
             />
             <div className='form-group'>
-              <label for='title'>Title</label>
+              <label htmlFor='title'>Title</label>
               <input
                 type='text'
                 id='title'
@@ -128,7 +91,7 @@ const EditBlog = () => {
             </div>
 
             <div className='form-group'>
-              <label for='body'>Body</label>
+              <label htmlFor='body'>Body</label>
               <textarea
                 type='text'
                 id='body'
@@ -145,13 +108,13 @@ const EditBlog = () => {
                 Submit
               </button>
 
-              <button
-                onDelete={e => onDelete(e)}
+              <Link
                 className='ml-3 btn-lg  btn-danger '
                 type='submit'
+                to="/DeleteBlog"
               >
                 Delete
-              </button>
+              </Link>
             </div>
           </form>
         </div>

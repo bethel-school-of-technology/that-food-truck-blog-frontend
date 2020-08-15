@@ -8,7 +8,6 @@ const CreateBlog = () => {
     ? JSON.parse(localStorage.getItem('jwtToken')).token
     : false;
 
-  //console.log(user);
   const [formData, setFormData] = useState({
     text: '',
     title: '',
@@ -26,7 +25,6 @@ const CreateBlog = () => {
   const { title, text } = formData;
 
   const history = useHistory();
-  // const history = useHistory(); is for redirect to whatever page you would like
 
   if (!token) {
     history.push('/');
@@ -43,22 +41,20 @@ const CreateBlog = () => {
 
   const onSubmit = async e => {
     e.preventDefault();
-    console.log(formData);
 
     if (!token) {
-      //if there is NOT(!) a user
       alert('not authorized');
     } else {
-
       try {
         const newBlog = {
           title,
           text,
         };
+
         const config = {
           headers: {
             'Content-Type': 'application/json',
-            'x-auth-token': token
+            'x-auth-token': token,
           },
         };
         const body = JSON.stringify(newBlog);
@@ -67,11 +63,11 @@ const CreateBlog = () => {
           body,
           config
         );
-        console.log(res.data._id);
         let id = res.data._id;
-        let url = "/BlogList/7/" + id
+        let url = '/BlogList/7/' + id;
         history.push(url);
       } catch (err) {
+        //need an error message here
         console.log(err);
       }
     }
@@ -79,7 +75,7 @@ const CreateBlog = () => {
   //im axios and i make a post request to this localhost. body and config is the http request body.
 
   return (
-    <div className='container col-9 col-md-7 mb-3 shadow-lg  bg-white rounded'>
+    <div className='container col-9 col-md-7 mb-3 mt-3 shadow-lg  bg-white rounded'>
       <div className='card row justify-content-center'>
         <div className='card-header'>
           <div className='h3 card-title'>Create Blog Form</div>
@@ -99,13 +95,12 @@ const CreateBlog = () => {
               height='72'
             />
             <div className='form-group'>
-              <label for='title'>Title</label>
+              <label htmlFor='title'>Title</label>
               <input
                 type='text'
                 id='title'
                 className='form-control'
                 placeholder='Title'
-                //for the onchange to work you must have the name and value properties
                 name='title'
                 value={title}
                 name='title'
@@ -116,7 +111,7 @@ const CreateBlog = () => {
             </div>
 
             <div className='form-group'>
-              <label for='body'>Body</label>
+              <label htmlFor='body'>Body</label>
               <textarea
                 type='text'
                 id='body'
@@ -146,5 +141,8 @@ const CreateBlog = () => {
   );
 };
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> dev
 export default CreateBlog;

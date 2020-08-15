@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
 import logo from '../../pictures/foodTruck2.png';
@@ -7,7 +7,7 @@ class Header extends Component {
   render() {
     return (
       <nav className='navbar navbar-expand-lg navbar-light  '>
-        <img src={logo} alt='logo' />
+        <img src={logo} alt='logo' width="100px" />
         <div className="d-flex flex-grow-1 justify-content-end">
           <button
             className='navbar-toggler'
@@ -23,7 +23,7 @@ class Header extends Component {
         </div>
 
         <div className='collapse navbar-collapse flex-grow-1 justify-content-end text-right' id='navbarSupportedContent'>
-          <ul className='navbar-nav '>
+          <ul className='navbar-nav font'>
             <li className='nav-item font-weight-bold'>
               <Link className='nav-link text-reset' to='/'>
                 HOME<span className='sr-only'>(current)</span>
@@ -46,7 +46,7 @@ class Header extends Component {
             </li>
             <div className='dropdown '>
               <button
-                className='btn dropdown-toggle font-weight-bold'
+                className='btn dropdown-toggle font-weight-bold font'
                 type='button'
                 id='dropdownMenuButton'
                 data-toggle='dropdown'

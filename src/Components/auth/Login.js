@@ -12,8 +12,6 @@ const Login = () => {
   const token = JSON.parse(localStorage.getItem('jwtToken'))
     ? JSON.parse(localStorage.getItem('jwtToken')).token
     : false;
-  //console.log('Login');
-  //console.log(token);
 
   const history = useHistory();
 
@@ -64,7 +62,6 @@ const Login = () => {
             <div className='h3 card-title'>Admin Sign In</div>
             <div className='h6 card-subtitle mb-2 text-muted'>
               for our amazing team only, thank you.
-              <p>username: Admin1 password: 123456</p>
             </div>
           </div>
           <div className='card-body'>

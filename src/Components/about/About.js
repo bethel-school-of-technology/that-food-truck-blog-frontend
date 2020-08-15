@@ -11,15 +11,15 @@ const About = () => {
       <div className='card justify-content-center'>
         <div className='card'>
           <h2 className='Mission text-center'> Our Mission </h2>
-          <p className='card-body mb-2'>
-            {' '}
+          <div className='card-body mb-2'>
+
             Our hearts are to share and expand the Gospel of Jesus through our
             Food Truck Businesses. Our goal is that all would know Jesus would
             encounter the love of God through our food, and those that don't
             know the Fathers love would encounter His love for them. Every meal
             is made in excellence knowing we want our customers to taste the
             goodness of God in every bite.
-          </p>
+          </div>
           <img
             className='rounded mx-auto d-block'
             width='550'
@@ -28,14 +28,13 @@ const About = () => {
             alt='food truck'
           />
 
-          <p className='card-body text-center'>
-            {' '}
+          <div className='card-body text-center'>
             <h2> Our Values </h2>
-            <h4> Excellence </h4> Our food is farm to table and 100% organic.{' '}
+            <h4> Excellence </h4> Our food is farm to table and 100% organic.
             <h4> Community </h4> We gather people to join together and feast.
-            <h4> Creativity & Growth </h4> We are always looking for different
-            ways to expand our menu from glory to glory.
-          </p>
+            <h4> Creativity & Growth </h4>
+            We are always looking for different ways to expand our menu from glory to glory.
+          </div>
 
           <div className='container text-center'>
             <h2> Locations </h2>
@@ -47,7 +46,7 @@ const About = () => {
                 <li className='list-group-item'> San Francisco, California </li>
                 <li className='list-group-item'> San Diego, California </li>
                 <li className='list-group-item'> Santa Barbara, California </li>
-              </ul>{' '}
+              </ul>
             </div>
           </div>
 
@@ -77,7 +76,6 @@ const About = () => {
                   height='200'
                   src={Aubrena}
                   alt='Aubrena'
-                  w-100
                   className='mx-auto d-block'
                 />
                 <div className='caption'>
@@ -95,7 +93,6 @@ const About = () => {
                   height='200'
                   src={Ethan}
                   alt='Ethan'
-                  w-100
                   className='mx-auto d-block'
                 />
                 <div className='caption'>
@@ -111,7 +108,6 @@ const About = () => {
                   height='200'
                   src={Mitch}
                   alt='Mitch'
-                  w-100
                   className='mx-auto d-block'
                 />
                 <div className='caption'>
@@ -125,7 +121,5 @@ const About = () => {
     </div>
   );
 };
-
-About.propTypes = {};
 
 export default About;

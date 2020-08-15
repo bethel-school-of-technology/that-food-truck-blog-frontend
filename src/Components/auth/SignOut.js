@@ -6,8 +6,6 @@ const SignOut = () => {
   const token = JSON.parse(localStorage.getItem('jwtToken'))
     ? JSON.parse(localStorage.getItem('jwtToken')).token
     : false;
-  //console.log("Signed Out")
-  //console.log(token);
 
   const history = useHistory();
 
