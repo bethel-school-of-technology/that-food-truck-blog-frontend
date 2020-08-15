@@ -1,11 +1,15 @@
-import React from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import {
+    useHistory,
+    useParams
+} from 'react-router-dom';
 import axios from 'axios';
+import HomePage from '../home/HomePage';
 
 const DeleteBlog = () => {
-    const token = JSON.parse(localStorage.getItem('jwtToken'))
-        ? JSON.parse(localStorage.getItem('jwtToken')).token
-        : false;
+    const token = JSON.parse(localStorage.getItem('jwtToken')) ?
+        JSON.parse(localStorage.getItem('jwtToken')).token :
+        false;
 
     const history = useHistory();
     // const history = useHistory(); is for redirect to whatever page you would like
@@ -14,43 +18,43 @@ const DeleteBlog = () => {
         history.push('/');
     }
 
-    let { blogId } = useParams;
+    let { blogId } = useParams();
+    console.log(blogId);
+    const url = 'http://localhost:5000/api/posts/' + blogId;
 
-    const config = {
-        headers: {
-            'Content-Type': 'application/json',
-            'x-auth-token': token
-        },
+    if (!token) {
+        alert('UNAUTHORIZED');
+    } else {
+        console.log(url);
+        try {
+            const config = {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'x-auth-token': token
+                },
+            };
+            // const res = await axios.delete(
+            //     url,
+            //     config
+            // );
+            return axios.delete(url, "this is my blog", config).then(response => {
+                console.log(response.data);
+
+            })
+            history.push('/');
+
+        } catch (err) {
+            console.log(err);
+            history.push('/');
+        }
     };
 
-    try {
-        const newBlog = {
-            title,
-            text,
-        };
-        const config = {
-            headers: {
-                'Content-Type': 'application/json',
-                'x-auth-token': token
-            },
-        };
-        const body = JSON.stringify(newBlog);
-        const res = await axios.delete(
-            'http://localhost:5000/api/posts',
-            body,
-            config
-        );
-        console.log(res.data._id);
-        let id = res.data._id;
-        let url = "/BlogList/7/" + id
-        history.push(url);
-    } catch (err) {
-        console.log(err);
-    }
-
     return (
-        <div>If you are seeing this something went wrong</div>
-    );
+
+
+        <div>
+            This should never show up. </div>
+    )
 };
 
 

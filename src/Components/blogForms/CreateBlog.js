@@ -141,8 +141,4 @@ const CreateBlog = () => {
   );
 };
 
-<<<<<<< HEAD
-
-=======
->>>>>>> dev
 export default CreateBlog;

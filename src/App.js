@@ -16,6 +16,7 @@ import SpringMenu from './Components/menu/SpringMenu';
 import SummerMenu from './Components/menu/SummerMenu';
 import FallMenu from './Components/menu/FallMenu';
 import WinterMenu from './Components/menu/WinterMenu';
+import DeleteBlog from './Components/blogForms/DeleteBlog';
 
 import './App.css';
 
@@ -39,6 +40,7 @@ const App = () => {
           <Route exact path='/SummerMenu' component={SummerMenu} />
           <Route exact path='/FallMenu' component={FallMenu} />
           <Route exact path='/WinterMenu' component={WinterMenu} />
+          <Route exact path='/DeleteBlog/:blogId' component={DeleteBlog} />
         </Switch>
         <Footer />
       </Fragment>

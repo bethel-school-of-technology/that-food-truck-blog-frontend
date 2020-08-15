@@ -79,6 +79,7 @@ const BlogList = () => {
             let url = '/BlogList/' + index + '/' + blog._id.toString();
             let editUrl = '/EditBlog/' + blog._id.toString();
             let text = blog.text.substring(0, 400);
+            let DeleteBlogUrl = '/DeleteBlog/' + blog._id.toString();
             return (
               <button
                 className='list-group-item list-group-item-action'
@@ -121,8 +122,8 @@ const BlogList = () => {
                               </Link>
                             </div>
                             <div className='col-lg-3 col-6'>
-                              <Link to='/' className='btn-sm m-3 btn-secondary'>
-                                Delete{' '}
+                              <Link to={DeleteBlogUrl} className='btn-sm m-3 btn-secondary'>
+                                Delete
                               </Link>
                             </div>
                           </div>
