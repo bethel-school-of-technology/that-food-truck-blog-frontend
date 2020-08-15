@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { Fragment } from 'react';
 import {
     useHistory,
     useParams
@@ -24,6 +24,7 @@ const DeleteBlog = () => {
 
     if (!token) {
         alert('UNAUTHORIZED');
+
     } else {
         console.log(url);
         try {
@@ -50,10 +51,11 @@ const DeleteBlog = () => {
     };
 
     return (
+        <Fragment>
 
+            <div> This should never show up. </div>
 
-        <div>
-            This should never show up. </div>
+        </Fragment>
     )
 };
 
