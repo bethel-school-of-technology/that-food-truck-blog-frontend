@@ -12,7 +12,6 @@ const About = () => {
         <div className='card'>
           <h2 className='Mission text-center'> Our Mission </h2>
           <div className='card-body mb-2'>
-
             Our hearts are to share and expand the Gospel of Jesus through our
             Food Truck Businesses. Our goal is that all would know Jesus would
             encounter the love of God through our food, and those that don't
@@ -93,8 +92,7 @@ const About = () => {
                   height='200'
                   src={Ethan}
                   alt='Ethan'
-                  className='mx-auto d-block'
-                />
+                  className='mx-auto d-block' />
                 <div className='caption'>
                   <p className='text-center'>Ethan </p>
                 </div>
@@ -108,8 +106,7 @@ const About = () => {
                   height='200'
                   src={Mitch}
                   alt='Mitch'
-                  className='mx-auto d-block'
-                />
+                  className='mx-auto d-block' />
                 <div className='caption'>
                   <p className='text-center'>Mitch</p>
                 </div>
