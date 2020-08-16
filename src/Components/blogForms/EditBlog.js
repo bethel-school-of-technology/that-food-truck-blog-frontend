@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { useHistory, Link } from 'react-router-dom';
+import { useHistory, useParams,
+Link } from 'react-router-dom';
 import axios from 'axios';
 
 const EditBlog = () => {
@@ -16,6 +17,9 @@ const EditBlog = () => {
   if (!token) {
     history.push('/');
   }
+  let { blogId } = useParams();
+        console.log(blogId);
+        const url = 'http://localhost:5000/api/post/' +blogId;
 
   const { title, text } = formData;
 
