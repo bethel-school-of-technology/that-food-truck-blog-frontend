@@ -12,7 +12,6 @@ const About = () => {
         <div className='card'>
           <h2 className='Mission text-center'> Our Mission </h2>
           <div className='card-body mb-2'>
-
             Our hearts are to share and expand the Gospel of Jesus through our
             Food Truck Businesses. Our goal is that all would know Jesus would
             encounter the love of God through our food, and those that don't
@@ -33,7 +32,8 @@ const About = () => {
             <h4> Excellence </h4> Our food is farm to table and 100% organic.
             <h4> Community </h4> We gather people to join together and feast.
             <h4> Creativity & Growth </h4>
-            We are always looking for different ways to expand our menu from glory to glory.
+            We are always looking for different ways to expand our menu from
+            glory to glory.
           </div>
 
           <div className='container text-center'>

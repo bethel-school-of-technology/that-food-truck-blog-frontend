@@ -7,10 +7,12 @@ import {
   faInstagram,
 } from '@fortawesome/free-brands-svg-icons';
 
-import './footer.css'
+import './footer.css';
 
 const Footer = () => {
-  const token = JSON.parse(localStorage.getItem('jwtToken')) ? JSON.parse(localStorage.getItem('jwtToken')).token : false
+  const token = JSON.parse(localStorage.getItem('jwtToken'))
+    ? JSON.parse(localStorage.getItem('jwtToken')).token
+    : false;
 
   return (
     <footer className='footer navbar-fixed-bottom'>
@@ -84,7 +86,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link to='/Login' className='text-reset '>
-                  {token ? "Sign Out" : "Sign in"}
+                  {token ? 'Sign Out' : 'Sign in'}
                 </Link>
               </li>
             </ul>
