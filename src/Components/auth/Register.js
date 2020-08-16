@@ -37,11 +37,7 @@ const Register = () => {
           },
         };
         const body = JSON.stringify(newUser);
-        await axios.post(
-          'http://localhost:5000/api/users',
-          body,
-          config
-        );
+        await axios.post('http://localhost:5000/api/users', body, config);
         history.push('/');
       } catch (err) {
         alert('Server Error');
@@ -119,5 +115,4 @@ const Register = () => {
     </div>
   );
 };
-
 export default Register;

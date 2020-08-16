@@ -32,9 +32,9 @@ const About = () => {
             <h4> Excellence </h4> Our food is farm to table and 100% organic.
             <h4> Community </h4> We gather people to join together and feast.
             <h4> Creativity & Growth </h4>
-            We are always looking for different ways to expand our menu from glory to glory.
+            We are always looking for different ways to expand our menu from
+            glory to glory.
           </div>
-
           <div className='container text-center'>
             <h2> Locations </h2>
             <div className='row'>
@@ -48,7 +48,6 @@ const About = () => {
               </ul>
             </div>
           </div>
-
           <div className='text-center'>
             <h2> Our Founders </h2>
           </div>
@@ -67,7 +66,6 @@ const About = () => {
                 </div>
               </div>
             </div>
-
             <div className='col-md-4'>
               <div className='thumbnail'>
                 <img
@@ -83,7 +81,6 @@ const About = () => {
               </div>
             </div>
           </div>
-
           <div className='row'>
             <div className='col-md-7'>
               <div className='thumbnail'>
@@ -92,13 +89,13 @@ const About = () => {
                   height='200'
                   src={Ethan}
                   alt='Ethan'
-                  className='mx-auto d-block' />
+                  className='mx-auto d-block'
+                />
                 <div className='caption'>
                   <p className='text-center'>Ethan </p>
                 </div>
               </div>
             </div>
-
             <div className='col-md-4'>
               <div className='thumbnail'>
                 <img
@@ -106,7 +103,8 @@ const About = () => {
                   height='200'
                   src={Mitch}
                   alt='Mitch'
-                  className='mx-auto d-block' />
+                  className='mx-auto d-block'
+                />
                 <div className='caption'>
                   <p className='text-center'>Mitch</p>
                 </div>

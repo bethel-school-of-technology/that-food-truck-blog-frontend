@@ -86,7 +86,6 @@ const Login = () => {
                   required
                 />
               </div>
-
               <div className='form-group'>
                 <label for='inputPassword'>Password</label>
                 <input

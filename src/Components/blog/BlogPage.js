@@ -70,7 +70,6 @@ const BlogPage = () => {
           <h5 className='card-title m-3'>{title}</h5>
           <p className='card-text'>{date}</p>
           <p className='card-text'>{text}</p>
-
         </div>
       </div>
     </div>

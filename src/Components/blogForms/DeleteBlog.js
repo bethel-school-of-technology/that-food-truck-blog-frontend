@@ -12,45 +12,38 @@ const DeleteBlog = () => {
 
     if (!token) {
         history.push('/');
-    }
-
-    let { blogId } = useParams;
-
-    const config = {
-        headers: {
-            'Content-Type': 'application/json',
-            'x-auth-token': token
-        },
-    };
-
-    try {
-        const newBlog = {
-            title,
-            text,
-        };
-        const config = {
-            headers: {
-                'Content-Type': 'application/json',
-                'x-auth-token': token
-            },
-        };
-        const body = JSON.stringify(newBlog);
-        const res = await axios.delete(
-            'http://localhost:5000/api/posts',
-            body,
-            config
+    } else {
+        
+        let { blogId } = useParams;
+        
+        try {
+            const newBlog = {
+                title,
+                text,
+            };
+            const config = {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'x-auth-token': token
+                },
+            };
+            const body = JSON.stringify(newBlog);
+            const res = await axios.delete(
+                'http://localhost:5000/api/posts',
+                body,
+                config
+            );
+            console.log(res.data._id);
+            let id = res.data._id;
+            let url = "/BlogList/7/" + id
+            history.push(url);
+        } catch (err) {
+            console.log(err);
+        }
+        return (
+            <div>If you are seeing this something went wrong</div>
         );
-        console.log(res.data._id);
-        let id = res.data._id;
-        let url = "/BlogList/7/" + id
-        history.push(url);
-    } catch (err) {
-        console.log(err);
     }
-
-    return (
-        <div>If you are seeing this something went wrong</div>
-    );
 };
 
 
