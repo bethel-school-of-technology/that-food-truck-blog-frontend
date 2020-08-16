@@ -70,6 +70,14 @@ const BlogPage = () => {
           <h5 className='card-title m-3'>{title}</h5>
           <p className='card-text'>{date}</p>
           <p className='card-text'>{text}</p>
+
+          <a
+            href='http://localhost:3000/BlogList'
+            className=' sm-btn btn-primary '
+            role='button'
+          >
+            back to blogs
+          </a>
         </div>
       </div>
     </div>
