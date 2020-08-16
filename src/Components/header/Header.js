@@ -6,9 +6,9 @@ import logo from '../../pictures/foodTruck2.png';
 class Header extends Component {
   render() {
     return (
-      <nav className='navbar navbar-expand-lg navbar-light  '>
-        <img src={logo} alt='logo' width="100px" />
-        <div className="d-flex flex-grow-1 justify-content-end">
+      <nav className='navbar navbar-expand-lg navbar-light  shadow-lg  bg-white rounded '>
+        <img src={logo} alt='logo' width='100px' />
+        <div className='d-flex flex-grow-1 justify-content-end'>
           <button
             className='navbar-toggler'
             type='button'
@@ -22,7 +22,10 @@ class Header extends Component {
           </button>
         </div>
 
-        <div className='collapse navbar-collapse flex-grow-1 justify-content-end text-right' id='navbarSupportedContent'>
+        <div
+          className='collapse navbar-collapse flex-grow-1 justify-content-end text-right'
+          id='navbarSupportedContent'
+        >
           <ul className='navbar-nav font'>
             <li className='nav-item font-weight-bold'>
               <Link className='nav-link text-reset' to='/'>
@@ -32,17 +35,17 @@ class Header extends Component {
             <li className='nav-item font-weight-bold'>
               <Link className='nav-link text-reset' to='/About'>
                 ABOUT
-                </Link>
+              </Link>
             </li>
             <li className='nav-item font-weight-bold'>
               <Link className='nav-link text-reset ' to='/BlogList'>
                 BLOG
-                </Link>
+              </Link>
             </li>
             <li className='nav-item font-weight-bold'>
               <Link className='nav-link text-reset ' to='/ContactForm'>
                 CONTACT
-                </Link>
+              </Link>
             </li>
             <div className='dropdown '>
               <button
@@ -54,23 +57,23 @@ class Header extends Component {
                 aria-expanded='false'
               >
                 SEASONAL MENUS
-                </button>
+              </button>
               <div
                 className='dropdown-menu'
                 aria-labelledby='dropdownMenuButton'
               >
                 <Link className='dropdown-item' to='/SpringMenu'>
                   SPRING
-                  </Link>
+                </Link>
                 <Link className='dropdown-item' to='/SummerMenu'>
                   SUMMER
-                  </Link>
+                </Link>
                 <Link className='dropdown-item' to='/FallMenu'>
                   FALL
-                  </Link>
+                </Link>
                 <Link className='dropdown-item' to='/WinterMenu'>
                   WINTER
-                  </Link>
+                </Link>
               </div>
             </div>
           </ul>

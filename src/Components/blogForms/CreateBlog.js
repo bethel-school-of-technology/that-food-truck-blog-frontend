@@ -13,15 +13,15 @@ const CreateBlog = () => {
     title: '',
   });
   // formData is an empty the state. setFormData is called and what changes the state to be - the NEW state.
-  // text and title are the required fields from the backendroute. 
+  // text and title are the required fields from the backendroute.
 
   //Get User token from Local Storage and set it to token
 
-  //log Create Blog then log the token to the console 
-  console.log("Create Blog")
+  //log Create Blog then log the token to the console
+  console.log('Create Blog');
   console.log(token);
 
-  // destructering formdata to keep clean and short code 
+  // destructering formdata to keep clean and short code
   const { title, text } = formData;
 
   const history = useHistory();
@@ -35,7 +35,6 @@ const CreateBlog = () => {
       ...formData,
       [e.target.name]: e.target.value,
     });
-
 
   ///refers to the name attribute and value of the attribute being passed to it
 
@@ -71,7 +70,7 @@ const CreateBlog = () => {
         console.log(err);
       }
     }
-  }
+  };
   //im axios and i make a post request to this localhost. body and config is the http request body.
 
   return (
@@ -84,9 +83,7 @@ const CreateBlog = () => {
           </div>
         </div>
         <div className='card-body'>
-          <form
-            onSubmit={e => onSubmit(e)}
-          >
+          <form onSubmit={e => onSubmit(e)}>
             <img
               className='mb-4'
               src='../assets/brand/bootstrap-solid.svg'
@@ -117,7 +114,7 @@ const CreateBlog = () => {
                 id='body'
                 className='form-control'
                 placeholder='Body'
-                rows="9"
+                rows='9'
                 value={text}
                 name='text'
                 onChange={e => onChange(e)}
@@ -141,8 +138,4 @@ const CreateBlog = () => {
   );
 };
 
-<<<<<<< HEAD
-
-=======
->>>>>>> dev
 export default CreateBlog;
