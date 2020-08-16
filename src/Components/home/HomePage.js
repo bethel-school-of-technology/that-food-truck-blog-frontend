@@ -3,7 +3,6 @@ import Image1 from '../../pictures/truckphoto1.png';
 import Image2 from '../../pictures/truckphoto2.png';
 import Image3 from '../../pictures/truckphoto3.png';
 import Image4 from '../../pictures/truckphoto4.png';
-import './HomePage.css';
 import Card from '../Card';
 
 const Cards = [
