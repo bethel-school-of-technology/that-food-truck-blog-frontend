@@ -1,6 +1,5 @@
 import React, { Fragment, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import './Login.css';
 import axios from 'axios';
 
 const Login = () => {

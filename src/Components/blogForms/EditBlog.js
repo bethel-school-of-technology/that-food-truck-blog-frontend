@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory, useParams,
 Link } from 'react-router-dom';
+import { useHistory, useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 
 const EditBlog = () => {
@@ -18,8 +19,8 @@ const EditBlog = () => {
     history.push('/');
   }
   let { blogId } = useParams();
-        console.log(blogId);
-        const url = 'http://localhost:5000/api/post/' +blogId;
+  console.log(blogId);
+  const url = 'http://localhost:5000/api/post/' + blogId;
 
   const { title, text } = formData;
 
@@ -37,6 +38,7 @@ const EditBlog = () => {
   useEffect(() => {
     fetchEditBlog();
   });
+
 
   const onChange = e =>
     setFormData({
@@ -63,11 +65,7 @@ const EditBlog = () => {
           },
         };
         const body = JSON.stringify(updateBlog);
-        await axios.put(
-          'http://localhost:5000/api/posts/:id',
-          body,
-          config
-        );
+        await axios.put('http://localhost:5000/api/posts/:id', body, config);
 
         history.push('/BlogList');
       } catch (error) {
@@ -130,7 +128,7 @@ const EditBlog = () => {
               <Link
                 className='ml-3 btn-lg  btn-danger '
                 type='submit'
-                to="/DeleteBlog"
+                to='/DeleteBlog'
               >
                 Delete
               </Link>

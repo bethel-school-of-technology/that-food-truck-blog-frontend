@@ -38,20 +38,16 @@ const BlogPage = () => {
 
   const { title, date, text } = blogData;
   let { blogId, index } = useParams();
-  // console.log(blogId)
-  // console.log(useParams())
 
   const fetchBlogList = () => {
     var encodedURI = 'http://localhost:5000/api/posts/' + blogId;
-    // console.log(encodedURI);
+
     return axios.get(encodedURI).then(response => {
-      // console.log(response.data)
       setBlogData({
         title: response.data.title,
         date: response.data.date,
         text: response.data.text,
       });
-      // console.log(blogData)
     });
   };
   useEffect(() => {
@@ -70,7 +66,6 @@ const BlogPage = () => {
           <h5 className='card-title m-3'>{title}</h5>
           <p className='card-text'>{date}</p>
           <p className='card-text'>{text}</p>
-
         </div>
       </div>
     </div>

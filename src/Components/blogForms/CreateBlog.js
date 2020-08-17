@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
-// json.parse turns the string into an object to return the token
 const CreateBlog = () => {
   const token = JSON.parse(localStorage.getItem('jwtToken'))
     ? JSON.parse(localStorage.getItem('jwtToken')).token
@@ -12,16 +11,7 @@ const CreateBlog = () => {
     text: '',
     title: '',
   });
-  // formData is an empty the state. setFormData is called and what changes the state to be - the NEW state.
-  // text and title are the required fields from the backendroute. 
 
-  //Get User token from Local Storage and set it to token
-
-  //log Create Blog then log the token to the console 
-  console.log("Create Blog")
-  console.log(token);
-
-  // destructering formdata to keep clean and short code 
   const { title, text } = formData;
 
   const history = useHistory();
@@ -35,9 +25,6 @@ const CreateBlog = () => {
       ...formData,
       [e.target.name]: e.target.value,
     });
-
-
-  ///refers to the name attribute and value of the attribute being passed to it
 
   const onSubmit = async e => {
     e.preventDefault();
@@ -67,12 +54,10 @@ const CreateBlog = () => {
         let url = '/BlogList/7/' + id;
         history.push(url);
       } catch (err) {
-        //need an error message here
-        console.log(err);
+        return alert('Create Blog Failed');
       }
     }
-  }
-  //im axios and i make a post request to this localhost. body and config is the http request body.
+  };
 
   return (
     <div className='container col-9 col-md-7 mb-3 mt-3 shadow-lg  bg-white rounded'>
@@ -84,9 +69,7 @@ const CreateBlog = () => {
           </div>
         </div>
         <div className='card-body'>
-          <form
-            onSubmit={e => onSubmit(e)}
-          >
+          <form onSubmit={e => onSubmit(e)}>
             <img
               className='mb-4'
               src='../assets/brand/bootstrap-solid.svg'
@@ -117,7 +100,7 @@ const CreateBlog = () => {
                 id='body'
                 className='form-control'
                 placeholder='Body'
-                rows="9"
+                rows='9'
                 value={text}
                 name='text'
                 onChange={e => onChange(e)}
@@ -141,8 +124,4 @@ const CreateBlog = () => {
   );
 };
 
-<<<<<<< HEAD
-
-=======
->>>>>>> dev
 export default CreateBlog;
