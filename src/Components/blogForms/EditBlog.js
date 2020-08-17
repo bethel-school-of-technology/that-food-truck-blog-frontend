@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory, useParams,
-Link } from 'react-router-dom';
 import { useHistory, useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -15,30 +13,30 @@ const EditBlog = () => {
   });
 
   const history = useHistory();
+
   if (!token) {
     history.push('/');
   }
+
   let { blogId } = useParams();
   console.log(blogId);
   const url = 'http://localhost:5000/api/post/' + blogId;
 
   const { title, text } = formData;
 
-  const fetchEditBlog = () => {
-    var encodedURI = 'http://localhost:500/api/post';
-    return axios.post(encodedURI).then(response => {
-      setFormData({
-        title: response.data,
-        text: response.data,
-      });
-
-    });
-  };
-
   useEffect(() => {
-    fetchEditBlog();
-  });
+    const fetchEditBlog = () => {
+      var encodedURI = 'http://localhost:5000/api/posts';
+      return axios.get(encodedURI).then(response => {
+        setFormData({
+          title: response.data,
+          text: response.data,
+        });
+      });
+    };
 
+    fetchEditBlog();
+  }, []);
 
   const onChange = e =>
     setFormData({
