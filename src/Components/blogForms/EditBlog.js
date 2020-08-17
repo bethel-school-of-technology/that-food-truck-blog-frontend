@@ -19,22 +19,22 @@ const EditBlog = () => {
   }
 
   let { blogId } = useParams();
-  console.log(blogId);
-  const url = 'http://localhost:5000/api/post/' + blogId;
+
+  // console.log(blogId);
+  // const url = 'http://localhost:5000/api/post/' + blogId;
 
   const { title, text } = formData;
 
-  useEffect(() => {
-    const fetchEditBlog = () => {
-      var encodedURI = 'http://localhost:5000/api/posts';
-      return axios.get(encodedURI).then(response => {
-        setFormData({
-          title: response.data,
-          text: response.data,
-        });
+  const fetchEditBlog = () => {
+    var encodedURI = 'http://localhost:5000/api/posts';
+    return axios.get(encodedURI).then(response => {
+      setFormData({
+        title: response.data,
+        text: response.data,
       });
-    };
-
+    });
+  };
+  useEffect(() => {
     fetchEditBlog();
   }, []);
 
