@@ -37,7 +37,10 @@ const BlogPage = () => {
   });
 
   const { title, date, text } = blogData;
+
   let { blogId, index } = useParams();
+
+  // console.log(blogId);
 
   const fetchBlogList = () => {
     var encodedURI = 'http://localhost:5000/api/posts/' + blogId;

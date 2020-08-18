@@ -11,29 +11,33 @@ const EditBlog = () => {
     title: '',
     text: '',
   });
-
   const history = useHistory();
+
+  const { title, text } = formData;
+
+  let { blogId } = useParams();
+
+  console.log(blogId);
+  // console.log(blogId);
+  // const url = 'http://localhost:5000/api/post/' + blogId;
 
   if (!token) {
     history.push('/');
   }
 
-  let { blogId } = useParams();
-
-  // console.log(blogId);
-  // const url = 'http://localhost:5000/api/post/' + blogId;
-
-  const { title, text } = formData;
-
   const fetchEditBlog = () => {
-    var encodedURI = 'http://localhost:5000/api/posts';
+    let encodedURI = 'http://localhost:5000/api/posts';
+    // let encodedURI = 'http://localhost:5000/api/posts' + blogId;
     return axios.get(encodedURI).then(response => {
       setFormData({
         title: response.data,
         text: response.data,
+        // title: response.data.title,
+        // text: response.data.text,
       });
     });
   };
+
   useEffect(() => {
     fetchEditBlog();
   }, []);
@@ -102,7 +106,7 @@ const EditBlog = () => {
                 onChange={e => onChange(e)}
                 required
                 autoFocus
-              />
+              ></input>
             </div>
 
             <div className='form-group'>
@@ -116,7 +120,7 @@ const EditBlog = () => {
                 rows='9'
                 onChange={e => onChange(e)}
                 required
-              />
+              ></textarea>
             </div>
             <div className='row'>
               <button className='ml-3 btn-lg  btn-primary ' type='submit'>
