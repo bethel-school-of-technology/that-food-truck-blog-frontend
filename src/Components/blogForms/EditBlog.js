@@ -60,7 +60,7 @@ const EditBlog = () => {
           },
         };
         const body = JSON.stringify(updateBlog);
-        console.log(encodedURI);
+
         await axios.put(encodedURI, body, config);
 
         history.push('/BlogList');
