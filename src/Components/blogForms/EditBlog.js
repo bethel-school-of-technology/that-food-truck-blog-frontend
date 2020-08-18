@@ -17,23 +17,23 @@ const EditBlog = () => {
 
   let { blogId } = useParams();
 
-  console.log(blogId);
+  //console.log(blogId);
   // console.log(blogId);
   // const url = 'http://localhost:5000/api/post/' + blogId;
 
   if (!token) {
     history.push('/');
   }
+  let encodedURI = 'http://localhost:5000/api/posts/' + blogId;
 
   const fetchEditBlog = () => {
     // let encodedURI = 'http://localhost:5000/api/posts/5f3af9261ee9661cb44745d2';
-    let encodedURI = 'http://localhost:5000/api/posts/' + blogId;
     return axios.get(encodedURI).then(response => {
       setFormData({
-        title: response.data,
-        text: response.data,
-        // title: response.data.title,
-        // text: response.data.text,
+        // title: response.data,
+        // text: response.data,
+        title: response.data.title,
+        text: response.data.text,
       });
     });
   };
@@ -67,7 +67,8 @@ const EditBlog = () => {
           },
         };
         const body = JSON.stringify(updateBlog);
-        await axios.put('http://localhost:5000/api/posts/:id', body, config);
+        console.log(encodedURI);
+        await axios.put(encodedURI, body, config);
 
         history.push('/BlogList');
       } catch (error) {

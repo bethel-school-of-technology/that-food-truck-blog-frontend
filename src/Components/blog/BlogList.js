@@ -80,6 +80,7 @@ const BlogList = () => {
             let editUrl = '/EditBlog/' + blog._id.toString();
             let text = blog.text.substring(0, 400);
             let DeleteBlogUrl = '/DeleteBlog/' + blog._id.toString();
+            console.log(blog._id);
             return (
               <button
                 className='list-group-item list-group-item-action'
@@ -122,7 +123,10 @@ const BlogList = () => {
                               </Link>
                             </div>
                             <div className='col-lg-3 col-6'>
-                              <Link to={DeleteBlogUrl} className='btn-sm m-3 btn-secondary'>
+                              <Link
+                                to={DeleteBlogUrl}
+                                className='btn-sm m-3 btn-secondary'
+                              >
                                 Delete
                               </Link>
                             </div>
