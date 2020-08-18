@@ -80,7 +80,7 @@ const BlogList = () => {
             let editUrl = '/EditBlog/' + blog._id.toString();
             let text = blog.text.substring(0, 400);
             let DeleteBlogUrl = '/DeleteBlog/' + blog._id.toString();
-            console.log(blog._id);
+
             return (
               <button
                 className='list-group-item list-group-item-action'
