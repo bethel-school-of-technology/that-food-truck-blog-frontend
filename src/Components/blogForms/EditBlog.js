@@ -26,8 +26,8 @@ const EditBlog = () => {
   }
 
   const fetchEditBlog = () => {
-    let encodedURI = 'http://localhost:5000/api/posts';
-    // let encodedURI = 'http://localhost:5000/api/posts' + blogId;
+    // let encodedURI = 'http://localhost:5000/api/posts/5f3af9261ee9661cb44745d2';
+    let encodedURI = 'http://localhost:5000/api/posts/' + blogId;
     return axios.get(encodedURI).then(response => {
       setFormData({
         title: response.data,
