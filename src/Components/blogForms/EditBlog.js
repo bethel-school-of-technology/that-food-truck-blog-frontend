@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useHistory, Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useHistory, useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 
 const EditBlog = () => {
@@ -11,13 +11,29 @@ const EditBlog = () => {
     title: '',
     text: '',
   });
-
   const history = useHistory();
+
+  const { title, text } = formData;
+
+  let { blogId } = useParams();
+
   if (!token) {
     history.push('/');
   }
+  let encodedURI = 'http://localhost:5000/api/posts/' + blogId;
 
-  const { title, text } = formData;
+  const fetchEditBlog = () => {
+    return axios.get(encodedURI).then(response => {
+      setFormData({
+        title: response.data.title,
+        text: response.data.text,
+      });
+    });
+  };
+
+  useEffect(() => {
+    fetchEditBlog();
+  }, []);
 
   const onChange = e =>
     setFormData({
@@ -44,11 +60,8 @@ const EditBlog = () => {
           },
         };
         const body = JSON.stringify(updateBlog);
-        await axios.put(
-          'http://localhost:5000/api/posts/:id',
-          body,
-          config
-        );
+
+        await axios.put(encodedURI, body, config);
 
         history.push('/BlogList');
       } catch (error) {
@@ -87,7 +100,7 @@ const EditBlog = () => {
                 onChange={e => onChange(e)}
                 required
                 autoFocus
-              />
+              ></input>
             </div>
 
             <div className='form-group'>
@@ -101,7 +114,7 @@ const EditBlog = () => {
                 rows='9'
                 onChange={e => onChange(e)}
                 required
-              />
+              ></textarea>
             </div>
             <div className='row'>
               <button className='ml-3 btn-lg  btn-primary ' type='submit'>
@@ -111,7 +124,7 @@ const EditBlog = () => {
               <Link
                 className='ml-3 btn-lg  btn-danger '
                 type='submit'
-                to="/DeleteBlog"
+                to='/DeleteBlog'
               >
                 Delete
               </Link>

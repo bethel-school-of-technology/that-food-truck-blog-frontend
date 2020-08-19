@@ -3,7 +3,9 @@
 }
 
 @media (min-width: 768px) {
-    .nav-item, .btn {
+
+    .nav-item,
+    .btn {
         font-size: 27px;
         padding: 23px;
     }

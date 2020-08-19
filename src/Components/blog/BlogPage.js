@@ -37,21 +37,20 @@ const BlogPage = () => {
   });
 
   const { title, date, text } = blogData;
+
   let { blogId, index } = useParams();
-  // console.log(blogId)
-  // console.log(useParams())
+
+  // console.log(blogId);
 
   const fetchBlogList = () => {
     var encodedURI = 'http://localhost:5000/api/posts/' + blogId;
-    // console.log(encodedURI);
+
     return axios.get(encodedURI).then(response => {
-      // console.log(response.data)
       setBlogData({
         title: response.data.title,
         date: response.data.date,
         text: response.data.text,
       });
-      // console.log(blogData)
     });
   };
   useEffect(() => {

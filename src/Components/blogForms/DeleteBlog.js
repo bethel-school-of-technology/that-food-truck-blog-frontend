@@ -8,7 +8,6 @@ const DeleteBlog = () => {
         : false;
 
     const history = useHistory();
-    // const history = useHistory(); is for redirect to whatever page you would like
 
     if (!token) {
         history.push('/');
