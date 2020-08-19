@@ -1,10 +1,6 @@
 import React, { Fragment } from 'react';
-import {
-    useHistory,
-    useParams
-} from 'react-router-dom';
+import {useHistory,useParams} from 'react-router-dom';
 import axios from 'axios';
-import HomePage from '../home/HomePage';
 
 const DeleteBlog = () => {
     const token = JSON.parse(localStorage.getItem('jwtToken')) ?
@@ -15,8 +11,9 @@ const DeleteBlog = () => {
     // const history = useHistory(); is for redirect to whatever page you would like
 
     if (!token) {
-        history.push('/');
+        history.push('/BlogList');
     }
+    // if(!token) { history.push(''); }
 
     let { blogId } = useParams();
     console.log(blogId);
@@ -41,13 +38,13 @@ const DeleteBlog = () => {
                 // );
                 return axios.delete(url, config).then(response => {
                     console.log(response.data);
+                    history.push('/BlogList');
 
                 })
-                history.push('/');
 
             } catch (err) {
                 console.log(err);
-                history.push('/');
+                history.push('/BlogList');
             }
         };
     }

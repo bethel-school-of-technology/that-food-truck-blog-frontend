@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
+ //Get User token from Local Storage and set it to token
 // json.parse turns the string into an object to return the token
 const CreateBlog = () => {
   const token = JSON.parse(localStorage.getItem('jwtToken'))
@@ -15,7 +16,7 @@ const CreateBlog = () => {
   // formData is an empty the state. setFormData is called and what changes the state to be - the NEW state.
   // text and title are the required fields from the backendroute. 
 
-  //Get User token from Local Storage and set it to token
+ 
 
   //log Create Blog then log the token to the console 
   console.log("Create Blog")
@@ -25,10 +26,12 @@ const CreateBlog = () => {
   const { title, text } = formData;
 
   const history = useHistory();
+//react router hook that pulls data
 
   if (!token) {
     history.push('/');
   }
+  //token used to pass
 
   const onChange = e =>
     setFormData({
@@ -36,6 +39,7 @@ const CreateBlog = () => {
       [e.target.name]: e.target.value,
     });
 
+    //const onChange changes the state 
 
   ///refers to the name attribute and value of the attribute being passed to it
 
@@ -80,7 +84,7 @@ const CreateBlog = () => {
         <div className='card-header'>
           <div className='h3 card-title'>Create Blog Form</div>
           <div className='h6 card-subtitle mb-2 text-muted'>
-            Create your next blog. make it Great!
+            Create your next blog. Make it Great!
           </div>
         </div>
         <div className='card-body'>
