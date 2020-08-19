@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
+const baseUrl = process.env.REACT_APP_BASE_URL;
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -37,7 +38,7 @@ const Register = () => {
           },
         };
         const body = JSON.stringify(newUser);
-        await axios.post('http://localhost:5000/api/users', body, config);
+        await axios.post(`${baseUrl}/users`, body, config);
         history.push('/');
       } catch (err) {
         alert('Server Error');

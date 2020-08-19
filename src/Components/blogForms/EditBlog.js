@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useHistory, useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 
+const baseUrl = process.env.REACT_APP_BASE_URL;
+
 const EditBlog = () => {
   const token = JSON.parse(localStorage.getItem('jwtToken'))
     ? JSON.parse(localStorage.getItem('jwtToken')).token
@@ -20,7 +22,7 @@ const EditBlog = () => {
   if (!token) {
     history.push('/');
   }
-  let encodedURI = 'http://localhost:5000/api/posts/' + blogId;
+  let encodedURI = `${baseUrl}/posts/` + blogId;
 
   const fetchEditBlog = () => {
     return axios.get(encodedURI).then(response => {

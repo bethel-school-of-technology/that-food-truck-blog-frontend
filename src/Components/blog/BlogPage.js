@@ -10,6 +10,8 @@ import friedChicken from '../../pictures/friedChxSand.jpg';
 import healthyBowl from '../../pictures/healthyBowl.jpg';
 import smoothie from '../../pictures/smoothie.jpg';
 
+const baseUrl = process.env.REACT_APP_BASE_URL;
+
 let images = [
   falafelWrap,
   chxTacos,
@@ -43,7 +45,7 @@ const BlogPage = () => {
   // console.log(blogId);
 
   const fetchBlogList = () => {
-    var encodedURI = 'http://localhost:5000/api/posts/' + blogId;
+    var encodedURI = `${baseUrl}/posts/` + blogId;
 
     return axios.get(encodedURI).then(response => {
       setBlogData({

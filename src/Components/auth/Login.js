@@ -2,6 +2,8 @@ import React, { Fragment, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
+const baseUrl = process.env.REACT_APP_BASE_URL;
+
 const Login = () => {
   const [formData, setFormData] = useState({
     email: '',
@@ -39,11 +41,7 @@ const Login = () => {
         },
       };
       const body = JSON.stringify(loginUser);
-      const res = await axios.post(
-        'http://localhost:5000/api/auth',
-        body,
-        config
-      );
+      const res = await axios.post(`${baseUrl}/auth`, body, config);
       const token = res.data;
       localStorage.setItem('jwtToken', JSON.stringify(token));
       localStorage.getItem('jwtToken');
