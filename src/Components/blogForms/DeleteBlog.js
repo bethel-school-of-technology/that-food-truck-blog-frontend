@@ -2,6 +2,9 @@ import React from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import axios from 'axios';
 
+const baseUrl = process.env.REACT_APP_BASE_URL;
+
+
 const DeleteBlog = () => {
     const token = JSON.parse(localStorage.getItem('jwtToken'))
         ? JSON.parse(localStorage.getItem('jwtToken')).token
@@ -35,7 +38,7 @@ const DeleteBlog = () => {
         };
         const body = JSON.stringify(newBlog);
         const res = await axios.delete(
-            'http://localhost:5000/api/posts',
+            `${baseUrl}/posts`,
             body,
             config
         );

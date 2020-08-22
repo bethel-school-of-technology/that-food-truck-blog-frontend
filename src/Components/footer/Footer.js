@@ -35,29 +35,35 @@ const Footer = () => {
               <li> @FoodTruckBlog</li>
               {/* Warning: Each child in a list should have a unique "key" prop. */}
               {/*Warning: Failed prop type: The prop `to` is marked as required in `Link`, but its value is `undefined`.  */}
-              <Link
-                to='https://www.facebook.com'
+              <a
+                href='https://www.facebook.com'
                 className='facebook social'
                 target='_blank'
               >
-                <FontAwesomeIcon icon={faFacebook} size='2x' />{' '}
-              </Link>
+                <span>
+                  <FontAwesomeIcon icon={faFacebook} size='2x' />
+                </span>
+              </a>
 
-              <Link
-                to='https://www.twitter.com'
+              <a
+                href='https://www.twitter.com'
                 className='twitter social'
                 target='_blank'
               >
-                <FontAwesomeIcon icon={faTwitter} size='2x' />{' '}
-              </Link>
+                <span>
+                  <FontAwesomeIcon icon={faTwitter} size='2x' />
+                </span>
+              </a>
 
-              <Link
-                to='https://www.Instagram.com'
+              <a
+                href='https://www.Instagram.com'
                 className='instagram social'
                 target='_blank'
               >
-                <FontAwesomeIcon icon={faInstagram} size='2x' />{' '}
-              </Link>
+                <span>
+                  <FontAwesomeIcon icon={faInstagram} size='2x' />
+                </span>
+              </a>
             </ul>
           </div>
           {/* column 2 */}

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
+const baseUrl = process.env.REACT_APP_BASE_URL;
+
 const CreateBlog = () => {
   const token = JSON.parse(localStorage.getItem('jwtToken'))
     ? JSON.parse(localStorage.getItem('jwtToken')).token
@@ -44,11 +46,7 @@ const CreateBlog = () => {
           },
         };
         const body = JSON.stringify(newBlog);
-        const res = await axios.post(
-          'http://localhost:5000/api/posts',
-          body,
-          config
-        );
+        const res = await axios.post(`${baseUrl}/posts`, body, config);
         let id = res.data._id;
         let url = '/BlogList/7/' + id;
         history.push(url);
