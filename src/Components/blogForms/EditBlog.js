@@ -22,7 +22,7 @@ const EditBlog = () => {
   if (!token) {
     history.push('/');
   }
-  let encodedURI = `${baseUrl}posts/` + blogId;
+  let encodedURI = `${baseUrl}/posts/` + blogId;
 
   const fetchEditBlog = () => {
     return axios.get(encodedURI).then(response => {
