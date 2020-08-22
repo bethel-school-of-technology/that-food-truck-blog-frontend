@@ -1,59 +1,52 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import axios from 'axios';
-
-const baseUrl = process.env.REACT_APP_BASE_URL;
-
 
 const DeleteBlog = () => {
     const token = JSON.parse(localStorage.getItem('jwtToken'))
         ? JSON.parse(localStorage.getItem('jwtToken')).token
         : false;
 
+    const baseUrl = process.env.REACT_APP_BASE_URL;
+
     const history = useHistory();
+    // const history = useHistory(); is for redirect to whatever page you would like
 
     if (!token) {
-        history.push('/');
+        history.push('/BlogList');
+    }
+    // if(!token) { history.push(''); }
+
+    let { blogId } = useParams();
+    const url = `${baseUrl}/posts/` + blogId;
+
+
+    if (!token) {
+        alert('UNAUTHORIZED');
+    } else {
+        try {
+            const config = {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'x-auth-token': token,
+                },
+            };
+
+            return axios.delete(url, config).then(response => {
+                history.push('/BlogList');
+            });
+        } catch (err) {
+            history.push('/BlogList');
+        }
     }
 
-    let { blogId } = useParams;
 
-    const config = {
-        headers: {
-            'Content-Type': 'application/json',
-            'x-auth-token': token
-        },
-    };
-
-    try {
-        const newBlog = {
-            title,
-            text,
-        };
-        const config = {
-            headers: {
-                'Content-Type': 'application/json',
-                'x-auth-token': token
-            },
-        };
-        const body = JSON.stringify(newBlog);
-        const res = await axios.delete(
-            `${baseUrl}/posts`,
-            body,
-            config
-        );
-        console.log(res.data._id);
-        let id = res.data._id;
-        let url = "/BlogList/7/" + id
-        history.push(url);
-    } catch (err) {
-        console.log(err);
-    }
 
     return (
-        <div>If you are seeing this something went wrong</div>
+        <Fragment>
+            <div> This should never show up. </div>
+        </Fragment>
     );
 };
-
 
 export default DeleteBlog;
