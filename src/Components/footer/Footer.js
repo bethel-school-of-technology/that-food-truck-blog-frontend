@@ -92,7 +92,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link to='/Login' className='text-reset '>
-                  {token ? 'Sign Out' : 'Sign in'}
+                  Sign In/Out
                 </Link>
               </li>
             </ul>
