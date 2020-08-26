@@ -73,7 +73,7 @@ const BlogPage = () => {
           <p className='card-text'>{text}</p>
 
           <a
-            href='http://localhost:3000/BlogList'
+            href='https://festive-beaver-e345de.netlify.app/BlogList'
             className=' sm-btn btn-primary '
             role='button'
           >
