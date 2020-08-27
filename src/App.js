@@ -11,6 +11,7 @@ import Login from './Components/auth/Login';
 import SignOut from './Components/auth/SignOut';
 import Register from './Components/auth/Register';
 import CreateBlog from './Components/blogForms/CreateBlog';
+import DeleteBlog from './Components/blogForms/DeleteBlog'
 import EditBlog from './Components/blogForms/EditBlog';
 import SpringMenu from './Components/menu/SpringMenu';
 import SummerMenu from './Components/menu/SummerMenu';
@@ -31,6 +32,7 @@ const App = () => {
           <Route exact path='/BlogList' component={BlogList} />
           <Route exact path='/CreateBlog' component={CreateBlog} />
           <Route exact path='/EditBlog/:blogId' component={EditBlog} />
+          <Route exact path='/DeleteBlog/:blogId' component={DeleteBlog} />
           <Route exact path='/ContactForm' component={ContactForm} />
           <Route exact path='/Login' component={Login} />
           <Route exact path='/SignOut' component={SignOut} />

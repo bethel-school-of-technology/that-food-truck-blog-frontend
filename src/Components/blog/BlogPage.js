@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import falafelWrap from '../../pictures/FalafelWrap.jpg';
 import chxTacos from '../../pictures/grilledChxTacos.jpg';
 import kaleSalad from '../../pictures//kaleSalad.jpg';
@@ -72,13 +72,13 @@ const BlogPage = () => {
           <p className='card-text'>{date}</p>
           <p className='card-text'>{text}</p>
 
-          <a
-            href='https://festive-beaver-e345de.netlify.app/BlogList'
+          <Link
+            to='/BlogList'
             className=' sm-btn btn-primary '
             role='button'
           >
             back to blogs
-          </a>
+          </Link>
         </div>
       </div>
     </div>
